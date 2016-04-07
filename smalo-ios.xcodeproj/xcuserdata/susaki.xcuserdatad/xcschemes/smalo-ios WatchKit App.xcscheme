@@ -5,6 +5,50 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "687CEC471CB5E88400893A67"
+               BuildableName = "smalo-ios WatchKit App.app"
+               BlueprintName = "smalo-ios WatchKit App"
+               ReferencedContainer = "container:smalo-ios.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "687CEC1F1CB5E88400893A67"
+               BuildableName = "smalo-ios.app"
+               BlueprintName = "smalo-ios"
+               ReferencedContainer = "container:smalo-ios.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "687CEC561CB5E88400893A67"
+               BuildableName = "smalo-ios WatchKit Extension.appex"
+               BlueprintName = "smalo-ios WatchKit Extension"
+               ReferencedContainer = "container:smalo-ios.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -13,6 +57,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "687CEC471CB5E88400893A67"
+            BuildableName = "smalo-ios WatchKit App.app"
+            BlueprintName = "smalo-ios WatchKit App"
+            ReferencedContainer = "container:smalo-ios.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +79,27 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.carousel"
+         RemotePath = "/smalo-ios WatchKit App">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "687CEC471CB5E88400893A67"
+            BuildableName = "smalo-ios WatchKit App.app"
+            BlueprintName = "smalo-ios WatchKit App"
+            ReferencedContainer = "container:smalo-ios.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "687CEC471CB5E88400893A67"
+            BuildableName = "smalo-ios WatchKit App.app"
+            BlueprintName = "smalo-ios WatchKit App"
+            ReferencedContainer = "container:smalo-ios.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +109,27 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.carousel"
+         RemotePath = "/smalo-ios WatchKit App">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "687CEC471CB5E88400893A67"
+            BuildableName = "smalo-ios WatchKit App.app"
+            BlueprintName = "smalo-ios WatchKit App"
+            ReferencedContainer = "container:smalo-ios.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "687CEC471CB5E88400893A67"
+            BuildableName = "smalo-ios WatchKit App.app"
+            BlueprintName = "smalo-ios WatchKit App"
+            ReferencedContainer = "container:smalo-ios.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
