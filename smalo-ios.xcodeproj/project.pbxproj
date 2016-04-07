@@ -1,0 +1,777 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		687CEC241CB5E88400893A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC231CB5E88400893A67 /* AppDelegate.swift */; };
+		687CEC261CB5E88400893A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC251CB5E88400893A67 /* ViewController.swift */; };
+		687CEC291CB5E88400893A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC271CB5E88400893A67 /* Main.storyboard */; };
+		687CEC2B1CB5E88400893A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC2A1CB5E88400893A67 /* Assets.xcassets */; };
+		687CEC2E1CB5E88400893A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC2C1CB5E88400893A67 /* LaunchScreen.storyboard */; };
+		687CEC391CB5E88400893A67 /* smalo_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC381CB5E88400893A67 /* smalo_iosTests.swift */; };
+		687CEC441CB5E88400893A67 /* smalo_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC431CB5E88400893A67 /* smalo_iosUITests.swift */; };
+		687CEC491CB5E88400893A67 /* smalo-ios WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 687CEC481CB5E88400893A67 /* smalo-ios WatchKit App.app */; };
+		687CEC4F1CB5E88400893A67 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC4D1CB5E88400893A67 /* Interface.storyboard */; };
+		687CEC511CB5E88400893A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC501CB5E88400893A67 /* Assets.xcassets */; };
+		687CEC581CB5E88400893A67 /* smalo-ios WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 687CEC571CB5E88400893A67 /* smalo-ios WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		687CEC5F1CB5E88400893A67 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC5E1CB5E88400893A67 /* InterfaceController.swift */; };
+		687CEC611CB5E88400893A67 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC601CB5E88400893A67 /* ExtensionDelegate.swift */; };
+		687CEC631CB5E88400893A67 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC621CB5E88400893A67 /* NotificationController.swift */; };
+		687CEC651CB5E88400893A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC641CB5E88400893A67 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		687CEC351CB5E88400893A67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 687CEC181CB5E88400893A67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 687CEC1F1CB5E88400893A67;
+			remoteInfo = "smalo-ios";
+		};
+		687CEC401CB5E88400893A67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 687CEC181CB5E88400893A67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 687CEC1F1CB5E88400893A67;
+			remoteInfo = "smalo-ios";
+		};
+		687CEC4A1CB5E88400893A67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 687CEC181CB5E88400893A67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 687CEC471CB5E88400893A67;
+			remoteInfo = "smalo-ios WatchKit App";
+		};
+		687CEC591CB5E88400893A67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 687CEC181CB5E88400893A67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 687CEC561CB5E88400893A67;
+			remoteInfo = "smalo-ios WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		687CEC6C1CB5E88400893A67 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				687CEC581CB5E88400893A67 /* smalo-ios WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC701CB5E88400893A67 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				687CEC491CB5E88400893A67 /* smalo-ios WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		687CEC201CB5E88400893A67 /* smalo-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smalo-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687CEC231CB5E88400893A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		687CEC251CB5E88400893A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		687CEC281CB5E88400893A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		687CEC2A1CB5E88400893A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		687CEC2D1CB5E88400893A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		687CEC2F1CB5E88400893A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		687CEC341CB5E88400893A67 /* smalo-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "smalo-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687CEC381CB5E88400893A67 /* smalo_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smalo_iosTests.swift; sourceTree = "<group>"; };
+		687CEC3A1CB5E88400893A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		687CEC3F1CB5E88400893A67 /* smalo-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "smalo-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687CEC431CB5E88400893A67 /* smalo_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smalo_iosUITests.swift; sourceTree = "<group>"; };
+		687CEC451CB5E88400893A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		687CEC481CB5E88400893A67 /* smalo-ios WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smalo-ios WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687CEC4E1CB5E88400893A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		687CEC501CB5E88400893A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		687CEC521CB5E88400893A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		687CEC571CB5E88400893A67 /* smalo-ios WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "smalo-ios WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687CEC5D1CB5E88400893A67 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		687CEC5E1CB5E88400893A67 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		687CEC601CB5E88400893A67 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		687CEC621CB5E88400893A67 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		687CEC641CB5E88400893A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		687CEC661CB5E88400893A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		687CEC1D1CB5E88400893A67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC311CB5E88400893A67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC3C1CB5E88400893A67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC541CB5E88400893A67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		687CEC171CB5E88400893A67 = {
+			isa = PBXGroup;
+			children = (
+				687CEC221CB5E88400893A67 /* smalo-ios */,
+				687CEC371CB5E88400893A67 /* smalo-iosTests */,
+				687CEC421CB5E88400893A67 /* smalo-iosUITests */,
+				687CEC4C1CB5E88400893A67 /* smalo-ios WatchKit App */,
+				687CEC5B1CB5E88400893A67 /* smalo-ios WatchKit Extension */,
+				687CEC211CB5E88400893A67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		687CEC211CB5E88400893A67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				687CEC201CB5E88400893A67 /* smalo-ios.app */,
+				687CEC341CB5E88400893A67 /* smalo-iosTests.xctest */,
+				687CEC3F1CB5E88400893A67 /* smalo-iosUITests.xctest */,
+				687CEC481CB5E88400893A67 /* smalo-ios WatchKit App.app */,
+				687CEC571CB5E88400893A67 /* smalo-ios WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		687CEC221CB5E88400893A67 /* smalo-ios */ = {
+			isa = PBXGroup;
+			children = (
+				687CEC231CB5E88400893A67 /* AppDelegate.swift */,
+				687CEC251CB5E88400893A67 /* ViewController.swift */,
+				687CEC271CB5E88400893A67 /* Main.storyboard */,
+				687CEC2A1CB5E88400893A67 /* Assets.xcassets */,
+				687CEC2C1CB5E88400893A67 /* LaunchScreen.storyboard */,
+				687CEC2F1CB5E88400893A67 /* Info.plist */,
+			);
+			path = "smalo-ios";
+			sourceTree = "<group>";
+		};
+		687CEC371CB5E88400893A67 /* smalo-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				687CEC381CB5E88400893A67 /* smalo_iosTests.swift */,
+				687CEC3A1CB5E88400893A67 /* Info.plist */,
+			);
+			path = "smalo-iosTests";
+			sourceTree = "<group>";
+		};
+		687CEC421CB5E88400893A67 /* smalo-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				687CEC431CB5E88400893A67 /* smalo_iosUITests.swift */,
+				687CEC451CB5E88400893A67 /* Info.plist */,
+			);
+			path = "smalo-iosUITests";
+			sourceTree = "<group>";
+		};
+		687CEC4C1CB5E88400893A67 /* smalo-ios WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				687CEC4D1CB5E88400893A67 /* Interface.storyboard */,
+				687CEC501CB5E88400893A67 /* Assets.xcassets */,
+				687CEC521CB5E88400893A67 /* Info.plist */,
+			);
+			path = "smalo-ios WatchKit App";
+			sourceTree = "<group>";
+		};
+		687CEC5B1CB5E88400893A67 /* smalo-ios WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				687CEC5E1CB5E88400893A67 /* InterfaceController.swift */,
+				687CEC601CB5E88400893A67 /* ExtensionDelegate.swift */,
+				687CEC621CB5E88400893A67 /* NotificationController.swift */,
+				687CEC641CB5E88400893A67 /* Assets.xcassets */,
+				687CEC661CB5E88400893A67 /* Info.plist */,
+				687CEC5C1CB5E88400893A67 /* Supporting Files */,
+			);
+			path = "smalo-ios WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		687CEC5C1CB5E88400893A67 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				687CEC5D1CB5E88400893A67 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		687CEC1F1CB5E88400893A67 /* smalo-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 687CEC711CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios" */;
+			buildPhases = (
+				687CEC1C1CB5E88400893A67 /* Sources */,
+				687CEC1D1CB5E88400893A67 /* Frameworks */,
+				687CEC1E1CB5E88400893A67 /* Resources */,
+				687CEC701CB5E88400893A67 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				687CEC4B1CB5E88400893A67 /* PBXTargetDependency */,
+			);
+			name = "smalo-ios";
+			productName = "smalo-ios";
+			productReference = 687CEC201CB5E88400893A67 /* smalo-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		687CEC331CB5E88400893A67 /* smalo-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 687CEC741CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosTests" */;
+			buildPhases = (
+				687CEC301CB5E88400893A67 /* Sources */,
+				687CEC311CB5E88400893A67 /* Frameworks */,
+				687CEC321CB5E88400893A67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				687CEC361CB5E88400893A67 /* PBXTargetDependency */,
+			);
+			name = "smalo-iosTests";
+			productName = "smalo-iosTests";
+			productReference = 687CEC341CB5E88400893A67 /* smalo-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		687CEC3E1CB5E88400893A67 /* smalo-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 687CEC771CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosUITests" */;
+			buildPhases = (
+				687CEC3B1CB5E88400893A67 /* Sources */,
+				687CEC3C1CB5E88400893A67 /* Frameworks */,
+				687CEC3D1CB5E88400893A67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				687CEC411CB5E88400893A67 /* PBXTargetDependency */,
+			);
+			name = "smalo-iosUITests";
+			productName = "smalo-iosUITests";
+			productReference = 687CEC3F1CB5E88400893A67 /* smalo-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		687CEC471CB5E88400893A67 /* smalo-ios WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 687CEC6D1CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios WatchKit App" */;
+			buildPhases = (
+				687CEC461CB5E88400893A67 /* Resources */,
+				687CEC6C1CB5E88400893A67 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				687CEC5A1CB5E88400893A67 /* PBXTargetDependency */,
+			);
+			name = "smalo-ios WatchKit App";
+			productName = "smalo-ios WatchKit App";
+			productReference = 687CEC481CB5E88400893A67 /* smalo-ios WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		687CEC561CB5E88400893A67 /* smalo-ios WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 687CEC691CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios WatchKit Extension" */;
+			buildPhases = (
+				687CEC531CB5E88400893A67 /* Sources */,
+				687CEC541CB5E88400893A67 /* Frameworks */,
+				687CEC551CB5E88400893A67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "smalo-ios WatchKit Extension";
+			productName = "smalo-ios WatchKit Extension";
+			productReference = 687CEC571CB5E88400893A67 /* smalo-ios WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		687CEC181CB5E88400893A67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "須崎鉄";
+				TargetAttributes = {
+					687CEC1F1CB5E88400893A67 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8G4657RF84;
+					};
+					687CEC331CB5E88400893A67 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8G4657RF84;
+						TestTargetID = 687CEC1F1CB5E88400893A67;
+					};
+					687CEC3E1CB5E88400893A67 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8G4657RF84;
+						TestTargetID = 687CEC1F1CB5E88400893A67;
+					};
+					687CEC471CB5E88400893A67 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8G4657RF84;
+					};
+					687CEC561CB5E88400893A67 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8G4657RF84;
+					};
+				};
+			};
+			buildConfigurationList = 687CEC1B1CB5E88400893A67 /* Build configuration list for PBXProject "smalo-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 687CEC171CB5E88400893A67;
+			productRefGroup = 687CEC211CB5E88400893A67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				687CEC1F1CB5E88400893A67 /* smalo-ios */,
+				687CEC331CB5E88400893A67 /* smalo-iosTests */,
+				687CEC3E1CB5E88400893A67 /* smalo-iosUITests */,
+				687CEC471CB5E88400893A67 /* smalo-ios WatchKit App */,
+				687CEC561CB5E88400893A67 /* smalo-ios WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		687CEC1E1CB5E88400893A67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687CEC2E1CB5E88400893A67 /* LaunchScreen.storyboard in Resources */,
+				687CEC2B1CB5E88400893A67 /* Assets.xcassets in Resources */,
+				687CEC291CB5E88400893A67 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC321CB5E88400893A67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC3D1CB5E88400893A67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC461CB5E88400893A67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687CEC511CB5E88400893A67 /* Assets.xcassets in Resources */,
+				687CEC4F1CB5E88400893A67 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC551CB5E88400893A67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687CEC651CB5E88400893A67 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		687CEC1C1CB5E88400893A67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687CEC261CB5E88400893A67 /* ViewController.swift in Sources */,
+				687CEC241CB5E88400893A67 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC301CB5E88400893A67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687CEC391CB5E88400893A67 /* smalo_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC3B1CB5E88400893A67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687CEC441CB5E88400893A67 /* smalo_iosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687CEC531CB5E88400893A67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687CEC631CB5E88400893A67 /* NotificationController.swift in Sources */,
+				687CEC611CB5E88400893A67 /* ExtensionDelegate.swift in Sources */,
+				687CEC5F1CB5E88400893A67 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		687CEC361CB5E88400893A67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 687CEC1F1CB5E88400893A67 /* smalo-ios */;
+			targetProxy = 687CEC351CB5E88400893A67 /* PBXContainerItemProxy */;
+		};
+		687CEC411CB5E88400893A67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 687CEC1F1CB5E88400893A67 /* smalo-ios */;
+			targetProxy = 687CEC401CB5E88400893A67 /* PBXContainerItemProxy */;
+		};
+		687CEC4B1CB5E88400893A67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 687CEC471CB5E88400893A67 /* smalo-ios WatchKit App */;
+			targetProxy = 687CEC4A1CB5E88400893A67 /* PBXContainerItemProxy */;
+		};
+		687CEC5A1CB5E88400893A67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 687CEC561CB5E88400893A67 /* smalo-ios WatchKit Extension */;
+			targetProxy = 687CEC591CB5E88400893A67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		687CEC271CB5E88400893A67 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				687CEC281CB5E88400893A67 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		687CEC2C1CB5E88400893A67 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				687CEC2D1CB5E88400893A67 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		687CEC4D1CB5E88400893A67 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				687CEC4E1CB5E88400893A67 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		687CEC671CB5E88400893A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		687CEC681CB5E88400893A67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		687CEC6A1CB5E88400893A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "smalo-ios WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		687CEC6B1CB5E88400893A67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "smalo-ios WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		687CEC6E1CB5E88400893A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = smalo_ios_WatchKit_Extension;
+				INFOPLIST_FILE = "smalo-ios WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		687CEC6F1CB5E88400893A67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = smalo_ios_WatchKit_Extension;
+				INFOPLIST_FILE = "smalo-ios WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		687CEC721CB5E88400893A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "smalo-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		687CEC731CB5E88400893A67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "smalo-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		687CEC751CB5E88400893A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "smalo-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smalo-ios.app/smalo-ios";
+			};
+			name = Debug;
+		};
+		687CEC761CB5E88400893A67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "smalo-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smalo-ios.app/smalo-ios";
+			};
+			name = Release;
+		};
+		687CEC781CB5E88400893A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "smalo-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "smalo-ios";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		687CEC791CB5E88400893A67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "smalo-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "smalo-ios";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		687CEC1B1CB5E88400893A67 /* Build configuration list for PBXProject "smalo-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687CEC671CB5E88400893A67 /* Debug */,
+				687CEC681CB5E88400893A67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		687CEC691CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687CEC6A1CB5E88400893A67 /* Debug */,
+				687CEC6B1CB5E88400893A67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		687CEC6D1CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687CEC6E1CB5E88400893A67 /* Debug */,
+				687CEC6F1CB5E88400893A67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		687CEC711CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687CEC721CB5E88400893A67 /* Debug */,
+				687CEC731CB5E88400893A67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		687CEC741CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687CEC751CB5E88400893A67 /* Debug */,
+				687CEC761CB5E88400893A67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		687CEC771CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687CEC781CB5E88400893A67 /* Debug */,
+				687CEC791CB5E88400893A67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 687CEC181CB5E88400893A67 /* Project object */;
+}
