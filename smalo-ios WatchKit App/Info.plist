@@ -28,7 +28,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>cosmoway.smalo-ios</string>
+	<string>net.cosmoway.smalo</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
