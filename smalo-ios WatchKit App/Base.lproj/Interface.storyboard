@@ -10,19 +10,27 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="center" text="スマロ" id="pQL-Po-Ypk"/>
-                        <button width="1" alignment="left" title="Open" id="AGE-5z-azb">
-                            <connections>
-                                <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
-                            </connections>
-                        </button>
+                        <group width="1" height="151" alignment="left" layout="vertical" id="LDU-xl-WoI">
+                            <items>
+                                <label alignment="left" text="Label" id="GkH-G9-bfs"/>
+                                <label alignment="center" text="スマロ" id="pQL-Po-Ypk"/>
+                                <button width="1" alignment="left" title="Open" id="AGE-5z-azb">
+                                    <connections>
+                                        <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="label" destination="pQL-Po-Ypk" id="wA7-BT-IJd"/>
+                        <outlet property="label2" destination="GkH-G9-bfs" id="tYv-Rx-s5e"/>
+                        <outlet property="myGroup" destination="LDU-xl-WoI" id="Yd6-gP-olJ"/>
+                        <outlet property="openButton" destination="AGE-5z-azb" id="fiV-IY-UKl"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="366"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
