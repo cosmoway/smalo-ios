@@ -594,7 +594,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "smalo-ios WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -608,7 +608,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "smalo-ios WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -624,7 +624,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = smalo_ios_WatchKit_Extension;
 				INFOPLIST_FILE = "smalo-ios WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -640,7 +640,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = smalo_ios_WatchKit_Extension;
 				INFOPLIST_FILE = "smalo-ios WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-ios.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -677,7 +677,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "smalo-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosTests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smalo-ios.app/smalo-ios";
 			};
@@ -689,7 +689,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "smalo-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosTests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smalo-ios.app/smalo-ios";
 			};
@@ -700,7 +700,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "smalo-iosUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = "smalo-ios";
 				USES_XCTRUNNER = YES;
@@ -712,7 +712,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "smalo-iosUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cosmoway.smalo-iosUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = "smalo-ios";
 				USES_XCTRUNNER = YES;
@@ -738,6 +738,7 @@
 				687CEC6B1CB5E88400893A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		687CEC6D1CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -746,6 +747,7 @@
 				687CEC6F1CB5E88400893A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		687CEC711CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios" */ = {
 			isa = XCConfigurationList;
@@ -754,6 +756,7 @@
 				687CEC731CB5E88400893A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		687CEC741CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -762,6 +765,7 @@
 				687CEC761CB5E88400893A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		687CEC771CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosUITests" */ = {
 			isa = XCConfigurationList;
@@ -770,6 +774,7 @@
 				687CEC791CB5E88400893A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
