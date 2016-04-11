@@ -12,8 +12,25 @@
                     <items>
                         <group width="1" height="151" alignment="left" layout="vertical" id="LDU-xl-WoI">
                             <items>
-                                <label alignment="left" text="Label" id="GkH-G9-bfs"/>
-                                <label alignment="center" text="スマロ" id="pQL-Po-Ypk"/>
+                                <group width="1" alignment="left" id="mru-kq-VB4">
+                                    <items>
+                                        <label alignment="left" text="スマホ：" id="uzN-Kd-DjP"/>
+                                        <label alignment="left" text="確認中" id="GkH-G9-bfs"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="nWs-zo-sPI">
+                                    <items>
+                                        <label alignment="left" text="BLE：" id="hO5-F1-fVA"/>
+                                        <label alignment="center" text="確認中" id="jy5-0P-hpp"/>
+                                    </items>
+                                </group>
+                                <button width="1" alignment="left" title="Connect" id="xlQ-ld-0oo">
+                                    <color key="backgroundColor" red="0.53250979202924431" green="0.7682686237373737" blue="0.51737751639477769" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="button2" destination="AgC-eL-Hgc" id="jDA-LS-BGD"/>
+                                    </connections>
+                                </button>
+                                <label alignment="center" text="鍵の状態" id="pQL-Po-Ypk"/>
                                 <button width="1" alignment="left" title="Open" id="AGE-5z-azb">
                                     <connections>
                                         <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
@@ -23,8 +40,10 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="connectButton" destination="xlQ-ld-0oo" id="fCA-Pu-p1b"/>
                         <outlet property="label" destination="pQL-Po-Ypk" id="wA7-BT-IJd"/>
                         <outlet property="label2" destination="GkH-G9-bfs" id="tYv-Rx-s5e"/>
+                        <outlet property="label3" destination="jy5-0P-hpp" id="4iA-4w-Dcq"/>
                         <outlet property="myGroup" destination="LDU-xl-WoI" id="Yd6-gP-olJ"/>
                         <outlet property="openButton" destination="AGE-5z-azb" id="fiV-IY-UKl"/>
                     </connections>
