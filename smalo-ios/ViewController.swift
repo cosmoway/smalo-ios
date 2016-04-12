@@ -12,7 +12,11 @@ import CoreBluetooth
 class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
     var centralManager: CBCentralManager!
     var peripheral: CBPeripheral!
-
+    var closeCharacteristic: CBCharacteristic!
+    var openCharacteristic: CBCharacteristic!
+    var keyFlag = true
+    @IBOutlet weak var keyButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
@@ -65,10 +69,74 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
         let characteristics: NSArray = service.characteristics!
         print("\(characteristics.count)個のキャラクタリスティックを発見！　\(characteristics)")
+        for obj in characteristics {
+            if let characteristic = obj as? CBCharacteristic {
+                print("\(characteristic.UUID)")
+                if characteristic.UUID == CBUUID(string:"b2e238b4-5b26-48c1-9023-2099a02c99b0") {
+                    peripheral.readValueForCharacteristic(characteristic)
+                    peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+                }
+                if characteristic.UUID == CBUUID(string:"68da96b6-7634-440a-8fcf-95ef1a5e7e5b") {
+                    peripheral.readValueForCharacteristic(characteristic)
+                    peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+                }
+                if characteristic.UUID == CBUUID(string:"0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
+                    peripheral.readValueForCharacteristic(characteristic)
+                    peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+                }
+                if characteristic.UUID == CBUUID(string: "c295a114-157d-4ba6-a788-37121cc04f51") {
+                    self.openCharacteristic = characteristic
+                }
+                if characteristic.UUID == CBUUID(string: "47a10c88-f91f-45b0-9212-97cb6fbcd298") {
+                    self.closeCharacteristic = characteristic
+                }
+            }
+        }
+    }
+    
+    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        if characteristic.UUID == CBUUID(string: "b2e238b4-5b26-48c1-9023-2099a02c99b0") {
+            print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+        }
+        if characteristic.UUID == CBUUID(string: "b2e238b4-5b26-48c1-9023-2099a02c99b0") {
+            print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+        }
+        if characteristic.UUID == CBUUID(string: "0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
+            print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+        }
+        print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+    }
+    
+    func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        print("Notify状態更新成功！　isNotifying: \(characteristic.isNotifying)")
     }
     
     func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
         print("接続失敗・・・")
+    }
+    
+    func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        print("Write成功！")
+    }
+    
+    @IBAction func keyButton(sender: AnyObject) {
+        var value: CUnsignedChar = 1
+        let data: NSData = NSData(bytes: &value, length: 1)
+        if keyFlag {
+            if openCharacteristic != nil {
+                self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
+                keyButton.backgroundColor = UIColor.redColor()
+                keyButton.setTitle("Close", forState: UIControlState.Normal)
+                keyFlag = false
+            }
+        } else {
+            if closeCharacteristic != nil {
+                self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
+                keyButton.backgroundColor = UIColor.greenColor()
+                keyButton.setTitle("Open", forState: UIControlState.Normal)
+                keyFlag = true
+            }
+        }
     }
 
 }

@@ -16,8 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgG-2k-wyr">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.37669242720000001" green="1" blue="0.34197090190000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="0vP-hp-C67"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="3zU-l7-7IV"/>
+                                    <constraint firstAttribute="height" constant="86" id="7yL-5D-nhk"/>
+                                    <constraint firstAttribute="height" constant="100" id="JcV-ow-0xa"/>
+                                    <constraint firstAttribute="width" constant="100" id="aRW-XD-BkW"/>
+                                    <constraint firstAttribute="height" constant="86" id="eHp-8B-xnF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="tintColor" red="0.37669242720000001" green="1" blue="0.34197090190000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0vP-hp-C67"/>
+                                        <exclude reference="3zU-l7-7IV"/>
+                                        <exclude reference="7yL-5D-nhk"/>
+                                        <exclude reference="eHp-8B-xnF"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="c6T-fW-emF"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dgG-2k-wyr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nta-vn-Tbj"/>
+                            <constraint firstItem="dgG-2k-wyr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SzQ-VW-OsD"/>
+                            <constraint firstItem="dgG-2k-wyr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fm2-a6-huH"/>
+                            <constraint firstItem="dgG-2k-wyr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-6" id="vlx-1F-JdI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SzQ-VW-OsD"/>
+                                <exclude reference="vlx-1F-JdI"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="keyButton" destination="dgG-2k-wyr" id="6jp-fY-prS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
