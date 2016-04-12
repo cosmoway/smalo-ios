@@ -8,14 +8,12 @@
 
 import UIKit
 import WatchConnectivity
-import CoreBluetooth
 
-class ViewController: UIViewController,WCSessionDelegate, CBCentralManagerDelegate {
+class ViewController: UIViewController,WCSessionDelegate {
     
     var wcSession = WCSession.defaultSession()
-    let open = 0 , close = 1
-    var state = 1
-    var centralManager: CBCentralManager!
+    let open = 0 , close = 1 , NG = 0 , OK = 1
+    var doorState = 1 ,connectState = 0
     
     @IBOutlet weak var label: UILabel!
     
@@ -44,92 +42,79 @@ class ViewController: UIViewController,WCSessionDelegate, CBCentralManagerDelega
         } else {
             print("Not support WCSession")
         }
-        self.centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
     }
     
-    // 1-2. CentralManager状態の受信
-    func centralManagerDidUpdateState(central: CBCentralManager) {
-        
-        switch (central.state) {
-        case .PoweredOff:
-            print("BLE PoweredOff")
-        case .PoweredOn:
-            print("BLE PoweredOn")
-            // 2-1. Peripheral探索開始
-            central.scanForPeripheralsWithServices(nil, options: nil)
-            /* ↑の第1引数はnilは非推奨。
-            該当サービスのCBUUIDオブジェクトの配列が望ましい */
-            let message = [ "BLE" : "CM状態受信完了"]
-            
-            wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-            
-        case .Resetting:
-            print("BLE Resetting")
-        case .Unauthorized:
-            print("BLE Unauthorized")
-        case .Unknown:
-            print("BLE Unknown")
-        case .Unsupported:
-            print("BLE Unsupported")
+    //Edisonと通信できてるかの仮ボタン
+    @IBAction func BLEbutton(sender: AnyObject) {
+        if( connectState == OK ){
+            connectState = NG
+        }else if( connectState == NG ){
+            connectState = OK
         }
     }
     
     // watchからのメッセージを受け取る
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
         
-        //鍵の状態の取得要求
-        if let watchMessage = message["getState"] as? String {
+        if(connectState == OK ){
+        
+            //鍵の状態の取得要求
+            if let watchMessage = message["getState"] as? String {
             
-            label.text = watchMessage
+                label.text = watchMessage
             
-            if( state == open ){
-                
-                let message = [ "parentWakeClose" : "閉まっています"]
+                if( connectState == OK ){
             
-                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    if( doorState == open ){
                 
-            }else if( state == close ){
+                        let message = [ "parentWakeOpen" : "Opened"]
+            
+                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                 
-                let message = [ "parentWakeOpen" : "開いています"]
+                    }else if( doorState == close ){
                 
-                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                        let message = [ "parentWakeClose" : "Closed"]
+                
+                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    }
+                    let notification = UILocalNotification()
+                    notification.fireDate = NSDate()	// すぐに通知したいので現在時刻を取得
+                    notification.timeZone = NSTimeZone.defaultTimeZone()
+                    notification.alertBody = "通信完了"
+                    notification.alertAction = "OK"
+                    notification.soundName = UILocalNotificationDefaultSoundName
+                    UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+                
+                }
             }
-            let notification = UILocalNotification()
-            notification.fireDate = NSDate()	// すぐに通知したいので現在時刻を取得
-            notification.timeZone = NSTimeZone.defaultTimeZone()
-            notification.alertBody = "通信完了"
-            notification.alertAction = "OK"
-            notification.soundName = UILocalNotificationDefaultSoundName
-            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-        }
         
-        //鍵の開閉要求
-        if let watchMessage = message["watchOC"] as? String {
-            if( state == close ){
-                label.text = watchMessage + "解錠"
+            //鍵の開閉要求
+            if let watchMessage = message["stateUpdate"] as? String {
+                if( doorState == close ){
+                    label.text = watchMessage + "解錠"
                 
-                let message = [ "parentOpen" : "開きました"]
+                    let message = [ "parentOpen" : "Opened"]
                 
-                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                 
-                state = open
-            }else if( state == open ){
+                    doorState = open
+                }else if( doorState == open ){
                 
-                label.text = watchMessage + "施錠"
+                    label.text = watchMessage + "施錠"
                 
-                let message = [ "parentClose" : "閉めました"]
+                    let message = [ "parentClose" : "Closed"]
                 
-                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                 
-                state = close
+                    doorState = close
+                }
             }
+        }else if(connectState == NG ){
+            
+            let message = [ "smaloNG" : "スマロ接続NG" ]
+            
+            wcSession.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
         }
-        
-        //BLEの接続要求
-        if let watchMessage = message["connect"] as? String {
-            //ここでEdisonとBLE接続できるかどうかを返す
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {

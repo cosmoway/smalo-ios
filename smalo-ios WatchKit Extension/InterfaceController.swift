@@ -18,14 +18,14 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     
     @IBOutlet var myGroup: WKInterfaceGroup!
     @IBOutlet var openButton: WKInterfaceButton!
-    @IBOutlet var connectButton: WKInterfaceButton!
     
     var wcSession = WCSession.defaultSession()
+    let connectOK = 0 , connectNG = 1
+    var state = 1
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        myGroup.setBackgroundColor(UIColor.blueColor())
         openButton.setBackgroundColor(UIColor.redColor())
         
         // check supported
@@ -41,6 +41,9 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         //鍵の状態の取得
         let message = [ "getState" : "watch:OK" ]
         
+        label2.setText("取得中")
+        label3.setText("取得中")
+        
         wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
         
         // Configure interface objects here.
@@ -52,23 +55,23 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         WKInterfaceDevice.currentDevice().playHaptic(WKHapticType.Click)
         
         label.setText("要求送信中")
+        label2.setText("NG")
+        label3.setText("スマロ接続NG")
         
+        if( state == connectOK ){
+            
         //開閉要求
-        let message = [ "watchOC" : "watchから" ]
+            let message = [ "stateUpdate" : "watchから" ]
         
-        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
-        
-    }
-    
-    @IBAction func button2() {
-        WKInterfaceDevice.currentDevice().playHaptic(WKHapticType.Click)
-        
-        label3.setText("接続要求送信")
-        
-        //BLEの接続確認
-        let message = [ "connect" : "接続要求" ]
-        
-        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+            wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+        }else if( state == connectNG ){
+            
+            //開閉要求
+            let message = [ "getState" : "watchから" ]
+            
+            wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+            
+        }
     }
     
     //iPhoneからメッセージを受け取る
@@ -79,8 +82,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             
             openButton.setTitle("Open")
             
-            label2.setText("通信完了")
             label.setText(parentMessage)
+            label2.setText("OK")
         }
         
         //鍵が開いている場合
@@ -88,14 +91,13 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             
             openButton.setTitle("Close")
             
-            label2.setText("通信完了")
             label.setText(parentMessage)
+            label2.setText("OK")
         }
         
         //解錠メッセージを受け取る
         if let parentMessage = message["parentOpen"] as? String {
             
-            myGroup.setBackgroundColor(UIColor.blackColor())
             label.setText(parentMessage)
             openButton.setTitle("Close")
         }
@@ -103,16 +105,25 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         //施錠メッセージを受け取る
         if let parentMessage = message["parentClose"] as? String {
             
-            myGroup.setBackgroundColor(UIColor.blueColor())
             label.setText(parentMessage)
             openButton.setTitle("Open")
         }
         
         //BLE接続のメッセージを受け取る
-        if let parentMessage = message["BLE"] as? String {
+        if let parentMessage = message["smaloNG"] as? String {
             
-            myGroup.setBackgroundColor(UIColor.blueColor())
+            label.setText("鍵の判定不可")
+            label2.setText("OK")
             label3.setText(parentMessage)
+            openButton.setTitle("接続確認")
+            state = connectNG
+            
+        }else{
+            
+            label2.setText("OK")
+            label3.setText("スマロ接続OK")
+            state = connectOK
+            
         }
     }
     

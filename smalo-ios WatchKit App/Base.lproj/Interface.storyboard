@@ -8,7 +8,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_Extension">
                     <items>
                         <group width="1" height="151" alignment="left" layout="vertical" id="LDU-xl-WoI">
                             <items>
@@ -24,14 +24,8 @@
                                         <label alignment="center" text="確認中" id="jy5-0P-hpp"/>
                                     </items>
                                 </group>
-                                <button width="1" alignment="left" title="Connect" id="xlQ-ld-0oo">
-                                    <color key="backgroundColor" red="0.53250979202924431" green="0.7682686237373737" blue="0.51737751639477769" alpha="1" colorSpace="calibratedRGB"/>
-                                    <connections>
-                                        <action selector="button2" destination="AgC-eL-Hgc" id="jDA-LS-BGD"/>
-                                    </connections>
-                                </button>
                                 <label alignment="center" text="鍵の状態" id="pQL-Po-Ypk"/>
-                                <button width="1" alignment="left" title="Open" id="AGE-5z-azb">
+                                <button width="1" alignment="left" title="接続確認" id="AGE-5z-azb">
                                     <connections>
                                         <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
                                     </connections>
@@ -40,7 +34,6 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="connectButton" destination="xlQ-ld-0oo" id="fCA-Pu-p1b"/>
                         <outlet property="label" destination="pQL-Po-Ypk" id="wA7-BT-IJd"/>
                         <outlet property="label2" destination="GkH-G9-bfs" id="tYv-Rx-s5e"/>
                         <outlet property="label3" destination="jy5-0P-hpp" id="4iA-4w-Dcq"/>
