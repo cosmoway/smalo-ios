@@ -81,6 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		596952321CBE404600F49131 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		687CEC201CB5E88400893A67 /* smalo-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smalo-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		687CEC231CB5E88400893A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		687CEC251CB5E88400893A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +173,7 @@
 				687CEC2A1CB5E88400893A67 /* Assets.xcassets */,
 				687CEC2C1CB5E88400893A67 /* LaunchScreen.storyboard */,
 				687CEC2F1CB5E88400893A67 /* Info.plist */,
+				596952321CBE404600F49131 /* Bridging-Header.h */,
 			);
 			path = "smalo-ios";
 			sourceTree = "<group>";
@@ -677,6 +679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -691,6 +694,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
 			};
 			name = Release;
 		};

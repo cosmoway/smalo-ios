@@ -15,6 +15,9 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     var closeCharacteristic: CBCharacteristic!
     var openCharacteristic: CBCharacteristic!
     var keyFlag = true
+    var major: String?
+    var mainor: String?
+    let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     @IBOutlet weak var keyButton: UIButton!
     
     override func viewDidLoad() {
@@ -111,19 +114,31 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         if characteristic.UUID == CBUUID(string: "b2e238b4-5b26-48c1-9023-2099a02c99b0") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+            localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+            switch String(data:characteristic.value!,encoding:NSUTF8StringEncoding)! {
+            case "open":
+                keyFlag = false
+                break
+            case "close":
+                keyFlag = true
+                break
+            default:
+                break
+            }
         }
-        if characteristic.UUID == CBUUID(string: "b2e238b4-5b26-48c1-9023-2099a02c99b0") {
+        if characteristic.UUID == CBUUID(string: "68da96b6-7634-440a-8fcf-95ef1a5e7e5b") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+            major = String(data:characteristic.value!, encoding:NSUTF8StringEncoding)
         }
         if characteristic.UUID == CBUUID(string: "0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+            mainor = String(data: characteristic.value!, encoding: NSUTF8StringEncoding)
         }
         print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
     }
     
     func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         print("Notify状態更新成功！　isNotifying: \(characteristic.isNotifying)")
-        localNotification("Notify状態更新成功！　isNotifying: \(characteristic.isNotifying)")
     }
     
     func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
@@ -146,9 +161,9 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     @IBAction func keyButton(sender: AnyObject) {
-        var value: CUnsignedChar = 1
-        let data: NSData = NSData(bytes: &value, length: 1)
         if keyFlag {
+            var value: String = ("open"+"|"+UUID+"|"+mainor!+"|"+mainor!).sha256
+            let data: NSData = NSData(bytes: &value, length: 4)
             if openCharacteristic != nil {
                 self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
                 keyButton.backgroundColor = UIColor.redColor()
@@ -156,6 +171,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 keyFlag = false
             }
         } else {
+            var value: String = ("close"+"|"+UUID+"|"+major!+"|"+mainor!).sha256
+            let data: NSData = NSData(bytes: &value, length: 5)
             if closeCharacteristic != nil {
                 self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
                 keyButton.backgroundColor = UIColor.greenColor()
@@ -164,6 +181,18 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             }
         }
     }
-
+}
+extension String {
+    var sha256: String! {
+        return self.cStringUsingEncoding(NSUTF8StringEncoding).map { cstr in
+            var chars = [UInt8](count: Int(CC_SHA256_DIGEST_LENGTH), repeatedValue: 0)
+            CC_SHA256(
+                cstr,
+                CC_LONG(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)),
+                &chars
+            )
+            return chars.map { String(format: "%02X", $0) }.reduce("", combine: +)
+        }
+    }
 }
 
