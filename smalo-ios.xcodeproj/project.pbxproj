@@ -330,6 +330,11 @@
 					687CEC1F1CB5E88400893A67 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 2TGX3CU8Y8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					687CEC331CB5E88400893A67 = {
 						CreatedOnToolsVersion = 7.2;

@@ -19,7 +19,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.centralManager = CBCentralManager(delegate: self, queue: nil)
+        let options: [String: AnyObject] = [CBCentralManagerOptionRestoreIdentifierKey: "restoreKey"]
+        self.centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -34,7 +35,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             print(central.state)
             self.centralManager.stopScan()
         case CBCentralManagerState.PoweredOn:
-            self.centralManager.scanForPeripheralsWithServices(nil, options: nil)
+            let serviceUUIDs:NSArray = [CBUUID(string: "9ada4c64-c941-46c2-9156-c39addd4f77c")]
+            self.centralManager.scanForPeripheralsWithServices(serviceUUIDs as? [CBUUID], options: nil)
         default:
             print(central.state)
         }
@@ -42,9 +44,21 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         print("発見したBLEデバイス\(peripheral)")
-        if peripheral.name == "smalo" {
+        localNotification("発見したBLEデバイス\(peripheral)")
+        if peripheral.name == "健のiPad" {
             self.peripheral = peripheral
             self.centralManager.connectPeripheral(self.peripheral, options: nil)
+        }
+    }
+    
+    func localNotification(msg: String) {
+        if UIApplication.sharedApplication().applicationState != UIApplicationState.Active {
+            
+            let notification = UILocalNotification()
+            notification.timeZone = NSTimeZone.defaultTimeZone()
+            notification.alertBody = msg
+            notification.soundName = UILocalNotificationDefaultSoundName
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }
     }
     
@@ -109,6 +123,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         print("Notify状態更新成功！　isNotifying: \(characteristic.isNotifying)")
+        localNotification("Notify状態更新成功！　isNotifying: \(characteristic.isNotifying)")
     }
     
     func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
@@ -117,6 +132,17 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         print("Write成功！")
+    }
+    
+    func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject]) {
+        localNotification("セントラル復元:\(dict)")
+        let peripherals = dict[CBCentralManagerOptionRestoreIdentifierKey] as! NSArray;
+        for aPeripheral in peripherals {
+            if (aPeripheral as! CBPeripheral).state == CBPeripheralState.Connected {
+                self.peripheral = aPeripheral as! CBPeripheral
+                self.peripheral.delegate = self
+            }
+        }
     }
     
     @IBAction func keyButton(sender: AnyObject) {
