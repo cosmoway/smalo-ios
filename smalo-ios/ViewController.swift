@@ -125,12 +125,12 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         }
         if characteristic.UUID == CBUUID(string: "0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
-            localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+            localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(String(data:characteristic.value!,encoding:NSUTF8StringEncoding)!)")
             switch String(data:characteristic.value!,encoding:NSUTF8StringEncoding)! {
-            case "unlock":
+            case "unlocked":
                 keyFlag = false
                 break
-            case "lock":
+            case "locked":
                 keyFlag = true
                 break
             default:
@@ -181,8 +181,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         if keyFlag {
             if openCharacteristic != nil {
                 if !(major?.isEmpty)! && !(mainor?.isEmpty)! {
-                    var value: String = (UUID+"|"+mainor!+"|"+mainor!).sha256
-                    let data: NSData = NSData(bytes: &value, length: value.characters.count)
+                    let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
+                    let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
                     keyButton.backgroundColor = UIColor.redColor()
                     keyButton.setTitle("Close", forState: UIControlState.Normal)
@@ -192,8 +192,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         } else {
             if closeCharacteristic != nil {
                 if !(major?.isEmpty)! && !(mainor?.isEmpty)! {
-                    var value: String = (UUID+"|"+major!+"|"+mainor!).sha256
-                    let data: NSData = NSData(bytes: &value, length: value.characters.count)
+                    let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
+                    let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
                     keyButton.backgroundColor = UIColor.greenColor()
                     keyButton.setTitle("Open", forState: UIControlState.Normal)
