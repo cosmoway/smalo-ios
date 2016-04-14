@@ -14,6 +14,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     var peripheral: CBPeripheral!
     var closeCharacteristic: CBCharacteristic!
     var openCharacteristic: CBCharacteristic!
+    var notifyCharacteristic: CBCharacteristic!
     var keyFlag = true
     var major: String?
     var mainor: String?
@@ -48,7 +49,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         print("発見したBLEデバイス\(peripheral)")
         localNotification("発見したBLEデバイス\(peripheral)")
-        if peripheral.name == "健のiPad" {
+        if peripheral.name == "smalo" {
             self.peripheral = peripheral
             self.centralManager.connectPeripheral(self.peripheral, options: nil)
         }
@@ -98,8 +99,9 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                     peripheral.setNotifyValue(true, forCharacteristic: characteristic)
                 }
                 if characteristic.UUID == CBUUID(string:"0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
-                    peripheral.readValueForCharacteristic(characteristic)
-                    peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+                    self.notifyCharacteristic = characteristic
+                    peripheral.readValueForCharacteristic(self.notifyCharacteristic)
+                    peripheral.setNotifyValue(true, forCharacteristic: self.notifyCharacteristic)
                 }
                 if characteristic.UUID == CBUUID(string: "c295a114-157d-4ba6-a788-37121cc04f51") {
                     self.openCharacteristic = characteristic
@@ -114,27 +116,27 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         if characteristic.UUID == CBUUID(string: "b2e238b4-5b26-48c1-9023-2099a02c99b0") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+            major = String(data:characteristic.value!, encoding:NSUTF8StringEncoding)
+        }
+        if characteristic.UUID == CBUUID(string: "68da96b6-7634-440a-8fcf-95ef1a5e7e5b") {
+            print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+            mainor = String(data: characteristic.value!, encoding: NSUTF8StringEncoding)
+            localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
+        }
+        if characteristic.UUID == CBUUID(string: "0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
+            print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
             localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
             switch String(data:characteristic.value!,encoding:NSUTF8StringEncoding)! {
-            case "open":
+            case "unlock":
                 keyFlag = false
                 break
-            case "close":
+            case "lock":
                 keyFlag = true
                 break
             default:
                 break
             }
         }
-        if characteristic.UUID == CBUUID(string: "68da96b6-7634-440a-8fcf-95ef1a5e7e5b") {
-            print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
-            major = String(data:characteristic.value!, encoding:NSUTF8StringEncoding)
-        }
-        if characteristic.UUID == CBUUID(string: "0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
-            print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
-            mainor = String(data: characteristic.value!, encoding: NSUTF8StringEncoding)
-        }
-        print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
     }
     
     func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
@@ -151,33 +153,52 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject]) {
         localNotification("セントラル復元:\(dict)")
-        let peripherals = dict[CBCentralManagerOptionRestoreIdentifierKey] as! NSArray;
+        let peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey] as! NSArray;
         for aPeripheral in peripherals {
             if (aPeripheral as! CBPeripheral).state == CBPeripheralState.Connected {
                 self.peripheral = aPeripheral as! CBPeripheral
                 self.peripheral.delegate = self
             }
         }
+        // 復元されたペリフェラルについて、キャラクタリスティックの状態を見てみる・プロパティにセットしなおす
+        for aService in self.peripheral.services! {
+            for aCharacteristic in aService.characteristics! {
+                
+                if aCharacteristic.UUID == CBUUID(string: "0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
+                    
+                    print("characteristic: \(aCharacteristic)");
+                    
+                    // コンソール出力結果： characteristic: <CBCharacteristic: 0x174086680, UUID = 1112, properties = 0x12, value = <a5>, notifying = YES>
+                    // → Notifyの状態まで復元されていることがわかる
+                    
+                    self.notifyCharacteristic = aCharacteristic;
+                }
+            }
+        }
     }
     
     @IBAction func keyButton(sender: AnyObject) {
         if keyFlag {
-            var value: String = ("open"+"|"+UUID+"|"+mainor!+"|"+mainor!).sha256
-            let data: NSData = NSData(bytes: &value, length: 4)
             if openCharacteristic != nil {
-                self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
-                keyButton.backgroundColor = UIColor.redColor()
-                keyButton.setTitle("Close", forState: UIControlState.Normal)
-                keyFlag = false
+                if !(major?.isEmpty)! && !(mainor?.isEmpty)! {
+                    var value: String = (UUID+"|"+mainor!+"|"+mainor!).sha256
+                    let data: NSData = NSData(bytes: &value, length: value.characters.count)
+                    self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
+                    keyButton.backgroundColor = UIColor.redColor()
+                    keyButton.setTitle("Close", forState: UIControlState.Normal)
+                    keyFlag = false
+                }
             }
         } else {
-            var value: String = ("close"+"|"+UUID+"|"+major!+"|"+mainor!).sha256
-            let data: NSData = NSData(bytes: &value, length: 5)
             if closeCharacteristic != nil {
-                self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
-                keyButton.backgroundColor = UIColor.greenColor()
-                keyButton.setTitle("Open", forState: UIControlState.Normal)
-                keyFlag = true
+                if !(major?.isEmpty)! && !(mainor?.isEmpty)! {
+                    var value: String = (UUID+"|"+major!+"|"+mainor!).sha256
+                    let data: NSData = NSData(bytes: &value, length: value.characters.count)
+                    self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
+                    keyButton.backgroundColor = UIColor.greenColor()
+                    keyButton.setTitle("Open", forState: UIControlState.Normal)
+                    keyFlag = true
+                }
             }
         }
     }
