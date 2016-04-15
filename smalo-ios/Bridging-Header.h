@@ -10,5 +10,4 @@
 #define Bridging_Header_h
 #import <CommonCrypto/CommonDigest.h>
 
-
 #endif /* Bridging_Header_h */

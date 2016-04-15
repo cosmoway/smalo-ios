@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pulsator
 
 class ViewController: UIViewController {
     
@@ -14,13 +15,19 @@ class ViewController: UIViewController {
     var major: String?
     var mainor: String?
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
+    let pulsator = Pulsator()
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
+        pulsator.numPulse = 5
+        pulsator.radius = 100.0
+        pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
+        keyButton.layer.addSublayer(pulsator)
+        keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
+        pulsator.start()
     }
     
     override func viewDidLayoutSubviews() {
@@ -43,6 +50,7 @@ class ViewController: UIViewController {
         
         //グラデーションレイヤーをビューの一番下に配置
         self.gradationView.layer.insertSublayer(gradientLayer, atIndex: 0)
+        pulsator.position = keyButton.center
 
     }
 
