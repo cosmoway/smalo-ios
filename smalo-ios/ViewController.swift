@@ -20,12 +20,15 @@ class ViewController: UIViewController {
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
+    @IBOutlet weak var titleIcon: UIImageView!
+    @IBOutlet weak var headerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         pulsator.numPulse = 4
         pulsator.radius = 170.0
+        pulsator.animationDuration = 4.0
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
