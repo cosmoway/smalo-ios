@@ -25,6 +25,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
+    @IBOutlet weak var titleIcon: UIImageView!
+    @IBOutlet weak var headerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         // Do any additional setup after loading the view, typically from a nib.
         pulsator.numPulse = 4
         pulsator.radius = 170.0
+        pulsator.animationDuration = 4.0
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
@@ -99,6 +102,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
         print("接続成功！")
+        pulsator.stop()
         peripheral.delegate = self
         peripheral.discoverServices(nil)
     }
@@ -159,10 +163,16 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(String(data:characteristic.value!,encoding:NSUTF8StringEncoding)!)")
             switch String(data:characteristic.value!,encoding:NSUTF8StringEncoding)! {
             case "unlocked":
-                keyFlag = false
+                keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                titleIcon.image = UIImage(named: "smalo_home_close_icon.png")
+                headerLabel.text = "CLOSE"
+                keyFlag = true
                 break
             case "locked":
-                keyFlag = true
+                keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                titleIcon.image = UIImage(named: "smalo_home_open_icon.png")
+                headerLabel.text = "OPEN"
+                keyFlag = false
                 break
             default:
                 break
@@ -184,6 +194,9 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject]) {
         localNotification("セントラル復元:\(dict)")
+        keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+        titleIcon.image = UIImage(named: "smalo_home_search_icon.png")
+        headerLabel.text = "SEARCH"
         let peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey] as! NSArray;
         for aPeripheral in peripherals {
             if (aPeripheral as! CBPeripheral).state == CBPeripheralState.Connected {
@@ -215,8 +228,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                     let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
                     let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
-                    keyButton.backgroundColor = UIColor.redColor()
-                    keyButton.setTitle("Close", forState: UIControlState.Normal)
                     keyFlag = false
                 }
             }
@@ -226,8 +237,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                     let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
                     let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
-                    keyButton.backgroundColor = UIColor.greenColor()
-                    keyButton.setTitle("Open", forState: UIControlState.Normal)
                     keyFlag = true
                 }
             }

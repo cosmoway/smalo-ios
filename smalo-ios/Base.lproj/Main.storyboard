@@ -56,15 +56,15 @@
                                 <rect key="frame" x="0.0" y="60" width="600" height="190"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalo_search_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ie-la-WLQ">
-                                        <rect key="frame" x="250" y="45" width="100" height="100"/>
+                                        <rect key="frame" x="265" y="70" width="70" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="26F-is-JCG"/>
-                                            <constraint firstAttribute="height" constant="100" id="lgz-Z7-CbO"/>
+                                            <constraint firstAttribute="width" constant="70" id="26F-is-JCG"/>
+                                            <constraint firstAttribute="height" constant="50" id="lgz-Z7-CbO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzQ-AH-Id2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SEARCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzQ-AH-Id2">
                                         <rect key="frame" x="248" y="149" width="104" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -111,7 +111,9 @@
                     </view>
                     <connections>
                         <outlet property="gradationView" destination="aed-SY-D4i" id="H4l-yK-wez"/>
+                        <outlet property="headerLabel" destination="SzQ-AH-Id2" id="aBb-C3-f3m"/>
                         <outlet property="keyButton" destination="9wZ-vv-5Gb" id="PMs-BX-GP5"/>
+                        <outlet property="titleIcon" destination="7Ie-la-WLQ" id="iEe-yk-kyC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
