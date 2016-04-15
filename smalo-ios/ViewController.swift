@@ -20,12 +20,37 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     var mainor: String?
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     @IBOutlet weak var keyButton: UIButton!
+    @IBOutlet weak var gradationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let options: [String: AnyObject] = [CBCentralManagerOptionRestoreIdentifierKey: "restoreKey"]
         self.centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //グラデーションの開始色
+        let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
+        //グラデーションの開始色
+        let bottomColor = UIColor(red:0.57, green:0.84, blue:0.88, alpha:1)
+        
+        //グラデーションの色を配列で管理
+        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        
+        //グラデーションレイヤーを作成
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame.size = self.gradationView.frame.size
+        
+        //グラデーションレイヤーをビューの一番下に配置
+        self.gradationView.layer.insertSublayer(gradientLayer, atIndex: 0)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +74,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         print("発見したBLEデバイス\(peripheral)")
         localNotification("発見したBLEデバイス\(peripheral)")
-        if peripheral.name == "smalo" {
+        if peripheral.name == "健のiPad" {
             self.peripheral = peripheral
             self.centralManager.connectPeripheral(self.peripheral, options: nil)
         }
