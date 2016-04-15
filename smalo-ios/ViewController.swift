@@ -16,22 +16,20 @@ class ViewController: UIViewController {
     var mainor: String?
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
+    //グラデーションレイヤーを作成
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        pulsator.numPulse = 5
-        pulsator.radius = 100.0
+        pulsator.numPulse = 4
+        pulsator.radius = 170.0
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
         pulsator.start()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         //グラデーションの開始色
         let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
         //グラデーションの開始色
@@ -40,18 +38,18 @@ class ViewController: UIViewController {
         //グラデーションの色を配列で管理
         let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
         
-        //グラデーションレイヤーを作成
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        
         //グラデーションの色をレイヤーに割り当てる
         gradientLayer.colors = gradientColors
-        //グラデーションレイヤーをスクリーンサイズにする
-        gradientLayer.frame.size = self.gradationView.frame.size
         
         //グラデーションレイヤーをビューの一番下に配置
         self.gradationView.layer.insertSublayer(gradientLayer, atIndex: 0)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame.size = self.gradationView.frame.size
         pulsator.position = keyButton.center
-
     }
 
     override func didReceiveMemoryWarning() {

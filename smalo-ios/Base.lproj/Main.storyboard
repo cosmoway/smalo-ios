@@ -19,47 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aed-SY-D4i">
-                                <rect key="frame" x="0.0" y="208" width="600" height="392"/>
+                                <rect key="frame" x="0.0" y="250" width="600" height="350"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgG-2k-wyr">
-                                        <rect key="frame" x="250" y="146" width="100" height="100"/>
-                                        <color key="backgroundColor" red="0.37669242720000001" green="1" blue="0.34197090190000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-vv-5Gb">
+                                        <rect key="frame" x="225" y="100" width="150" height="150"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="83" id="0vP-hp-C67"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="3zU-l7-7IV"/>
-                                            <constraint firstAttribute="height" constant="86" id="7yL-5D-nhk"/>
-                                            <constraint firstAttribute="height" constant="100" id="JcV-ow-0xa"/>
-                                            <constraint firstAttribute="width" constant="100" id="aRW-XD-BkW"/>
-                                            <constraint firstAttribute="height" constant="86" id="eHp-8B-xnF"/>
+                                            <constraint firstAttribute="width" constant="150" id="SjT-fl-stR"/>
+                                            <constraint firstAttribute="height" constant="150" id="jUm-cA-vh2"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                        <color key="tintColor" red="0.37669242720000001" green="1" blue="0.34197090190000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Open">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="50"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="0vP-hp-C67"/>
-                                                <exclude reference="3zU-l7-7IV"/>
-                                                <exclude reference="7yL-5D-nhk"/>
-                                                <exclude reference="eHp-8B-xnF"/>
-                                            </mask>
-                                        </variation>
+                                        <state key="normal" image="smalo_search_button"/>
                                         <connections>
-                                            <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="c6T-fW-emF"/>
+                                            <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="5T3-Rr-hbd"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="dgG-2k-wyr" firstAttribute="centerX" secondItem="aed-SY-D4i" secondAttribute="centerX" id="2C1-Fj-Tau"/>
-                                    <constraint firstItem="dgG-2k-wyr" firstAttribute="centerY" secondItem="aed-SY-D4i" secondAttribute="centerY" id="6pO-BQ-76w"/>
+                                    <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerY" secondItem="aed-SY-D4i" secondAttribute="centerY" id="5VB-pM-Oqu"/>
+                                    <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerX" secondItem="aed-SY-D4i" secondAttribute="centerX" id="rbq-YA-m8x"/>
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-Kg-cxs">
@@ -72,45 +49,69 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="sesame" id="FBe-cY-Nad"/>
+                                    <navigationItem title="smalo" id="FBe-cY-Nad"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGY-YD-Ea1">
-                                <rect key="frame" x="0.0" y="60" width="600" height="159"/>
+                                <rect key="frame" x="0.0" y="60" width="600" height="190"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ie-la-WLQ">
-                                        <rect key="frame" x="216" y="33" width="169" height="94"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalo_search_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ie-la-WLQ">
+                                        <rect key="frame" x="250" y="45" width="100" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="169" id="26F-is-JCG"/>
-                                            <constraint firstAttribute="height" constant="94" id="lgz-Z7-CbO"/>
+                                            <constraint firstAttribute="width" constant="100" id="26F-is-JCG"/>
+                                            <constraint firstAttribute="height" constant="100" id="lgz-Z7-CbO"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzQ-AH-Id2">
+                                        <rect key="frame" x="248" y="149" width="104" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="0.30429159630000002" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="SzQ-AH-Id2" secondAttribute="bottom" constant="8" id="2XC-c4-wgS"/>
+                                    <constraint firstAttribute="height" constant="160" id="X1i-bA-21V"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="csM-WD-zDM"/>
+                                    <constraint firstItem="SzQ-AH-Id2" firstAttribute="centerX" secondItem="fGY-YD-Ea1" secondAttribute="centerX" id="itO-Tw-RmG"/>
+                                    <constraint firstAttribute="height" constant="190" id="lsU-Av-bwn"/>
                                     <constraint firstItem="7Ie-la-WLQ" firstAttribute="centerX" secondItem="fGY-YD-Ea1" secondAttribute="centerX" id="ryp-Uu-TeC"/>
+                                    <constraint firstAttribute="height" constant="140" id="sIa-sL-pag"/>
                                     <constraint firstItem="7Ie-la-WLQ" firstAttribute="centerY" secondItem="fGY-YD-Ea1" secondAttribute="centerY" id="sn9-zR-7rW"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="X1i-bA-21V"/>
+                                        <exclude reference="csM-WD-zDM"/>
+                                        <exclude reference="sIa-sL-pag"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.68235294120000001" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fGY-YD-Ea1" secondAttribute="trailing" constant="-20" id="0y4-NE-tBh"/>
+                            <constraint firstItem="aed-SY-D4i" firstAttribute="top" secondItem="fGY-YD-Ea1" secondAttribute="bottom" id="8ml-DC-BRg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aed-SY-D4i" secondAttribute="bottom" id="A10-Ee-7J5"/>
-                            <constraint firstItem="fGY-YD-Ea1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="HGz-ki-tBx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fGY-YD-Ea1" secondAttribute="trailing" constant="-20" id="Hxn-gP-Ihu"/>
+                            <constraint firstItem="fGY-YD-Ea1" firstAttribute="top" secondItem="aQR-Kg-cxs" secondAttribute="bottom" id="JH6-PF-nb1"/>
                             <constraint firstItem="aQR-Kg-cxs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="RMK-hn-eVG"/>
                             <constraint firstItem="aed-SY-D4i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Rpb-dh-Pzl"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fGY-YD-Ea1" secondAttribute="bottom" constant="381" id="WDp-Yu-TP8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aQR-Kg-cxs" secondAttribute="trailing" constant="-20" id="chZ-2k-DaP"/>
-                            <constraint firstItem="fGY-YD-Ea1" firstAttribute="top" secondItem="aQR-Kg-cxs" secondAttribute="bottom" id="ks4-rM-qtn"/>
+                            <constraint firstItem="fGY-YD-Ea1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="hVm-mE-40X"/>
                             <constraint firstItem="aQR-Kg-cxs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qZl-1O-O98"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aed-SY-D4i" secondAttribute="trailing" constant="-20" id="uT4-Tg-DZg"/>
                             <constraint firstItem="aed-SY-D4i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="188" id="zvl-6h-lE4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zvl-6h-lE4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="gradationView" destination="aed-SY-D4i" id="H4l-yK-wez"/>
-                        <outlet property="keyButton" destination="dgG-2k-wyr" id="6jp-fY-prS"/>
+                        <outlet property="keyButton" destination="9wZ-vv-5Gb" id="PMs-BX-GP5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -118,4 +119,8 @@
             <point key="canvasLocation" x="532" y="460"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="smalo_search_button" width="340" height="340"/>
+        <image name="smalo_search_icon" width="120" height="120"/>
+    </resources>
 </document>
