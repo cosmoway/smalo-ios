@@ -1,0 +1,10 @@
+PODS:
+  - Pulsator (0.1.0)
+
+DEPENDENCIES:
+  - Pulsator
+
+SPEC CHECKSUMS:
+  Pulsator: da87aa289b30b5e0cc7e03b21d9f2cb58277f601
+
+COCOAPODS: 0.39.0
