@@ -54,9 +54,9 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         //バイブレーション
         WKInterfaceDevice.currentDevice().playHaptic(WKHapticType.Click)
         
-        label.setText("要求送信中")
-        label2.setText("NG")
-        label3.setText("スマロ接続NG")
+        label.setText("SEARCH")
+        label2.setText("スマホNG")
+        label3.setText("スマロNG")
         
         if( state == connectOK ){
             
@@ -83,7 +83,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             openButton.setTitle("Open")
             
             label.setText(parentMessage)
-            label2.setText("OK")
+            label2.setText("スマホOK")
         }
         
         //鍵が開いている場合
@@ -92,7 +92,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             openButton.setTitle("Close")
             
             label.setText(parentMessage)
-            label2.setText("OK")
+            label2.setText("スマホOK")
         }
         
         //解錠メッセージを受け取る
@@ -112,16 +112,16 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         //BLE接続のメッセージを受け取る
         if let parentMessage = message["smaloNG"] as? String {
             
-            label.setText("鍵の判定不可")
-            label2.setText("OK")
+            label.setText("UNKNOWN")
+            label2.setText("スマホOK")
             label3.setText(parentMessage)
-            openButton.setTitle("接続確認")
+            openButton.setTitle("SEARCH")
             state = connectNG
             
         }else{
             
-            label2.setText("OK")
-            label3.setText("スマロ接続OK")
+            label2.setText("スマホOK")
+            label3.setText("スマロOK")
             state = connectOK
             
         }

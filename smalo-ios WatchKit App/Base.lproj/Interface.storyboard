@@ -10,26 +10,16 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_Extension">
                     <items>
-                        <group width="1" height="151" alignment="left" layout="vertical" id="LDU-xl-WoI">
+                        <label alignment="center" text="UNKNOWN" id="pQL-Po-Ypk"/>
+                        <button width="1" height="100.5" alignment="center" verticalAlignment="center" title="SEARCH" id="AGE-5z-azb">
+                            <connections>
+                                <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="xuJ-5r-2jS">
                             <items>
-                                <group width="1" alignment="left" id="mru-kq-VB4">
-                                    <items>
-                                        <label alignment="left" text="スマホ：" id="uzN-Kd-DjP"/>
-                                        <label alignment="left" text="確認中" id="GkH-G9-bfs"/>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="nWs-zo-sPI">
-                                    <items>
-                                        <label alignment="left" text="BLE：" id="hO5-F1-fVA"/>
-                                        <label alignment="center" text="確認中" id="jy5-0P-hpp"/>
-                                    </items>
-                                </group>
-                                <label alignment="center" text="鍵の状態" id="pQL-Po-Ypk"/>
-                                <button width="1" alignment="left" title="接続確認" id="AGE-5z-azb">
-                                    <connections>
-                                        <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
-                                    </connections>
-                                </button>
+                                <label alignment="center" text="確認中" id="GkH-G9-bfs"/>
+                                <label alignment="center" text="確認中" id="jy5-0P-hpp"/>
                             </items>
                         </group>
                     </items>
@@ -37,12 +27,11 @@
                         <outlet property="label" destination="pQL-Po-Ypk" id="wA7-BT-IJd"/>
                         <outlet property="label2" destination="GkH-G9-bfs" id="tYv-Rx-s5e"/>
                         <outlet property="label3" destination="jy5-0P-hpp" id="4iA-4w-Dcq"/>
-                        <outlet property="myGroup" destination="LDU-xl-WoI" id="Yd6-gP-olJ"/>
                         <outlet property="openButton" destination="AGE-5z-azb" id="fiV-IY-UKl"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="366"/>
+            <point key="canvasLocation" x="220" y="360"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

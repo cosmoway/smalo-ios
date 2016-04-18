@@ -12,8 +12,8 @@ import WatchConnectivity
 class ViewController: UIViewController,WCSessionDelegate {
     
     var wcSession = WCSession.defaultSession()
-    let open = 0 , close = 1 , NG = 0 , OK = 1
-    var doorState = 1 ,connectState = 0
+    //ドアの状態、edisonとの通信状態の管理用変数
+    var doorState = "close" ,connectState = "NG"
     
     @IBOutlet weak var label: UILabel!
     
@@ -45,73 +45,67 @@ class ViewController: UIViewController,WCSessionDelegate {
     }
     
     //Edisonと通信できてるかの仮ボタン
+    //TODO 完成したら削除
     @IBAction func BLEbutton(sender: AnyObject) {
-        if( connectState == OK ){
-            connectState = NG
-        }else if( connectState == NG ){
-            connectState = OK
+        if( connectState == "OK" ){
+            connectState = "NG"
+        }else if( connectState == "NG" ){
+            connectState = "OK"
         }
     }
     
     // watchからのメッセージを受け取る
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
         
-        if(connectState == OK ){
+        if(connectState == "OK" ){
         
-            //鍵の状態の取得要求
+            //鍵の状態の取得要求だった場合
             if let watchMessage = message["getState"] as? String {
             
                 label.text = watchMessage
             
-                if( connectState == OK ){
+                if( connectState == "OK" ){
             
-                    if( doorState == open ){
+                    if( doorState == "open" ){
                 
                         let message = [ "parentWakeOpen" : "Opened"]
             
                         wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                 
-                    }else if( doorState == close ){
+                    }else if( doorState == "close" ){
                 
                         let message = [ "parentWakeClose" : "Closed"]
                 
                         wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                     }
-                    let notification = UILocalNotification()
-                    notification.fireDate = NSDate()	// すぐに通知したいので現在時刻を取得
-                    notification.timeZone = NSTimeZone.defaultTimeZone()
-                    notification.alertBody = "通信完了"
-                    notification.alertAction = "OK"
-                    notification.soundName = UILocalNotificationDefaultSoundName
-                    UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-                
                 }
             }
         
-            //鍵の開閉要求
+            //鍵の開閉要求だった場合
             if let watchMessage = message["stateUpdate"] as? String {
-                if( doorState == close ){
+                if( doorState == "close" ){
+                    //TODO edisonに解錠要求
                     label.text = watchMessage + "解錠"
                 
                     let message = [ "parentOpen" : "Opened"]
                 
                     wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                 
-                    doorState = open
-                }else if( doorState == open ){
-                
+                    doorState = "open"
+                }else if( doorState == "open" ){
+                    //TODO edisonに施錠要求
                     label.text = watchMessage + "施錠"
                 
                     let message = [ "parentClose" : "Closed"]
                 
                     wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                 
-                    doorState = close
+                    doorState = "close"
                 }
             }
-        }else if(connectState == NG ){
+        }else if(connectState == "NG" ){
             
-            let message = [ "smaloNG" : "スマロ接続NG" ]
+            let message = [ "smaloNG" : "スマロNG" ]
             
             wcSession.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
         }
