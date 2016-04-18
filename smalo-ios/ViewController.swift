@@ -30,6 +30,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UUID)
         let options: [String: AnyObject] = [CBCentralManagerOptionRestoreIdentifierKey: "restoreKey"]
         self.centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
         // Do any additional setup after loading the view, typically from a nib.
@@ -57,6 +58,11 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: NSError?) {
         print("RSSI: " + String(RSSI))
+        if UIApplication.sharedApplication().applicationState != UIApplicationState.Active {
+            if Int(RSSI) > -100 {
+                sendKey()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,7 +94,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         print("発見したBLEデバイス\(peripheral)")
         localNotification("発見したBLEデバイス\(peripheral)")
         print("\(RSSI)")
-        if peripheral.name == "健のiPad" {
+        if peripheral.name == "dev-smalo01" {
             self.peripheral = peripheral
             self.peripheral.readRSSI()
             self.centralManager.connectPeripheral(self.peripheral, options: nil)
@@ -104,6 +110,13 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             notification.soundName = UILocalNotificationDefaultSoundName
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }
+    }
+    
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+        localNotification("切断されたよー")
+        self.centralManager.stopScan()
+        let serviceUUIDs:NSArray = [CBUUID(string: "9ada4c64-c941-46c2-9156-c39addd4f77c")]
+        self.centralManager.scanForPeripheralsWithServices(serviceUUIDs as? [CBUUID], options: nil)
     }
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
@@ -145,10 +158,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                     peripheral.setNotifyValue(true, forCharacteristic: self.notifyCharacteristic)
                 }
                 if characteristic.UUID == CBUUID(string: "c295a114-157d-4ba6-a788-37121cc04f51") {
-                    self.openCharacteristic = characteristic
+                    self.closeCharacteristic = characteristic
                 }
                 if characteristic.UUID == CBUUID(string: "47a10c88-f91f-45b0-9212-97cb6fbcd298") {
-                    self.closeCharacteristic = characteristic
+                    self.openCharacteristic = characteristic
                 }
             }
         }
@@ -158,11 +171,11 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         if characteristic.UUID == CBUUID(string: "b2e238b4-5b26-48c1-9023-2099a02c99b0") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
             major = String(data:characteristic.value!, encoding:NSUTF8StringEncoding)
-            peripheral.readRSSI()
         }
         if characteristic.UUID == CBUUID(string: "68da96b6-7634-440a-8fcf-95ef1a5e7e5b") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
             mainor = String(data: characteristic.value!, encoding: NSUTF8StringEncoding)
+            peripheral.readRSSI()
             localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
         }
         if characteristic.UUID == CBUUID(string: "0ab375be-141a-4ba2-81ee-e6ecc695ac06") {
@@ -201,9 +214,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject]) {
         localNotification("セントラル復元:\(dict)")
-        keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
-        titleIcon.image = UIImage(named: "smalo_home_search_icon.png")
-        headerLabel.text = "SEARCH"
         let peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey] as! NSArray;
         for aPeripheral in peripherals {
             if (aPeripheral as! CBPeripheral).state == CBPeripheralState.Connected {
@@ -228,7 +238,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         }
     }
     
-    @IBAction func keyButton(sender: AnyObject) {
+    func sendKey() {
         if keyFlag {
             if openCharacteristic != nil {
                 if major != nil && mainor != nil {
@@ -248,6 +258,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 }
             }
         }
+    }
+    
+    @IBAction func keyButton(sender: AnyObject) {
+        sendKey()
     }
 }
 extension String {
