@@ -55,6 +55,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         self.gradationView.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
     
+    func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: NSError?) {
+        print("RSSI: " + String(RSSI))
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //グラデーションレイヤーをスクリーンサイズにする
@@ -83,8 +87,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         print("発見したBLEデバイス\(peripheral)")
         localNotification("発見したBLEデバイス\(peripheral)")
+        print("\(RSSI)")
         if peripheral.name == "健のiPad" {
             self.peripheral = peripheral
+            self.peripheral.readRSSI()
             self.centralManager.connectPeripheral(self.peripheral, options: nil)
         }
     }
@@ -152,6 +158,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         if characteristic.UUID == CBUUID(string: "b2e238b4-5b26-48c1-9023-2099a02c99b0") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
             major = String(data:characteristic.value!, encoding:NSUTF8StringEncoding)
+            peripheral.readRSSI()
         }
         if characteristic.UUID == CBUUID(string: "68da96b6-7634-440a-8fcf-95ef1a5e7e5b") {
             print("読み出し成功！service uuid: \(characteristic.UUID),value: \(characteristic.value)")
@@ -224,7 +231,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     @IBAction func keyButton(sender: AnyObject) {
         if keyFlag {
             if openCharacteristic != nil {
-                if !(major?.isEmpty)! && !(mainor?.isEmpty)! {
+                if major != nil && mainor != nil {
                     let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
                     let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
@@ -233,7 +240,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             }
         } else {
             if closeCharacteristic != nil {
-                if !(major?.isEmpty)! && !(mainor?.isEmpty)! {
+                if major != nil && mainor != nil {
                     let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
                     let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
