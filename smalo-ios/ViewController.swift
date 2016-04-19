@@ -14,7 +14,8 @@ import CoreBluetooth
 
 class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate {
     
-    var keyFlag = true
+    var dooreState = ""
+    var connectState = ""
     var major: String?
     var minor: String?
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
@@ -274,6 +275,56 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             // すでに入っている場合は、そのままRangingをスタートさせる
             // (Delegate didRangeBeacons)
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            //短いタイムアウト
+            config.timeoutIntervalForRequest = 20
+            //長居タイムアウト
+            config.timeoutIntervalForResource = 30
+            let session = NSURLSession(configuration: config)
+            // create the url-request
+            let urlString = "http://sesame.local:10080/api/lock/status?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+            
+            // set the method(HTTP-GET)
+            request.HTTPMethod = "GET"
+            
+            // use NSURLSessionDataTask
+            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                if (error == nil) {
+                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    switch (result) {
+                    case "unlocked":
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        self.titleIcon.image = UIImage(named: "smalo_home_close_icon.png")
+                        self.headerLabel.text = "CLOSE"
+                        self.dooreState = "close"
+                        break
+                    case "locked":
+                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        self.titleIcon.image = UIImage(named: "smalo_home_open_icon.png")
+                        self.headerLabel.text = "OPEN"
+                        self.dooreState = "open"
+                        break
+                    case "400 Bad Request":
+                        self.errorFlag = true
+                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                        break
+                    case "403 Forbidden":
+                        self.errorFlag = true
+                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                        break
+                    default:
+                        self.localNotification(result as String)
+                        break
+                    }
+                    print(result)
+                } else {
+                    self.errorFlag = true
+                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                    print(error)
+                }
+            })
+            task.resume()
             break;
             
         case .Outside:
@@ -339,35 +390,72 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                         // set the method(HTTP-GET)
                         request.HTTPMethod = "GET"
                         
-                        // use NSURLSessionDataTask
-                        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-                            if (error == nil) {
-                                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                                switch (result) {
-                                case "200 OK":
-                                    self.localNotification("開錠されました。")
-                                    self.sendFlag = true
-                                    break
-                                case "400 Bad Request":
+                        var task: NSURLSessionDataTask?;
+                        
+                        if dooreState == "open" {
+                            // use NSURLSessionDataTask
+                            task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                                if (error == nil) {
+                                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                                    switch (result) {
+                                    case "200 OK":
+                                        self.localNotification("開錠されました。")
+                                        self.dooreState = "close"
+                                        self.sendFlag = true
+                                        break
+                                    case "400 Bad Request":
+                                        self.errorFlag = true
+                                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                                        break
+                                    case "403 Forbidden":
+                                        self.errorFlag = true
+                                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                                        break
+                                    default:
+                                        self.localNotification(result as String)
+                                        break
+                                    }
+                                    print(result)
+                                } else {
                                     self.errorFlag = true
-                                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                                    break
-                                case "403 Forbidden":
-                                    self.errorFlag = true
-                                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                                    break
-                                default:
-                                    self.localNotification(result as String)
-                                    break
+                                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                                    print(error)
                                 }
-                                print(result)
-                            } else {
-                                self.errorFlag = true
-                                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                                print(error)
-                            }
-                        })
-                        task.resume()
+                            })
+                        } else if dooreState == "close" {
+                            // use NSURLSessionDataTask
+                            task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                                if (error == nil) {
+                                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                                    switch (result) {
+                                    case "200 OK":
+                                        self.localNotification("開錠されました。")
+                                        self.dooreState = "open"
+                                        self.sendFlag = true
+                                        break
+                                    case "400 Bad Request":
+                                        self.errorFlag = true
+                                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                                        break
+                                    case "403 Forbidden":
+                                        self.errorFlag = true
+                                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                                        break
+                                    default:
+                                        self.localNotification(result as String)
+                                        break
+                                    }
+                                    print(result)
+                                } else {
+                                    self.errorFlag = true
+                                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                                    print(error)
+                                }
+                            })
+                        }
+                        if task != nil {
+                            task!.resume()
+                        }
                     }
                     break
                     
@@ -401,48 +489,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             // Rangingを始める
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
         }
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        //短いタイムアウト
-        config.timeoutIntervalForRequest = 20
-        //長居タイムアウト
-        config.timeoutIntervalForResource = 30
-        let session = NSURLSession(configuration: config)
-        // create the url-request
-        let urlString = "http://sesame.local:10080/api/lock/status?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
-        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        
-        // set the method(HTTP-GET)
-        request.HTTPMethod = "GET"
-        
-        // use NSURLSessionDataTask
-        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-            if (error == nil) {
-                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                switch (result) {
-                case "200 OK":
-                    self.localNotification("開錠されました。")
-                    self.sendFlag = true
-                    break
-                case "400 Bad Request":
-                    self.errorFlag = true
-                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                    break
-                case "403 Forbidden":
-                    self.errorFlag = true
-                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                    break
-                default:
-                    self.localNotification(result as String)
-                    break
-                }
-                print(result)
-            } else {
-                self.errorFlag = true
-                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                print(error)
-            }
-        })
-        task.resume()
     }
     
     func beginBackgroundUpdateTask() -> UIBackgroundTaskIdentifier {
@@ -459,33 +505,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         NSLog("didExitRegion");
         localNotification("領域をでました")
-        
+        self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+        self.titleIcon.image = UIImage(named: "smalo_home_search_icon.png")
+        self.headerLabel.text = "SEARCH"
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
     
     @IBAction func keyButton(sender: AnyObject) {
-        if keyFlag {
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            //短いタイムアウト
-            config.timeoutIntervalForRequest = 20
-            //長居タイムアウト
-            config.timeoutIntervalForResource = 30
-            let session = NSURLSession(configuration: config)
-            // create the url-request
-            let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
-            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-            
-            // set the method(HTTP-GET)
-            request.HTTPMethod = "GET"
-            
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        //短いタイムアウト
+        config.timeoutIntervalForRequest = 20
+        //長居タイムアウト
+        config.timeoutIntervalForResource = 30
+        let session = NSURLSession(configuration: config)
+        // create the url-request
+        let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        // set the method(HTTP-GET)
+        request.HTTPMethod = "GET"
+        
+        var task: NSURLSessionDataTask?;
+        
+        if dooreState == "open" {
             // use NSURLSessionDataTask
-            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+            task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
                 if (error == nil) {
                     let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                     switch (result) {
                     case "200 OK":
-                        self.localNotification("開錠されました。")
+                        self.localNotification("解錠されました。")
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        self.titleIcon.image = UIImage(named: "smalo_home_close_icon.png")
+                        self.headerLabel.text = "CLOSE"
+                        self.dooreState = "open"
                         self.sendFlag = true
                         break
                     case "400 Bad Request":
@@ -507,28 +561,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     print(error)
                 }
             })
-            task.resume()
-        } else {
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            //短いタイムアウト
-            config.timeoutIntervalForRequest = 20
-            //長居タイムアウト
-            config.timeoutIntervalForResource = 30
-            let session = NSURLSession(configuration: config)
-            // create the url-request
-            let urlString = "http://sesame.local:10080/api/lock/locking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
-            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-            
-            // set the method(HTTP-GET)
-            request.HTTPMethod = "GET"
-            
+        } else if dooreState == "close" {
             // use NSURLSessionDataTask
-            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+            task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
                 if (error == nil) {
                     let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                     switch (result) {
                     case "200 OK":
-                        self.localNotification("開錠されました。")
+                        self.localNotification("施錠されました。")
+                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        self.titleIcon.image = UIImage(named: "smalo_home_open_icon.png")
+                        self.headerLabel.text = "OPEN"
+                        self.dooreState = "close"
                         self.sendFlag = true
                         break
                     case "400 Bad Request":
@@ -550,8 +594,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     print(error)
                 }
             })
-            task.resume()
         }
+        if task != nil {
+            task!.resume()
+        }
+
     }
 }
 extension String {
