@@ -20,8 +20,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     @IBOutlet var openButton: WKInterfaceButton!
     
     var wcSession = WCSession.defaultSession()
-    let connectOK = 0 , connectNG = 1
-    var state = 1
+    var state = "connectNG"
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -58,13 +57,13 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         label2.setText("スマホNG")
         label3.setText("スマロNG")
         
-        if( state == connectOK ){
+        if( state == "connectOK" ){
             
         //開閉要求
             let message = [ "stateUpdate" : "watchから" ]
         
             wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
-        }else if( state == connectNG ){
+        }else if( state == "connectNG" ){
             
             //開閉要求
             let message = [ "getState" : "watchから" ]
@@ -116,13 +115,13 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             label2.setText("スマホOK")
             label3.setText(parentMessage)
             openButton.setTitle("SEARCH")
-            state = connectNG
+            state = "connectNG"
             
         }else{
             
             label2.setText("スマホOK")
             label3.setText("スマロOK")
-            state = connectOK
+            state = "connectOK"
             
         }
     }

@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--sesame-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_Extension">
+                <controller title="sesame" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_Extension">
                     <items>
                         <label alignment="center" text="UNKNOWN" id="pQL-Po-Ypk"/>
                         <button width="1" height="100.5" alignment="center" verticalAlignment="center" title="SEARCH" id="AGE-5z-azb">
