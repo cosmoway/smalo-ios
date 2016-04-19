@@ -16,7 +16,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     
     var keyFlag = true
     var major: String?
-    var mainor: String?
+    var minor: String?
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
     //グラデーションレイヤーを作成
@@ -59,7 +59,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         //グラデーションレイヤーをビューの一番下に配置
         self.gradationView.layer.insertSublayer(gradientLayer, atIndex: 0)
         
-        print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
+        print(UUID)
         // CoreBluetoothを初期化および始動.
         myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
         
@@ -168,14 +168,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     }
     
     func localNotification(msg: String) {
-        if UIApplication.sharedApplication().applicationState != UIApplicationState.Active {
-            
-            let notification = UILocalNotification()
-            notification.timeZone = NSTimeZone.defaultTimeZone()
-            notification.alertBody = msg
-            notification.soundName = UILocalNotificationDefaultSoundName
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        }
+        let notification = UILocalNotification()
+        notification.timeZone = NSTimeZone.defaultTimeZone()
+        notification.alertBody = msg
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
@@ -309,14 +306,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                 let beacon = beacons[i]
                 
                 let beaconUUID = beacon.proximityUUID
-                let minorID = beacon.minor
-                let majorID = beacon.major
+                minor = "\(beacon.minor)"
+                major = "\(beacon.major)"
                 let rssi = beacon.rssi
                 let accuracy = beacon.accuracy
                 
                 print("UUID: \(beaconUUID.UUIDString)")
-                print("minorID: \(minorID)")
-                print("majorID: \(majorID)")
+                print("minorID: \(minor)")
+                print("majorID: \(major)")
                 print("RSSI: \(rssi)")
                 print("accuracy: \(accuracy)")
                 
@@ -336,7 +333,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                         config.timeoutIntervalForResource = 30
                         let session = NSURLSession(configuration: config)
                         // create the url-request
-                        let urlString = "http://sesame.local:10080/?data=\((UIDevice.currentDevice().identifierForVendor!.UUIDString+"|"+majorID.stringValue+"|"+minorID.stringValue).sha256)"
+                        let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
                         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
                         
                         // set the method(HTTP-GET)
@@ -380,7 +377,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     
                 case CLProximity.Immediate:
                     print("Proximity: Immediate")
-                    print("近いよ uuid:\(UIDevice.currentDevice().identifierForVendor!.UUIDString.sha256) major:\(majorID.stringValue.sha256) minor:\(minorID.stringValue.sha256)")
                     break
                 }
                 
@@ -405,6 +401,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             // Rangingを始める
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
         }
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        //短いタイムアウト
+        config.timeoutIntervalForRequest = 20
+        //長居タイムアウト
+        config.timeoutIntervalForResource = 30
+        let session = NSURLSession(configuration: config)
+        // create the url-request
+        let urlString = "http://sesame.local:10080/api/lock/status?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        // set the method(HTTP-GET)
+        request.HTTPMethod = "GET"
+        
+        // use NSURLSessionDataTask
+        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+            if (error == nil) {
+                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                switch (result) {
+                case "200 OK":
+                    self.localNotification("開錠されました。")
+                    self.sendFlag = true
+                    break
+                case "400 Bad Request":
+                    self.errorFlag = true
+                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    break
+                case "403 Forbidden":
+                    self.errorFlag = true
+                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    break
+                default:
+                    self.localNotification(result as String)
+                    break
+                }
+                print(result)
+            } else {
+                self.errorFlag = true
+                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                print(error)
+            }
+        })
+        task.resume()
     }
     
     func beginBackgroundUpdateTask() -> UIBackgroundTaskIdentifier {
@@ -428,7 +466,91 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     
     @IBAction func keyButton(sender: AnyObject) {
         if keyFlag {
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            //短いタイムアウト
+            config.timeoutIntervalForRequest = 20
+            //長居タイムアウト
+            config.timeoutIntervalForResource = 30
+            let session = NSURLSession(configuration: config)
+            // create the url-request
+            let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+            
+            // set the method(HTTP-GET)
+            request.HTTPMethod = "GET"
+            
+            // use NSURLSessionDataTask
+            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                if (error == nil) {
+                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    switch (result) {
+                    case "200 OK":
+                        self.localNotification("開錠されました。")
+                        self.sendFlag = true
+                        break
+                    case "400 Bad Request":
+                        self.errorFlag = true
+                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                        break
+                    case "403 Forbidden":
+                        self.errorFlag = true
+                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                        break
+                    default:
+                        self.localNotification(result as String)
+                        break
+                    }
+                    print(result)
+                } else {
+                    self.errorFlag = true
+                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                    print(error)
+                }
+            })
+            task.resume()
         } else {
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            //短いタイムアウト
+            config.timeoutIntervalForRequest = 20
+            //長居タイムアウト
+            config.timeoutIntervalForResource = 30
+            let session = NSURLSession(configuration: config)
+            // create the url-request
+            let urlString = "http://sesame.local:10080/api/lock/locking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+            
+            // set the method(HTTP-GET)
+            request.HTTPMethod = "GET"
+            
+            // use NSURLSessionDataTask
+            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                if (error == nil) {
+                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    switch (result) {
+                    case "200 OK":
+                        self.localNotification("開錠されました。")
+                        self.sendFlag = true
+                        break
+                    case "400 Bad Request":
+                        self.errorFlag = true
+                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                        break
+                    case "403 Forbidden":
+                        self.errorFlag = true
+                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                        break
+                    default:
+                        self.localNotification(result as String)
+                        break
+                    }
+                    print(result)
+                } else {
+                    self.errorFlag = true
+                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                    print(error)
+                }
+            })
+            task.resume()
         }
     }
 }
