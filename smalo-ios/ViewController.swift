@@ -16,8 +16,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     
     var dooreState = ""
     var connectState = ""
-    var major: String?
-    var minor: String?
+    var major: String = ""
+    var minor: String = ""
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
     //グラデーションレイヤーを作成
@@ -32,9 +32,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var errorFlag = false
     
     @IBOutlet weak var keyButton: UIButton!
-    @IBOutlet weak var gradationView: UIView!
-    @IBOutlet weak var titleIcon: UIImageView!
-    @IBOutlet weak var headerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +42,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
-        pulsator.start()
+        //keyButton.enabled = false
+        //pulsator.start()
         //グラデーションの開始色
         let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
         //グラデーションの開始色
@@ -57,8 +55,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         //グラデーションの色をレイヤーに割り当てる
         gradientLayer.colors = gradientColors
         
+        gradientLayer.locations = [0.8, 1]
+        
         //グラデーションレイヤーをビューの一番下に配置
-        self.gradationView.layer.insertSublayer(gradientLayer, atIndex: 0)
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
         print(UUID)
         // CoreBluetoothを初期化および始動.
@@ -126,7 +126,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             
             
             // BeaconのUUIDを設定.
-            let uuid = NSUUID(UUIDString: "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA")
+            let uuid = NSUUID(UUIDString: "51A4A738-62B8-4B26-A929-3BBAC2A5CE7C")
             
             // リージョンを作成.
             myBeaconRegion = CLBeaconRegion(proximityUUID: uuid!,identifier: "EstimoteRegion")
@@ -159,8 +159,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //グラデーションレイヤーをスクリーンサイズにする
-        gradientLayer.frame.size = self.gradationView.frame.size
+        gradientLayer.frame.size = self.view.frame.size
         pulsator.position = keyButton.center
+        (UIApplication.sharedApplication().delegate as! AppDelegate).pulsator = pulsator
     }
 
     override func didReceiveMemoryWarning() {
@@ -282,7 +283,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             config.timeoutIntervalForResource = 30
             let session = NSURLSession(configuration: config)
             // create the url-request
-            let urlString = "http://sesame.local:10080/api/lock/status?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+            let urlString = "http://sesame.local:10080/api/lock/status?data=\((UUID+"|"+major+"|"+minor).sha256)"
             let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
             
             // set the method(HTTP-GET)
@@ -295,15 +296,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     switch (result) {
                     case "unlocked":
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        self.titleIcon.image = UIImage(named: "smalo_home_close_icon.png")
-                        self.headerLabel.text = "CLOSE"
                         self.dooreState = "close"
+                        self.keyButton.enabled = true
                         break
                     case "locked":
                         self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                        self.titleIcon.image = UIImage(named: "smalo_home_open_icon.png")
-                        self.headerLabel.text = "OPEN"
                         self.dooreState = "open"
+                        self.keyButton.enabled = true
                         break
                     case "400 Bad Request":
                         self.errorFlag = true
@@ -384,7 +383,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                         config.timeoutIntervalForResource = 30
                         let session = NSURLSession(configuration: config)
                         // create the url-request
-                        let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+                        let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major+"|"+minor).sha256)"
                         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
                         
                         // set the method(HTTP-GET)
@@ -506,8 +505,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         NSLog("didExitRegion");
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
-        self.titleIcon.image = UIImage(named: "smalo_home_search_icon.png")
-        self.headerLabel.text = "SEARCH"
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
@@ -520,7 +517,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         config.timeoutIntervalForResource = 30
         let session = NSURLSession(configuration: config)
         // create the url-request
-        let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major!+"|"+minor!).sha256)"
+        let urlString = "http://sesame.local:10080/api/lock/unlocking?data=\((UUID+"|"+major+"|"+minor).sha256)"
         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
         
         // set the method(HTTP-GET)
@@ -537,8 +534,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     case "200 OK":
                         self.localNotification("解錠されました。")
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        self.titleIcon.image = UIImage(named: "smalo_home_close_icon.png")
-                        self.headerLabel.text = "CLOSE"
                         self.dooreState = "open"
                         self.sendFlag = true
                         break
@@ -570,8 +565,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     case "200 OK":
                         self.localNotification("施錠されました。")
                         self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                        self.titleIcon.image = UIImage(named: "smalo_home_open_icon.png")
-                        self.headerLabel.text = "OPEN"
                         self.dooreState = "close"
                         self.sendFlag = true
                         break

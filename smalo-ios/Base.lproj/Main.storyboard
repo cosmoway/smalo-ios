@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,102 +17,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aed-SY-D4i">
-                                <rect key="frame" x="0.0" y="250" width="600" height="350"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-vv-5Gb">
-                                        <rect key="frame" x="225" y="100" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="SjT-fl-stR"/>
-                                            <constraint firstAttribute="height" constant="150" id="jUm-cA-vh2"/>
-                                        </constraints>
-                                        <state key="normal" image="smalo_search_button"/>
-                                        <connections>
-                                            <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="5T3-Rr-hbd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-vv-5Gb" customClass="ZFRippleButton" customModule="smalo_ios" customModuleProvider="target">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerY" secondItem="aed-SY-D4i" secondAttribute="centerY" id="5VB-pM-Oqu"/>
-                                    <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerX" secondItem="aed-SY-D4i" secondAttribute="centerX" id="rbq-YA-m8x"/>
+                                    <constraint firstAttribute="width" constant="150" id="SjT-fl-stR"/>
+                                    <constraint firstAttribute="height" constant="150" id="jUm-cA-vh2"/>
                                 </constraints>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-Kg-cxs">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="csw-VE-pxx"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.16078431369999999" green="0.68235294120000001" blue="0.76470588240000004" alpha="0.80049092060000004" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="smalo" id="FBe-cY-Nad"/>
-                                </items>
-                            </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGY-YD-Ea1">
-                                <rect key="frame" x="0.0" y="60" width="600" height="190"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalo_search_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ie-la-WLQ">
-                                        <rect key="frame" x="265" y="70" width="70" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="26F-is-JCG"/>
-                                            <constraint firstAttribute="height" constant="50" id="lgz-Z7-CbO"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SEARCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzQ-AH-Id2">
-                                        <rect key="frame" x="248" y="149" width="104" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="0.30429159630000002" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="SzQ-AH-Id2" secondAttribute="bottom" constant="8" id="2XC-c4-wgS"/>
-                                    <constraint firstAttribute="height" constant="160" id="X1i-bA-21V"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="csM-WD-zDM"/>
-                                    <constraint firstItem="SzQ-AH-Id2" firstAttribute="centerX" secondItem="fGY-YD-Ea1" secondAttribute="centerX" id="itO-Tw-RmG"/>
-                                    <constraint firstAttribute="height" constant="190" id="lsU-Av-bwn"/>
-                                    <constraint firstItem="7Ie-la-WLQ" firstAttribute="centerX" secondItem="fGY-YD-Ea1" secondAttribute="centerX" id="ryp-Uu-TeC"/>
-                                    <constraint firstAttribute="height" constant="140" id="sIa-sL-pag"/>
-                                    <constraint firstItem="7Ie-la-WLQ" firstAttribute="centerY" secondItem="fGY-YD-Ea1" secondAttribute="centerY" id="sn9-zR-7rW"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="X1i-bA-21V"/>
-                                        <exclude reference="csM-WD-zDM"/>
-                                        <exclude reference="sIa-sL-pag"/>
-                                    </mask>
-                                </variation>
-                            </view>
+                                <state key="normal" image="smalo_search_button"/>
+                                <state key="disabled" image="smalo_search_button"/>
+                                <state key="selected" image="smalo_search_button"/>
+                                <state key="focused" image="smalo_search_button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRippleRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rippleOverBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                        <color key="value" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="0.30429159630000002" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="200"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="5T3-Rr-hbd"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.16078431369999999" green="0.68235294120000001" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="fGY-YD-Ea1" secondAttribute="trailing" constant="-20" id="0y4-NE-tBh"/>
-                            <constraint firstItem="aed-SY-D4i" firstAttribute="top" secondItem="fGY-YD-Ea1" secondAttribute="bottom" id="8ml-DC-BRg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aed-SY-D4i" secondAttribute="bottom" id="A10-Ee-7J5"/>
-                            <constraint firstItem="fGY-YD-Ea1" firstAttribute="top" secondItem="aQR-Kg-cxs" secondAttribute="bottom" id="JH6-PF-nb1"/>
-                            <constraint firstItem="aQR-Kg-cxs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="RMK-hn-eVG"/>
-                            <constraint firstItem="aed-SY-D4i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Rpb-dh-Pzl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aQR-Kg-cxs" secondAttribute="trailing" constant="-20" id="chZ-2k-DaP"/>
-                            <constraint firstItem="fGY-YD-Ea1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="hVm-mE-40X"/>
-                            <constraint firstItem="aQR-Kg-cxs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qZl-1O-O98"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aed-SY-D4i" secondAttribute="trailing" constant="-20" id="uT4-Tg-DZg"/>
-                            <constraint firstItem="aed-SY-D4i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="188" id="zvl-6h-lE4"/>
+                            <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E1v-Ee-CnT"/>
+                            <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nrv-TV-R0Y"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="zvl-6h-lE4"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="gradationView" destination="aed-SY-D4i" id="H4l-yK-wez"/>
-                        <outlet property="headerLabel" destination="SzQ-AH-Id2" id="aBb-C3-f3m"/>
                         <outlet property="keyButton" destination="9wZ-vv-5Gb" id="PMs-BX-GP5"/>
-                        <outlet property="titleIcon" destination="7Ie-la-WLQ" id="iEe-yk-kyC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,6 +65,5 @@
     </scenes>
     <resources>
         <image name="smalo_search_button" width="340" height="340"/>
-        <image name="smalo_search_icon" width="120" height="120"/>
     </resources>
 </document>
