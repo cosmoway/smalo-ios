@@ -42,8 +42,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
-        //keyButton.enabled = false
-        //pulsator.start()
+        keyButton.enabled = false
+        pulsator.start()
         //グラデーションの開始色
         let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
         //グラデーションの開始色
@@ -270,7 +270,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             
         case .Inside: // リージョン内にいる
             print("CLRegionStateInside:");
-            
+            pulsator.stop()
             // すでに入っている場合は、そのままRangingをスタートさせる
             // (Delegate didRangeBeacons)
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
@@ -293,14 +293,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                     switch (result) {
                     case "unlocked":
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                         self.dooreState = "close"
                         self.keyButton.enabled = true
+                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                         break
                     case "locked":
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                         self.dooreState = "open"
                         self.keyButton.enabled = true
+                        ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                         break
                     case "400 Bad Request":
                         self.errorFlag = true
@@ -332,7 +334,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         case .Unknown:
             print("CLRegionStateUnknown:")
             // 外にいる、またはUknownの場合はdidEnterRegionが適切な範囲内に入った時に呼ばれるため処理なし。
-            
         }
     }
     

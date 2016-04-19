@@ -64,6 +64,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="smalo_search_button" width="340" height="340"/>
+        <image name="smalo_search_button" width="400" height="400"/>
     </resources>
 </document>
