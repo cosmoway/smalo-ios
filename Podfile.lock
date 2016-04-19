@@ -1,10 +1,22 @@
 PODS:
   - Pulsator (0.1.0)
+  - ReachabilitySwift (2.3.3)
 
 DEPENDENCIES:
   - Pulsator
+  - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
+
+EXTERNAL SOURCES:
+  ReachabilitySwift:
+    :git: https://github.com/ashleymills/Reachability.swift
+
+CHECKOUT OPTIONS:
+  ReachabilitySwift:
+    :commit: fa90df50c04f5743fbdf643cbe8d10562d75673d
+    :git: https://github.com/ashleymills/Reachability.swift
 
 SPEC CHECKSUMS:
   Pulsator: da87aa289b30b5e0cc7e03b21d9f2cb58277f601
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
 
 COCOAPODS: 0.39.0
