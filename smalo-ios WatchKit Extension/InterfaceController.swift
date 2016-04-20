@@ -16,8 +16,9 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     @IBOutlet var label2: WKInterfaceLabel!
     @IBOutlet var label3: WKInterfaceLabel!
     
-    @IBOutlet var myGroup: WKInterfaceGroup!
+    @IBOutlet var group: WKInterfaceGroup!
     @IBOutlet var openButton: WKInterfaceButton!
+    @IBOutlet var buttonImage: WKInterfaceImage!
     
     var wcSession = WCSession.defaultSession()
     var state = "connectNG"
@@ -57,19 +58,26 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         label2.setText("スマホNG")
         label3.setText("スマロNG")
         
-        if( state == "connectOK" ){
+        if( state == "connectNG" ){
             
         //開閉要求
-            let message = [ "stateUpdate" : "watchから" ]
+            let message = [ "getState" : "watchから" ]
         
             wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
-        }else if( state == "connectNG" ){
+        }else if( state == "connectOpen" ){
             
             //開閉要求
-            let message = [ "getState" : "watchから" ]
+            let message = [ "stateUpdate" : "watchから" ]
+            group.setBackgroundColor(UIColor(red: 0.20, green: 0.71, blue: 0.94, alpha: 0.3))
             
             wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
             
+        }else if( state == "connectClose"){
+            //開閉要求
+            let message = [ "stateUpdate" : "watchから" ]
+            group.setBackgroundColor(UIColor(red: 0.99, green: 0.93, blue: 0.13, alpha: 0.3))
+            
+            wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
         }
     }
     
@@ -83,6 +91,9 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             
             label.setText(parentMessage)
             label2.setText("スマホOK")
+            state = "connectClose"
+            
+            buttonImage.setImageNamed("close_button")
         }
         
         //鍵が開いている場合
@@ -92,6 +103,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             
             label.setText(parentMessage)
             label2.setText("スマホOK")
+            state = "connectOpen"
+            buttonImage.setImageNamed("open_button")
         }
         
         //解錠メッセージを受け取る
@@ -99,6 +112,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             
             label.setText(parentMessage)
             openButton.setTitle("Close")
+            state = "connectOpen"
+            buttonImage.setImageNamed("open_button")
         }
         
         //施錠メッセージを受け取る
@@ -106,6 +121,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             
             label.setText(parentMessage)
             openButton.setTitle("Open")
+            state = "connectClose"
+            buttonImage.setImageNamed("close_button")
         }
         
         //BLE接続のメッセージを受け取る
@@ -116,14 +133,15 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             label3.setText(parentMessage)
             openButton.setTitle("SEARCH")
             state = "connectNG"
+            buttonImage.setImageNamed("search_button")
             
         }else{
             
             label2.setText("スマホOK")
             label3.setText("スマロOK")
-            state = "connectOK"
             
         }
+        group.setBackgroundColor(UIColor.clearColor())
     }
     
     override func willActivate() {

@@ -5,13 +5,22 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--sesame-->
+        <!--SMALO-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="sesame" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_Extension">
+                <controller title="SMALO" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="smalo_ios_WatchKit_Extension">
                     <items>
                         <label alignment="center" text="UNKNOWN" id="pQL-Po-Ypk"/>
-                        <button width="1" height="100.5" alignment="center" verticalAlignment="center" title="SEARCH" id="AGE-5z-azb">
+                        <button alignment="center" verticalAlignment="center" id="AGE-5z-azb">
+                            <group key="contentGroup" width="1" alignment="left" radius="77" id="zXl-fo-5BK">
+                                <items>
+                                    <group alignment="center" verticalAlignment="center" id="n8b-24-1YG" userLabel="buttonGroup">
+                                        <items>
+                                            <imageView width="120" alignment="center" verticalAlignment="center" image="search_button" id="dyF-F2-RRq"/>
+                                        </items>
+                                    </group>
+                                </items>
+                            </group>
                             <connections>
                                 <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
                             </connections>
@@ -24,6 +33,8 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="buttonImage" destination="dyF-F2-RRq" id="Jvy-PS-EvF"/>
+                        <outlet property="group" destination="zXl-fo-5BK" id="Mjt-OX-66X"/>
                         <outlet property="label" destination="pQL-Po-Ypk" id="wA7-BT-IJd"/>
                         <outlet property="label2" destination="GkH-G9-bfs" id="tYv-Rx-s5e"/>
                         <outlet property="label3" destination="jy5-0P-hpp" id="4iA-4w-Dcq"/>
