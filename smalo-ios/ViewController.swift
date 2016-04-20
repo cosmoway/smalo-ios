@@ -335,7 +335,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                             let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                             switch (result) {
                             case "unlocked":
-                                self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                                })
                                 self.dooreState = "close"
                                 self.keyButton.enabled = true
                                 ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
@@ -343,7 +345,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                 self.pulsator.stop()
                                 break
                             case "locked":
-                                self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                                })
                                 self.dooreState = "open"
                                 self.keyButton.enabled = true
                                 ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
@@ -434,6 +438,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         self.keyButton.enabled = false
+        keyFlag = true
         pulsator.start()
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
@@ -467,7 +472,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     switch (result) {
                     case "200 OK":
                         self.localNotification("施錠されました")
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        })
                         self.dooreState = "close"
                         self.sendFlag = true
                         break
@@ -511,7 +518,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     switch (result) {
                     case "200 OK":
                         self.localNotification("解錠されました。")
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        })
                         self.dooreState = "open"
                         self.sendFlag = true
                         break
