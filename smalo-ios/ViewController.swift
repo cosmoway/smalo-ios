@@ -270,7 +270,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             
         case .Inside: // リージョン内にいる
             print("CLRegionStateInside:");
-            pulsator.stop()
             // すでに入っている場合は、そのままRangingをスタートさせる
             // (Delegate didRangeBeacons)
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
@@ -297,12 +296,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                         self.dooreState = "close"
                         self.keyButton.enabled = true
                         ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+                        self.pulsator.stop()
                         break
                     case "locked":
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                         self.dooreState = "open"
                         self.keyButton.enabled = true
                         ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+                        self.pulsator.stop()
                         break
                     case "400 Bad Request":
                         self.errorFlag = true
@@ -428,6 +429,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         // Rangingを停止する
+        pulsator.start()
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
     
