@@ -273,58 +273,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             // すでに入っている場合は、そのままRangingをスタートさせる
             // (Delegate didRangeBeacons)
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            //短いタイムアウト
-            config.timeoutIntervalForRequest = 20
-            //長居タイムアウト
-            config.timeoutIntervalForResource = 30
-            let session = NSURLSession(configuration: config)
-            // create the url-request
-            let urlString = "http://smalo.local:10080/api/locks/status/\((UUID+"|"+major+"|"+minor).sha256)"
-            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-            
-            // set the method(HTTP-GET)
-            request.HTTPMethod = "GET"
-            //鍵の状態を問い合わせるAPI
-            // use NSURLSessionDataTask
-            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-                if (error == nil) {
-                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    switch (result) {
-                    case "unlocked":
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                        self.dooreState = "close"
-                        self.keyButton.enabled = true
-                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-                        self.pulsator.stop()
-                        break
-                    case "locked":
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        self.dooreState = "open"
-                        self.keyButton.enabled = true
-                        ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-                        self.pulsator.stop()
-                        break
-                    case "400 Bad Request":
-                        self.errorFlag = true
-                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                        break
-                    case "403 Forbidden":
-                        self.errorFlag = true
-                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                        break
-                    default:
-                        self.localNotification(result as String)
-                        break
-                    }
-                    print(result)
-                } else {
-                    self.errorFlag = true
-                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                    print(error)
-                }
-            })
-            task.resume()
             break;
             
         case .Outside:
@@ -366,6 +314,59 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                 print("majorID: \(major)")
                 print("RSSI: \(rssi)")
                 print("accuracy: \(accuracy)")
+                
+                let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+                //短いタイムアウト
+                config.timeoutIntervalForRequest = 20
+                //長居タイムアウト
+                config.timeoutIntervalForResource = 30
+                let session = NSURLSession(configuration: config)
+                // create the url-request
+                let urlString = "http://smalo.local:10080/api/locks/status/\((UUID+"|"+major+"|"+minor).sha256)"
+                let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+                
+                // set the method(HTTP-GET)
+                request.HTTPMethod = "GET"
+                //鍵の状態を問い合わせるAPI
+                // use NSURLSessionDataTask
+                let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+                    if (error == nil) {
+                        let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                        switch (result) {
+                        case "unlocked":
+                            self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                            self.dooreState = "close"
+                            self.keyButton.enabled = true
+                            ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+                            self.pulsator.stop()
+                            break
+                        case "locked":
+                            self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                            self.dooreState = "open"
+                            self.keyButton.enabled = true
+                            ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+                            self.pulsator.stop()
+                            break
+                        case "400 Bad Request":
+                            self.errorFlag = true
+                            self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                            break
+                        case "403 Forbidden":
+                            self.errorFlag = true
+                            self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                            break
+                        default:
+                            self.localNotification(result as String)
+                            break
+                        }
+                        print(result)
+                    } else {
+                        self.errorFlag = true
+                        self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                        print(error)
+                    }
+                })
+                task.resume()
                 
                 switch (beacon.proximity) {
                     
