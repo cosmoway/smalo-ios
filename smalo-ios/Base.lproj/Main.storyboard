@@ -43,7 +43,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="5T3-Rr-hbd"/>
+                                    <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="oo4-qB-Qy0"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalo_title" translatesAutoresizingMaskIntoConstraints="NO" id="Kkn-oV-gtU">
