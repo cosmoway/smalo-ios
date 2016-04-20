@@ -286,7 +286,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             
             // set the method(HTTP-GET)
             request.HTTPMethod = "GET"
-            
+            //鍵の状態を問い合わせるAPI
             // use NSURLSessionDataTask
             let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
                 if (error == nil) {
@@ -375,93 +375,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                 case CLProximity.Far:
                     print("Proximity: Far")
                     if (!sendFlag && UIApplication.sharedApplication().applicationState != UIApplicationState.Active) {
-                        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-                        //短いタイムアウト
-                        config.timeoutIntervalForRequest = 20
-                        //長居タイムアウト
-                        config.timeoutIntervalForResource = 30
-                        let session = NSURLSession(configuration: config)
-                        
-                        var task: NSURLSessionDataTask?;
-                        
-                        if dooreState == "open" {
-                            // create the url-request
-                            let urlString = "GET http://smalo.local:10080/api/locks/locking/\((UUID+"|"+major+"|"+minor).sha256)"
-                            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-                            
-                            // set the method(HTTP-GET)
-                            request.HTTPMethod = "GET"
-                            // use NSURLSessionDataTask
-                            task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-                                if (error == nil) {
-                                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                                    switch (result) {
-                                    case "200 OK":
-                                        self.localNotification("施錠されました。")
-                                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                                        self.dooreState = "close"
-                                        self.sendFlag = true
-                                        break
-                                    case "400 Bad Request":
-                                        self.errorFlag = true
-                                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                                        break
-                                    case "403 Forbidden":
-                                        self.errorFlag = true
-                                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                                        break
-                                    default:
-                                        self.localNotification(result as String)
-                                        break
-                                    }
-                                    print(result)
-                                } else {
-                                    self.errorFlag = true
-                                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                                    print(error)
-                                }
-                            })
-                        } else if dooreState == "close" {
-                            // create the url-request
-                            let urlString = "http://smalo.local:10080/api/locks/unlocking/\((UUID+"|"+major+"|"+minor).sha256)"
-                            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-                            
-                            // set the method(HTTP-GET)
-                            request.HTTPMethod = "GET"
-                            // use NSURLSessionDataTask
-                            task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-                                if (error == nil) {
-                                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                                    switch (result) {
-                                    case "200 OK":
-                                        self.localNotification("解錠されました。")
-                                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                                        self.dooreState = "open"
-                                        self.sendFlag = true
-                                        break
-                                    case "400 Bad Request":
-                                        self.errorFlag = true
-                                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                                        break
-                                    case "403 Forbidden":
-                                        self.errorFlag = true
-                                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                                        break
-                                    default:
-                                        self.localNotification(result as String)
-                                        break
-                                    }
-                                    print(result)
-                                } else {
-                                    self.errorFlag = true
-                                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                                    print(error)
-                                }
-                            })
-                        }
-                        if task != nil {
-                            task!.resume()
-                        }
+                        //施錠か解錠のAPIを叩く関数
+                        sendHttpMessage()
                     }
                     break
                     
@@ -517,6 +432,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     }
     
     @IBAction func keyButton(sender: AnyObject) {
+        sendHttpMessage()
+
+    }
+    
+    func sendHttpMessage() {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         //短いタイムアウト
         config.timeoutIntervalForRequest = 20
@@ -525,7 +445,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         let session = NSURLSession(configuration: config)
         
         var task: NSURLSessionDataTask?;
-        
+        //doorStateがopenだった場合施錠のAPIを叩く
         if dooreState == "open" {
             // create the url-request
             let urlString = "GET http://smalo.local:10080/api/locks/locking/\((UUID+"|"+major+"|"+minor).sha256)"
@@ -563,6 +483,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                     print(error)
                 }
             })
+        //doorStateがopenだった場合解錠のAPIを叩く
         } else if dooreState == "close" {
             let urlString = "GET http://smalo.local:10080/api/locks/unlocking/\((UUID+"|"+major+"|"+minor).sha256)"
             let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
@@ -603,8 +524,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         if task != nil {
             task!.resume()
         }
-
     }
+    
 }
 extension String {
     var sha256: String! {
