@@ -15,8 +15,6 @@ class ViewController: UIViewController,WCSessionDelegate {
     //ドアの状態、edisonとの通信状態の管理用変数
     var doorState = "close" ,connectState = "NG"
     
-    @IBOutlet weak var label: UILabel!
-    
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -46,13 +44,13 @@ class ViewController: UIViewController,WCSessionDelegate {
     
     //Edisonと通信できてるかの仮ボタン
     //TODO 完成したら削除
-    @IBAction func BLEbutton(sender: AnyObject) {
-        if( connectState == "OK" ){
-            connectState = "NG"
-        }else if( connectState == "NG" ){
-            connectState = "OK"
-        }
-    }
+//    @IBAction func BLEbutton(sender: AnyObject) {
+//        if( connectState == "OK" ){
+//            connectState = "NG"
+//        }else if( connectState == "NG" ){
+//            connectState = "OK"
+//        }
+//    }
     
     // watchからのメッセージを受け取る
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
@@ -61,8 +59,6 @@ class ViewController: UIViewController,WCSessionDelegate {
         
             //鍵の状態の取得要求だった場合
             if let watchMessage = message["getState"] as? String {
-            
-                label.text = watchMessage
             
                 if( connectState == "OK" ){
             
@@ -85,7 +81,6 @@ class ViewController: UIViewController,WCSessionDelegate {
             if let watchMessage = message["stateUpdate"] as? String {
                 if( doorState == "close" ){
                     //TODO edisonに解錠要求
-                    label.text = watchMessage + "解錠"
                 
                     let message = [ "parentOpen" : "Opened"]
                 
@@ -94,7 +89,6 @@ class ViewController: UIViewController,WCSessionDelegate {
                     doorState = "open"
                 }else if( doorState == "open" ){
                     //TODO edisonに施錠要求
-                    label.text = watchMessage + "施錠"
                 
                     let message = [ "parentClose" : "Closed"]
                 
