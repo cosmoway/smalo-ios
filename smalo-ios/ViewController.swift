@@ -36,7 +36,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        pulsator.numPulse = 4
+        pulsator.numPulse = 5
         pulsator.radius = 170.0
         pulsator.animationDuration = 4.0
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
@@ -429,6 +429,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         // Rangingを停止する
+        pulsator.stop()
         pulsator.start()
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }

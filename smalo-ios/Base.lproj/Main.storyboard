@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-vv-5Gb" customClass="ZFRippleButton" customModule="smalo_ios" customModuleProvider="target">
-                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="SjT-fl-stR"/>
-                                    <constraint firstAttribute="height" constant="150" id="jUm-cA-vh2"/>
+                                    <constraint firstAttribute="width" constant="200" id="SjT-fl-stR"/>
+                                    <constraint firstAttribute="height" constant="200" id="jUm-cA-vh2"/>
                                 </constraints>
                                 <state key="normal" image="smalo_search_button"/>
                                 <state key="disabled" image="smalo_search_button"/>
@@ -46,12 +46,29 @@
                                     <action selector="keyButton:" destination="BYZ-38-t0r" eventType="touchDown" id="5T3-Rr-hbd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalo_title" translatesAutoresizingMaskIntoConstraints="NO" id="Kkn-oV-gtU">
+                                <rect key="frame" x="243" y="100" width="115" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="DNy-7l-u9f"/>
+                                    <constraint firstAttribute="width" constant="115" id="Ikn-ro-bDL"/>
+                                    <constraint firstAttribute="width" constant="150" id="VoW-h6-QF9"/>
+                                    <constraint firstAttribute="height" constant="34" id="lkN-Uk-0YJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="VoW-h6-QF9"/>
+                                        <exclude reference="lkN-Uk-0YJ"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E1v-Ee-CnT"/>
                             <constraint firstItem="9wZ-vv-5Gb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nrv-TV-R0Y"/>
+                            <constraint firstItem="Kkn-oV-gtU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sJp-Tt-rED"/>
+                            <constraint firstItem="Kkn-oV-gtU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="yLh-Z3-YQT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -65,5 +82,6 @@
     </scenes>
     <resources>
         <image name="smalo_search_button" width="400" height="400"/>
+        <image name="smalo_title" width="266" height="44"/>
     </resources>
 </document>
