@@ -428,9 +428,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         NSLog("didExitRegion");
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
-        // Rangingを停止する
-        pulsator.stop()
         pulsator.start()
+        // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
     
