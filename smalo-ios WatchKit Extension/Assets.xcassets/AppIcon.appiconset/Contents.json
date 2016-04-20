@@ -3,7 +3,6 @@
     {
       "size" : "24x24",
       "idiom" : "watch",
-      "filename" : "smalo_w_icon48.png",
       "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "38mm"
@@ -11,7 +10,6 @@
     {
       "size" : "27.5x27.5",
       "idiom" : "watch",
-      "filename" : "smalo_w_icon55.png",
       "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "42mm"
@@ -31,7 +29,6 @@
     {
       "size" : "40x40",
       "idiom" : "watch",
-      "filename" : "smalo_w_icon80.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "38mm"
@@ -39,7 +36,6 @@
     {
       "size" : "44x44",
       "idiom" : "watch",
-      "filename" : "smalo_w_icon88.png",
       "scale" : "2x",
       "role" : "longLook",
       "subtype" : "42mm"
@@ -47,7 +43,6 @@
     {
       "size" : "86x86",
       "idiom" : "watch",
-      "filename" : "smalo_w_icon172.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "38mm"
@@ -55,7 +50,6 @@
     {
       "size" : "98x98",
       "idiom" : "watch",
-      "filename" : "smalo_w_icon196.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
