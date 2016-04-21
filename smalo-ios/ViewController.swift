@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import WatchConnectivity
 import Pulsator
 import ReachabilitySwift
 import CoreLocation
 import CoreBluetooth
 
-class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate {
+class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDelegate, CBCentralManagerDelegate{
     
-    var dooreState = ""
-    var connectState = ""
+    @IBOutlet weak var keyButton: UIButton!
+    
+    var wcSession = WCSession.defaultSession()
+    //ドアの状態、edisonとの通信状態の管理用変数
+    //var doorState = "close" ,connectState = "NG"
+    var doorState = ""
     var major: String = ""
     var minor: String = ""
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
@@ -32,12 +37,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var errorFlag = false
     var keyFlag = true
     
-    @IBOutlet weak var keyButton: UIButton!
+    // protcol NSCorder init
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
     
+    // UIViewController init override
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        pulsator.numPulse = 5
+        
+        // check supported
+        if WCSession.isSupported() {
+            //  get default session
+            wcSession = WCSession.defaultSession()
+            // set delegate
+            wcSession.delegate = self
+            // activate session
+            wcSession.activateSession()
+        } else {
+            print("Not support WCSession")
+        }
+        
+        pulsator.numPulse = 4
         pulsator.radius = 170.0
         pulsator.animationDuration = 4.0
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
@@ -155,6 +181,65 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             
             presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    //Edisonと通信できてるかの仮ボタン
+    //TODO 完成したら削除
+//    @IBAction func BLEbutton(sender: AnyObject) {
+//        if( connectState == "OK" ){
+//            connectState = "NG"
+//        }else if( connectState == "NG" ){
+//            connectState = "OK"
+//        }
+//    }
+    
+    // watchからのメッセージを受け取る
+    func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
+        print("ウェアから受け取った")
+        
+        
+            //鍵の状態の取得要求だった場合
+            if let watchMessage = message["getState"] as? String {
+            
+                    if( doorState == "open" ){
+                
+                        let message = [ "parentWakeOpen" : "Opened"]
+            
+                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                
+                    }else if( doorState == "close" ){
+                
+                        let message = [ "parentWakeClose" : "Closed"]
+                
+                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    }else{
+                        let message = [ "smaloNG" : "スマロNG" ]
+                        
+                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                        
+                }
+                
+            }
+        
+            //鍵の開閉要求だった場合
+            if let watchMessage = message["stateUpdate"] as? String {
+                if( doorState == "close" ){
+                    sendHttpMessage()
+                    let message = [ "parentOpen" : "Opened"]
+                
+                    wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                
+                    doorState = "open"
+                }else if( doorState == "open" ){
+                    sendHttpMessage()
+                    let message = [ "parentClose" : "Closed"]
+                
+                    wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                
+                    doorState = "close"
+                }
+            }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -338,7 +423,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                 dispatch_async(dispatch_get_main_queue(), {
                                     self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                                 })
-                                self.dooreState = "close"
+                                self.doorState = "close"
                                 self.keyButton.enabled = true
                                 ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                                 self.keyFlag = false
@@ -348,7 +433,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                                 dispatch_async(dispatch_get_main_queue(), {
                                     self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                                 })
-                                self.dooreState = "open"
+                                self.doorState = "open"
                                 self.keyButton.enabled = true
                                 ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                                 self.keyFlag = false
@@ -439,6 +524,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         self.keyButton.enabled = false
         keyFlag = true
+        //watchに領域を出たメッセージを送る
+        let message = [ "smaloNG" : "スマロNG" ]
+        wcSession.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
+        
+        // Rangingを停止する
         pulsator.start()
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
@@ -452,7 +542,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func sendHttpMessage() {
         
         //doorStateがopenだった場合施錠のAPIを叩く
-        if dooreState == "open" {
+        if doorState == "open" {
             let config = NSURLSessionConfiguration.defaultSessionConfiguration()
             //短いタイムアウト
             config.timeoutIntervalForRequest = 20
@@ -475,7 +565,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                         dispatch_async(dispatch_get_main_queue(), {
                             self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                         })
-                        self.dooreState = "close"
+                        self.doorState = "close"
                         self.sendFlag = true
                         break
                     case "400 Bad Request":
@@ -499,7 +589,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             })
             task.resume()
         //doorStateがopenだった場合解錠のAPIを叩く
-        } else if dooreState == "close" {
+        } else if doorState == "close" {
             let config = NSURLSessionConfiguration.defaultSessionConfiguration()
             //短いタイムアウト
             config.timeoutIntervalForRequest = 20
@@ -521,7 +611,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                         dispatch_async(dispatch_get_main_queue(), {
                             self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                         })
-                        self.dooreState = "open"
+                        self.doorState = "open"
                         self.sendFlag = true
                         break
                     case "400 Bad Request":
