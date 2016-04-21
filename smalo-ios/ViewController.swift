@@ -197,47 +197,9 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
         print("ウェアから受け取った")
         
-        
-            //鍵の状態の取得要求だった場合
-            if let watchMessage = message["getState"] as? String {
-            
-                    if( doorState == "open" ){
-                
-                        let message = [ "parentWakeOpen" : "Opened"]
-            
-                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                
-                    }else if( doorState == "close" ){
-                
-                        let message = [ "parentWakeClose" : "Closed"]
-                
-                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                    }else{
-                        let message = [ "smaloNG" : "スマロNG" ]
-                        
-                        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
-                        
-                }
-                
-            }
-        
             //鍵の開閉要求だった場合
-            if let watchMessage = message["stateUpdate"] as? String {
-                if( doorState == "close" ){
+            if ((message["stateUpdate"] as? String) != nil) {
                     sendHttpMessage()
-                    let message = [ "parentOpen" : "Opened"]
-                
-                    wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                
-                    doorState = "open"
-                }else if( doorState == "open" ){
-                    sendHttpMessage()
-                    let message = [ "parentClose" : "Closed"]
-                
-                    wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                
-                    doorState = "close"
-                }
             }
         
     }
@@ -428,6 +390,9 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                                 ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                                 self.keyFlag = false
                                 self.pulsator.stop()
+                                self.localNotification(result as String)
+                                let message = [ "parentWakeClose" : "Closed"]
+                                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                                 break
                             case "locked":
                                 dispatch_async(dispatch_get_main_queue(), {
@@ -438,6 +403,9 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                                 ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                                 self.keyFlag = false
                                 self.pulsator.stop()
+                                self.localNotification(result as String)
+                                let message = [ "parentWakeOpen" : "Opened"]
+                                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                                 break
                             case "400 Bad Request":
                                 self.errorFlag = true
@@ -448,7 +416,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                                 self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
                                 break
                             default:
-                                self.localNotification(result as String)
                                 break
                             }
                             print(result)
@@ -567,6 +534,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         })
                         self.doorState = "close"
                         self.sendFlag = true
+                        let message = [ "parentClose" : "Closed"]
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         break
                     case "400 Bad Request":
                         self.errorFlag = true
@@ -613,6 +582,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         })
                         self.doorState = "open"
                         self.sendFlag = true
+                        let message = [ "parentOpen" : "Opened"]
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         break
                     case "400 Bad Request":
                         self.errorFlag = true
