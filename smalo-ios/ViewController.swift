@@ -445,13 +445,13 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         self.keyButton.enabled = false
+        doorState = ""
+        pulsator.start()
+        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
         keyFlag = true
         //watchに領域を出たメッセージを送る
         let message = [ "smaloNG" : "スマロNG" ]
         wcSession.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
-        
-        // Rangingを停止する
-        pulsator.start()
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
@@ -498,6 +498,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         self.sendFlag = true
                     })
                     self.doorState = "close"
+                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                     let message = [ "parentClose" : "Closed"]
                     self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                     break
@@ -549,6 +550,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         self.sendFlag = true
                     })
                     self.doorState = "open"
+                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                     let message = [ "parentOpen" : "Opened"]
                     self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                     break
@@ -596,12 +598,13 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 switch (result) {
                 case "unlocked":
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                         self.pulsator.stop()
+                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                         ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                         self.keyFlag = false
                     })
                     self.doorState = "close"
+                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                     self.keyButton.enabled = true
                     self.localNotification(result as String)
                     let message = [ "parentWakeClose" : "Closed"]
@@ -609,12 +612,13 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     break
                 case "locked":
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                         self.pulsator.stop()
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                         ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                         self.keyFlag = false
                     })
                     self.doorState = "open"
+                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                     self.keyButton.enabled = true
                     self.localNotification(result as String)
                     let message = [ "parentWakeOpen" : "Opened"]
