@@ -100,40 +100,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         } catch {
             print("Unable to start notifier")
         }
-        initBeacon()
-        
-    }
-    
-    //初期レイアウトの設定
-    func initLayout() {
-        pulsator.numPulse = 4
-        pulsator.radius = 170.0
-        pulsator.animationDuration = 4.0
-        pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
-        keyButton.layer.addSublayer(pulsator)
-        keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
-        keyButton.enabled = false
-        pulsator.start()
-        //グラデーションの開始色
-        let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
-        //グラデーションの開始色
-        let bottomColor = UIColor(red:0.57, green:0.84, blue:0.88, alpha:1)
-        
-        //グラデーションの色を配列で管理
-        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
-        
-        //グラデーションの色をレイヤーに割り当てる
-        gradientLayer.colors = gradientColors
-        
-        gradientLayer.locations = [0.8, 1]
-        
-        //グラデーションレイヤーをビューの一番下に配置
-        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
-
-    }
-    
-    //beaconの設定
-    func initBeacon() {
         //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
             
@@ -190,6 +156,34 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             
             presentViewController(alert, animated: true, completion: nil)
         }
+        
+    }
+    
+    //初期レイアウトの設定
+    func initLayout() {
+        pulsator.numPulse = 4
+        pulsator.radius = 170.0
+        pulsator.animationDuration = 4.0
+        pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
+        keyButton.layer.addSublayer(pulsator)
+        keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
+        keyButton.enabled = false
+        pulsator.start()
+        //グラデーションの開始色
+        let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
+        //グラデーションの開始色
+        let bottomColor = UIColor(red:0.57, green:0.84, blue:0.88, alpha:1)
+        
+        //グラデーションの色を配列で管理
+        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        
+        gradientLayer.locations = [0.8, 1]
+        
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
 
     }
     
