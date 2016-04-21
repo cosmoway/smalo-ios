@@ -62,6 +62,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         } else {
             print("Not support WCSession")
         }
+        initLayout()
         print(UUID)
         // CoreBluetoothを初期化および始動.
         myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
