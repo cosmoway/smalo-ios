@@ -458,9 +458,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     @IBAction func keyButton(sender: AnyObject) {
         sendHttpMessage()
-
     }
-    //APIで会場施錠のリクエストを送る。
+    //APIで解錠施錠のリクエストを送る。
     func sendHttpMessage() {
         //doorStateがopenだった場合施錠のAPIを叩く
         if doorState == "open" {
@@ -524,7 +523,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         task.resume()
     }
     
-    //会場させる処理
+    //解錠させる処理
     func sendUnLock() {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         //短いタイムアウト
