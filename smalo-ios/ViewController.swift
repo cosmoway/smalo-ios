@@ -62,31 +62,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         } else {
             print("Not support WCSession")
         }
-        
-        pulsator.numPulse = 4
-        pulsator.radius = 170.0
-        pulsator.animationDuration = 4.0
-        pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
-        keyButton.layer.addSublayer(pulsator)
-        keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
-        keyButton.enabled = false
-        pulsator.start()
-        //グラデーションの開始色
-        let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
-        //グラデーションの開始色
-        let bottomColor = UIColor(red:0.57, green:0.84, blue:0.88, alpha:1)
-        
-        //グラデーションの色を配列で管理
-        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
-        
-        //グラデーションの色をレイヤーに割り当てる
-        gradientLayer.colors = gradientColors
-        
-        gradientLayer.locations = [0.8, 1]
-        
-        //グラデーションレイヤーをビューの一番下に配置
-        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
-        
         print(UUID)
         // CoreBluetoothを初期化および始動.
         myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
@@ -124,7 +99,40 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         } catch {
             print("Unable to start notifier")
         }
+        initBeacon()
         
+    }
+    
+    //初期レイアウトの設定
+    func initLayout() {
+        pulsator.numPulse = 4
+        pulsator.radius = 170.0
+        pulsator.animationDuration = 4.0
+        pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
+        keyButton.layer.addSublayer(pulsator)
+        keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
+        keyButton.enabled = false
+        pulsator.start()
+        //グラデーションの開始色
+        let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
+        //グラデーションの開始色
+        let bottomColor = UIColor(red:0.57, green:0.84, blue:0.88, alpha:1)
+        
+        //グラデーションの色を配列で管理
+        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        
+        gradientLayer.locations = [0.8, 1]
+        
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+
+    }
+    
+    //beaconの設定
+    func initBeacon() {
         //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
             
@@ -181,17 +189,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             
             presentViewController(alert, animated: true, completion: nil)
         }
+
     }
-    
-    //Edisonと通信できてるかの仮ボタン
-    //TODO 完成したら削除
-//    @IBAction func BLEbutton(sender: AnyObject) {
-//        if( connectState == "OK" ){
-//            connectState = "NG"
-//        }else if( connectState == "NG" ){
-//            connectState = "OK"
-//        }
-//    }
     
     // watchからのメッセージを受け取る
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
@@ -470,105 +469,116 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func sendHttpMessage() {
         //doorStateがopenだった場合施錠のAPIを叩く
         if doorState == "open" {
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            //短いタイムアウト
-            config.timeoutIntervalForRequest = 20
-            //長居タイムアウト
-            config.timeoutIntervalForResource = 30
-            let session = NSURLSession(configuration: config)
-            // create the url-request
-            let urlString = "http://smalo.local:10080/api/locks/locking/\((UUID+"|"+major+"|"+minor).sha256)"
-            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-            
-            // set the method(HTTP-GET)
-            request.HTTPMethod = "GET"
-            // use NSURLSessionDataTask
-           let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-                if (error == nil) {
-                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    switch (result) {
-                    case "200 OK":
-                        self.localNotification("施錠されました")
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                            ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-                            self.sendFlag = true
-                        })
-                        self.doorState = "close"
-                        let message = [ "parentClose" : "Closed"]
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                        break
-                    case "400 Bad Request":
-                        self.errorFlag = true
-                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                        break
-                    case "403 Forbidden":
-                        self.errorFlag = true
-                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                        break
-                    default:
-                        self.localNotification(result as String)
-                        break
-                    }
-                    print(result)
-                } else {
-                    self.errorFlag = true
-                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                    print(error)
-                }
-            })
-            task.resume()
+            sendLock()
         //doorStateがopenだった場合解錠のAPIを叩く
         } else if doorState == "close" {
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            //短いタイムアウト
-            config.timeoutIntervalForRequest = 20
-            //長居タイムアウト
-            config.timeoutIntervalForResource = 30
-            let session = NSURLSession(configuration: config)
-            let urlString = "http://smalo.local:10080/api/locks/unlocking/\((UUID+"|"+major+"|"+minor).sha256)"
-            let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-            
-            // set the method(HTTP-GET)
-            request.HTTPMethod = "GET"
-            // use NSURLSessionDataTask
-            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-                if (error == nil) {
-                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    switch (result) {
-                    case "200 OK":
-                        self.localNotification("解錠されました。")
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                            ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-                            self.sendFlag = true
-                        })
-                        self.doorState = "open"
-                        let message = [ "parentOpen" : "Opened"]
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                        break
-                    case "400 Bad Request":
-                        self.errorFlag = true
-                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                        break
-                    case "403 Forbidden":
-                        self.errorFlag = true
-                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                        break
-                    default:
-                        self.localNotification(result as String)
-                        break
-                    }
-                    print(result)
-                } else {
-                    self.errorFlag = true
-                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                    print(error)
-                }
-            })
-            task.resume()
+            sendUnLock()
         }
     }
+    
+    //施錠する処理
+    func sendLock() {
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        //短いタイムアウト
+        config.timeoutIntervalForRequest = 20
+        //長居タイムアウト
+        config.timeoutIntervalForResource = 30
+        let session = NSURLSession(configuration: config)
+        // create the url-request
+        let urlString = "http://smalo.local:10080/api/locks/locking/\((UUID+"|"+major+"|"+minor).sha256)"
+        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        // set the method(HTTP-GET)
+        request.HTTPMethod = "GET"
+        // use NSURLSessionDataTask
+        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+            if (error == nil) {
+                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                switch (result) {
+                case "200 OK":
+                    self.localNotification("施錠されました")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+                        self.sendFlag = true
+                    })
+                    self.doorState = "close"
+                    let message = [ "parentClose" : "Closed"]
+                    self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    break
+                case "400 Bad Request":
+                    self.errorFlag = true
+                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    break
+                case "403 Forbidden":
+                    self.errorFlag = true
+                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    break
+                default:
+                    self.localNotification(result as String)
+                    break
+                }
+                print(result)
+            } else {
+                self.errorFlag = true
+                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                print(error)
+            }
+        })
+        task.resume()
+    }
+    
+    //会場させる処理
+    func sendUnLock() {
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        //短いタイムアウト
+        config.timeoutIntervalForRequest = 20
+        //長居タイムアウト
+        config.timeoutIntervalForResource = 30
+        let session = NSURLSession(configuration: config)
+        let urlString = "http://smalo.local:10080/api/locks/unlocking/\((UUID+"|"+major+"|"+minor).sha256)"
+        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        // set the method(HTTP-GET)
+        request.HTTPMethod = "GET"
+        // use NSURLSessionDataTask
+        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
+            if (error == nil) {
+                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                switch (result) {
+                case "200 OK":
+                    self.localNotification("解錠されました。")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+                        self.sendFlag = true
+                    })
+                    self.doorState = "open"
+                    let message = [ "parentOpen" : "Opened"]
+                    self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    break
+                case "400 Bad Request":
+                    self.errorFlag = true
+                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    break
+                case "403 Forbidden":
+                    self.errorFlag = true
+                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    break
+                default:
+                    self.localNotification(result as String)
+                    break
+                }
+                print(result)
+            } else {
+                self.errorFlag = true
+                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                print(error)
+            }
+        })
+        task.resume()
+    }
+    
     //APIで鍵の状態を取得
     func getKeyState() {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
