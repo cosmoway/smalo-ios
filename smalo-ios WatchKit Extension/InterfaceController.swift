@@ -32,6 +32,11 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             //  activate session
             wcSession.activateSession()
         }
+        //鍵の状態の取得
+        let message = [ "getState" : "watch:OK" ]
+        
+        wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+
         openButton.setEnabled(false)
         // Configure interface objects here.
     }

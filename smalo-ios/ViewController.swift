@@ -197,10 +197,33 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
         print("ウェアから受け取った")
         
-            //鍵の開閉要求だった場合
-            if ((message["stateUpdate"] as? String) != nil) {
-                    sendHttpMessage()
+        if ((message["getState"] as? String) != nil) {
+            
+            if( doorState == "open" ){
+                
+                let message = [ "parentWakeOpen" : "Opened"]
+                
+                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                
+            }else if( doorState == "close" ){
+                
+                let message = [ "parentWakeClose" : "Closed"]
+                
+                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+            }else{
+                let message = [ "smaloNG" : "スマロNG" ]
+                
+                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                
             }
+            
+        }
+
+        
+        //鍵の開閉要求だった場合
+        if ((message["stateUpdate"] as? String) != nil) {
+                sendHttpMessage()
+        }
         
     }
     
@@ -384,12 +407,12 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                             case "unlocked":
                                 dispatch_async(dispatch_get_main_queue(), {
                                     self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                                    self.pulsator.stop()
+                                    ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                                 })
                                 self.doorState = "close"
                                 self.keyButton.enabled = true
-                                ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                                 self.keyFlag = false
-                                self.pulsator.stop()
                                 self.localNotification(result as String)
                                 let message = [ "parentWakeClose" : "Closed"]
                                 self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
@@ -397,12 +420,12 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                             case "locked":
                                 dispatch_async(dispatch_get_main_queue(), {
                                     self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                                    self.pulsator.stop()
+                                    ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                                 })
                                 self.doorState = "open"
                                 self.keyButton.enabled = true
-                                ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                                 self.keyFlag = false
-                                self.pulsator.stop()
                                 self.localNotification(result as String)
                                 let message = [ "parentWakeOpen" : "Opened"]
                                 self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
@@ -531,6 +554,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         self.localNotification("施錠されました")
                         dispatch_async(dispatch_get_main_queue(), {
                             self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                            ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                         })
                         self.doorState = "close"
                         self.sendFlag = true
@@ -579,6 +603,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         self.localNotification("解錠されました。")
                         dispatch_async(dispatch_get_main_queue(), {
                             self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                            ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                         })
                         self.doorState = "open"
                         self.sendFlag = true

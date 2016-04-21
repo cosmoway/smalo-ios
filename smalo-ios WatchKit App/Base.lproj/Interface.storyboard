@@ -24,11 +24,10 @@
                                 <action selector="button" destination="AgC-eL-Hgc" id="ZbJ-2m-bSv"/>
                             </connections>
                         </button>
-                        <group width="1" alignment="left" verticalAlignment="bottom" id="xuJ-5r-2jS"/>
                     </items>
                     <connections>
                         <outlet property="buttonImage" destination="dyF-F2-RRq" id="Jvy-PS-EvF"/>
-                        <outlet property="group" destination="xuJ-5r-2jS" id="WaK-jN-VSq"/>
+                        <outlet property="group" destination="zXl-fo-5BK" id="0tN-nd-iRt"/>
                         <outlet property="openButton" destination="AGE-5z-azb" id="fiV-IY-UKl"/>
                     </connections>
                 </controller>
