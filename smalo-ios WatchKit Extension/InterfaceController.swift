@@ -11,10 +11,6 @@ import Foundation
 import WatchConnectivity
 
 class InterfaceController: WKInterfaceController,WCSessionDelegate {
-
-    @IBOutlet var label: WKInterfaceLabel!
-    @IBOutlet var label2: WKInterfaceLabel!
-    @IBOutlet var label3: WKInterfaceLabel!
     
     @IBOutlet var group: WKInterfaceGroup!
     @IBOutlet var openButton: WKInterfaceButton!
@@ -25,8 +21,6 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
-        openButton.setBackgroundColor(UIColor.redColor())
         
         // check supported
         if WCSession.isSupported() {
@@ -41,11 +35,11 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         //鍵の状態の取得
         let message = [ "getState" : "watch:OK" ]
         
-        label2.setText("取得中")
-        label3.setText("取得中")
-        
         wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
         
+        buttonImage.setImageNamed("search_button")
+        openButton.setEnabled(false)
+
         // Configure interface objects here.
     }
 
@@ -54,17 +48,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         //バイブレーション
         WKInterfaceDevice.currentDevice().playHaptic(WKHapticType.Click)
         
-        label.setText("SEARCH")
-        label2.setText("スマホNG")
-        label3.setText("スマロNG")
-        
-        if( state == "connectNG" ){
-            
-        //開閉要求
-            let message = [ "getState" : "watchから" ]
-        
-            wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
-        }else if( state == "connectOpen" ){
+        if( state == "connectOpen" ){
             
             //開閉要求
             let message = [ "stateUpdate" : "watchから" ]
@@ -85,61 +69,45 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
         
         //鍵が閉まってる場合
-        if let parentMessage = message["parentWakeClose"] as? String {
+        if(message["parentWakeClose"] as? String) != nil {
             
-            openButton.setTitle("Open")
-            
-            label.setText(parentMessage)
-            label2.setText("スマホOK")
             state = "connectClose"
             
             buttonImage.setImageNamed("close_button")
+            
+            openButton.setEnabled(true)
         }
         
         //鍵が開いている場合
-        if let parentMessage = message["parentWakeOpen"] as? String {
+        if(message["parentWakeOpen"] as? String) != nil {
             
-            openButton.setTitle("Close")
-            
-            label.setText(parentMessage)
-            label2.setText("スマホOK")
             state = "connectOpen"
             buttonImage.setImageNamed("open_button")
+            
+            openButton.setEnabled(true)
         }
         
         //解錠メッセージを受け取る
-        if let parentMessage = message["parentOpen"] as? String {
+        if(message["parentOpen"] as? String) != nil {
             
-            label.setText(parentMessage)
-            openButton.setTitle("Close")
             state = "connectOpen"
             buttonImage.setImageNamed("open_button")
         }
         
         //施錠メッセージを受け取る
-        if let parentMessage = message["parentClose"] as? String {
+        if(message["parentClose"] as? String) != nil {
             
-            label.setText(parentMessage)
-            openButton.setTitle("Open")
             state = "connectClose"
             buttonImage.setImageNamed("close_button")
         }
         
         //BLE接続のメッセージを受け取る
-        if let parentMessage = message["smaloNG"] as? String {
+        if(message["smaloNG"] as? String) != nil {
             
-            label.setText("UNKNOWN")
-            label2.setText("スマホOK")
-            label3.setText(parentMessage)
-            openButton.setTitle("SEARCH")
             state = "connectNG"
             buttonImage.setImageNamed("search_button")
             
-        }else{
-            
-            label2.setText("スマホOK")
-            label3.setText("スマロOK")
-            
+            openButton.setEnabled(false)
         }
         group.setBackgroundColor(UIColor.clearColor())
     }
