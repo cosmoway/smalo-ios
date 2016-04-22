@@ -16,23 +16,22 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     var closeCharacteristic: CBCharacteristic!
     var openCharacteristic: CBCharacteristic!
     var notifyCharacteristic: CBCharacteristic!
-    var keyFlag = true
+    var doorState = ""
     var major: String?
     var mainor: String?
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
+    var sendFlag = false
     //グラデーションレイヤーを作成
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     @IBOutlet weak var keyButton: UIButton!
-    @IBOutlet weak var gradationView: UIView!
-    @IBOutlet weak var titleIcon: UIImageView!
-    @IBOutlet weak var headerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UUID)
         let options: [String: AnyObject] = [CBCentralManagerOptionRestoreIdentifierKey: "restoreKey"]
         self.centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
+        keyButton.enabled = false
         // Do any additional setup after loading the view, typically from a nib.
         pulsator.numPulse = 4
         pulsator.radius = 170.0
@@ -40,7 +39,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
-        pulsator.start()
+        (UIApplication.sharedApplication().delegate as! AppDelegate).pulsator = pulsator
         //グラデーションの開始色
         let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
         //グラデーションの開始色
@@ -53,14 +52,17 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         gradientLayer.colors = gradientColors
         
         //グラデーションレイヤーをビューの一番下に配置
-        self.gradationView.layer.insertSublayer(gradientLayer, atIndex: 0)
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
     
     func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: NSError?) {
         print("RSSI: " + String(RSSI))
         if UIApplication.sharedApplication().applicationState != UIApplicationState.Active {
             if Int(RSSI) > -100 {
-                sendKey()
+                if !sendFlag {
+                    sendKey()
+                    sendFlag = true
+                }
             }
         }
     }
@@ -68,7 +70,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //グラデーションレイヤーをスクリーンサイズにする
-        gradientLayer.frame.size = self.gradationView.frame.size
+        gradientLayer.frame.size = self.view.frame.size
         pulsator.position = keyButton.center
     }
 
@@ -94,7 +96,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         print("発見したBLEデバイス\(peripheral)")
         localNotification("発見したBLEデバイス\(peripheral)")
         print("\(RSSI)")
-        if peripheral.name == "dev-smalo01" {
+        if peripheral.name == "dev-smalo" {
             self.peripheral = peripheral
             self.peripheral.readRSSI()
             self.centralManager.connectPeripheral(self.peripheral, options: nil)
@@ -117,6 +119,11 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         self.centralManager.stopScan()
         let serviceUUIDs:NSArray = [CBUUID(string: "9ada4c64-c941-46c2-9156-c39addd4f77c")]
         self.centralManager.scanForPeripheralsWithServices(serviceUUIDs as? [CBUUID], options: nil)
+        keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+        pulsator.start()
+        doorState = ""
+        sendFlag = false
+        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
     }
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
@@ -183,16 +190,18 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             localNotification("読み出し成功！service uuid: \(characteristic.UUID),value: \(String(data:characteristic.value!,encoding:NSUTF8StringEncoding)!)")
             switch String(data:characteristic.value!,encoding:NSUTF8StringEncoding)! {
             case "unlocked":
-                keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                titleIcon.image = UIImage(named: "smalo_home_close_icon.png")
-                headerLabel.text = "CLOSE"
-                keyFlag = true
+                keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                ZFRippleButton.rippleColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.3)
+                keyButton.enabled = true
+                doorState = "open"
+                (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
                 break
             case "locked":
-                keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                titleIcon.image = UIImage(named: "smalo_home_open_icon.png")
-                headerLabel.text = "OPEN"
-                keyFlag = false
+                keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                ZFRippleButton.rippleColor = UIColor(red:0.00, green:0.44, blue:0.74, alpha:0.3)
+                keyButton.enabled = true
+                doorState = "close"
+                (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
                 break
             default:
                 break
@@ -239,22 +248,20 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     func sendKey() {
-        if keyFlag {
+        if doorState == "close" {
             if openCharacteristic != nil {
                 if major != nil && mainor != nil {
                     let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
                     let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: openCharacteristic, type: CBCharacteristicWriteType.WithResponse)
-                    keyFlag = false
                 }
             }
-        } else {
+        } else if doorState == "open" {
             if closeCharacteristic != nil {
                 if major != nil && mainor != nil {
                     let value: String = (UUID+"|"+major!+"|"+mainor!).sha256
                     let data: NSData = value.dataUsingEncoding(NSUTF8StringEncoding)!
                     self.peripheral.writeValue(data, forCharacteristic: closeCharacteristic, type: CBCharacteristicWriteType.WithResponse)
-                    keyFlag = true
                 }
             }
         }
