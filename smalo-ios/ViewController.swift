@@ -35,7 +35,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var bluetoothOn = true
     var wifiOn = true
     var errorFlag = false
-    var keyFlag = true
+    var getKeyStateFlag = true
     
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
@@ -66,40 +66,14 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         print(UUID)
         // CoreBluetoothを初期化および始動.
         myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
+        //WiFiがオンにされているかの判定の処理
+        checkWifi()
+        //Beaconの初期設定
+        initBeacon()
         
-        let reachability: Reachability
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return
-        }
-        
-        reachability.whenReachable = { reachability in
-            dispatch_async(dispatch_get_main_queue()) {
-                if reachability.isReachableViaWiFi() {
-                    print("Reachable via WiFi")
-                    self.wifiOn = true
-                } else {
-                    print("Reachable via Cellular")
-                    self.wifiOn = false
-                }
-            }
-        }
-        reachability.whenUnreachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
-            dispatch_async(dispatch_get_main_queue()) {
-                print("Not reachable")
-                self.wifiOn = false
-            }
-        }
-        
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
+    }
+    
+    func initBeacon() {
         //端末でiBeaconが使用できるかの判定できなければアラートをだす。
         if(CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion)) {
             
@@ -156,7 +130,43 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             
             presentViewController(alert, animated: true, completion: nil)
         }
+    }
+
+    func checkWifi() {
+        //WiFiがオンにされているかの判定の処理
+        let reachability: Reachability
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
         
+        reachability.whenReachable = { reachability in
+            dispatch_async(dispatch_get_main_queue()) {
+                if reachability.isReachableViaWiFi() {
+                    print("Reachable via WiFi")
+                    self.wifiOn = true
+                } else {
+                    print("Reachable via Cellular")
+                    self.wifiOn = false
+                }
+            }
+        }
+        reachability.whenUnreachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            dispatch_async(dispatch_get_main_queue()) {
+                print("Not reachable")
+                self.wifiOn = false
+            }
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
     
     //初期レイアウトの設定
@@ -379,7 +389,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 print("majorID: \(major)")
                 print("RSSI: \(rssi)")
                 print("accuracy: \(accuracy)")
-                if keyFlag {
+                if getKeyStateFlag {
                     getKeyState()
                 }
                 
@@ -448,7 +458,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         doorState = ""
         pulsator.start()
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
-        keyFlag = true
+        getKeyStateFlag = true
         //watchに領域を出たメッセージを送る
         let message = [ "smaloNG" : "スマロNG" ]
         wcSession.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
@@ -600,7 +610,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         self.pulsator.stop()
                         self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                         ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-                        self.keyFlag = false
+                        self.getKeyStateFlag = false
                     })
                     self.doorState = "close"
                     (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
@@ -614,7 +624,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         self.pulsator.stop()
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                         ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-                        self.keyFlag = false
+                        self.getKeyStateFlag = false
                     })
                     self.doorState = "open"
                     (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
