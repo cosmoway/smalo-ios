@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-vv-5Gb" customClass="ZFRippleButton" customModule="smalo_ios" customModuleProvider="target">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-vv-5Gb" customClass="ZFRippleButton" customModule="smalo_ios" customModuleProvider="target">
+                                <rect key="frame" x="200" y="202" width="200" height="198"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="SjT-fl-stR"/>
-                                    <constraint firstAttribute="height" constant="200" id="jUm-cA-vh2"/>
+                                    <constraint firstAttribute="width" constant="180" id="SjT-fl-stR"/>
+                                    <constraint firstAttribute="height" constant="180" id="jUm-cA-vh2"/>
                                 </constraints>
                                 <state key="normal" image="smalo_search_button"/>
                                 <state key="disabled" image="smalo_search_button"/>

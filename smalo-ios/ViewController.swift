@@ -18,16 +18,14 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     @IBOutlet weak var keyButton: UIButton!
     
     var wcSession = WCSession.defaultSession()
-    //ドアの状態、edisonとの通信状態の管理用変数
-    //var doorState = "close" ,connectState = "NG"
     var doorState = ""
     var major: String = ""
     var minor: String = ""
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
     //グラデーションレイヤーを作成
-    let gradientLayer: CAGradientLayer = CAGradientLayer()
-    var sendFlag: Bool = false
+    let gradientLayer = CAGradientLayer()
+    var sendFlag = false
     var myLocationManager:CLLocationManager!
     var myBeaconRegion:CLBeaconRegion!
     var beaconRegion = CLBeaconRegion()
@@ -35,7 +33,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var bluetoothOn = true
     var wifiOn = true
     var errorFlag = false
-    var getKeyStateFlag = true
+    var keyStateFlag = true
+    var animateStart = false
     
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
@@ -70,7 +69,15 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         checkWifi()
         //Beaconの初期設定
         initBeacon()
+        //タイマーを作る.
+        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "keyStateUpdate:", userInfo: nil, repeats: true)
         
+    }
+    
+    func keyStateUpdate(timer: NSTimer) {
+        if major != "" && minor != "" {
+            getKeyState()
+        }
     }
     
     func initBeacon() {
@@ -171,7 +178,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     //初期レイアウトの設定
     func initLayout() {
-        pulsator.numPulse = 4
+        pulsator.numPulse = 5
         pulsator.radius = 170.0
         pulsator.animationDuration = 4.0
         pulsator.backgroundColor = UIColor(red: 0, green: 0.44, blue: 0.74, alpha: 1).CGColor
@@ -179,6 +186,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
         keyButton.enabled = false
         pulsator.start()
+        animateStart = true
         //グラデーションの開始色
         let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
         //グラデーションの開始色
@@ -245,6 +253,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func localNotification(msg: String) {
+        UIApplication.sharedApplication().cancelAllLocalNotifications();
         let notification = UILocalNotification()
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.alertBody = msg
@@ -384,14 +393,17 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 let rssi = beacon.rssi
                 let accuracy = beacon.accuracy
                 
+                if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+                    if keyStateFlag {
+                        getKeyState()
+                    }
+                }
+                
                 print("UUID: \(beaconUUID.UUIDString)")
                 print("minorID: \(minor)")
                 print("majorID: \(major)")
                 print("RSSI: \(rssi)")
                 print("accuracy: \(accuracy)")
-                if getKeyStateFlag {
-                    getKeyState()
-                }
                 
                 switch (beacon.proximity) {
                     
@@ -401,7 +413,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     
                 case CLProximity.Far:
                     print("Proximity: Far")
-                    if (!sendFlag && UIApplication.sharedApplication().applicationState != UIApplicationState.Active) {
+                    if (!sendFlag && UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                         //施錠か解錠のAPIを叩く関数
                         sendHttpMessage()
                     }
@@ -455,10 +467,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         self.keyButton.enabled = false
+        keyStateFlag = true
         doorState = ""
         pulsator.start()
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
-        getKeyStateFlag = true
         //watchに領域を出たメッセージを送る
         let message = [ "smaloNG" : "スマロNG" ]
         wcSession.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
@@ -610,28 +622,48 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         self.pulsator.stop()
                         self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                         ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-                        self.getKeyStateFlag = false
+                        self.doorState = "close"
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                        self.keyButton.enabled = true
+                        let message = [ "parentWakeClose" : "Closed"]
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+                            self.keyStateFlag = false
+                        }
+                        self.animateStart = false
                     })
-                    self.doorState = "close"
-                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                    self.keyButton.enabled = true
-                    self.localNotification(result as String)
-                    let message = [ "parentWakeClose" : "Closed"]
-                    self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                     break
                 case "locked":
                     dispatch_async(dispatch_get_main_queue(), {
                         self.pulsator.stop()
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
                         ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-                        self.getKeyStateFlag = false
+                        self.doorState = "open"
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                        self.keyButton.enabled = true
+                        let message = [ "parentWakeOpen" : "Opened"]
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+                            self.keyStateFlag = false
+                        }
+                        self.animateStart = false
                     })
-                    self.doorState = "open"
-                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                    self.keyButton.enabled = true
-                    self.localNotification(result as String)
-                    let message = [ "parentWakeOpen" : "Opened"]
-                    self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    break
+                case "unknown":
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if !self.animateStart {
+                            self.pulsator.start()
+                            self.animateStart = true
+                        }
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+                        self.doorState = ""
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                        self.keyButton.enabled = false
+                        let message = [ "smaloNG" : "スマロNG" ]
+                        
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                    })
                     break
                 case "400 Bad Request":
                     self.errorFlag = true
@@ -639,7 +671,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     break
                 case "403 Forbidden":
                     self.errorFlag = true
-                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    //self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
                     break
                 default:
                     break
