@@ -485,10 +485,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func sendHttpMessage() {
         //doorStateがopenだった場合施錠のAPIを叩く
         if doorState == "open" {
-            sendLock()
+            sendUnLock()
         //doorStateがopenだった場合解錠のAPIを叩く
         } else if doorState == "close" {
-            sendUnLock()
+            sendLock()
         }
     }
     
@@ -671,7 +671,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     break
                 case "403 Forbidden":
                     self.errorFlag = true
-                    //self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
                     break
                 default:
                     break
