@@ -104,6 +104,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         //BLE接続のメッセージを受け取る
         if ((message["smaloNG"] as? String) != nil) {
             state = "connectNG"
+            openButton.setEnabled(false)
             buttonImage.setImageNamed("search_button")
             
         }

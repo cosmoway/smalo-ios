@@ -671,7 +671,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     break
                 case "403 Forbidden":
                     self.errorFlag = true
-                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    //self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
                     break
                 default:
                     break
