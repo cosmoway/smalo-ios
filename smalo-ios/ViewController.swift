@@ -187,6 +187,28 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         keyButton.enabled = false
         pulsator.start()
         animateStart = true
+        gradientClose()
+    }
+    
+    func gradientOpen() {
+        //グラデーションの開始色
+        let topColor = UIColor(red:0.13, green:0.71, blue:0.45, alpha:1.0)
+        //グラデーションの開始色
+        let bottomColor = UIColor(red:0.57, green:0.86, blue:0.73, alpha:1.0)
+        
+        //グラデーションの色を配列で管理
+        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        
+        gradientLayer.locations = [0.8, 1]
+        
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+    }
+    
+    func gradientClose() {
         //グラデーションの開始色
         let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
         //グラデーションの開始色
@@ -202,7 +224,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         
         //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
-
     }
     
     // watchからのメッセージを受け取る
@@ -466,6 +487,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         NSLog("didExitRegion");
         localNotification("領域をでました")
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+        gradientClose()
         self.keyButton.enabled = false
         keyStateFlag = true
         doorState = ""
@@ -515,6 +537,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     self.localNotification("施錠されました")
                     dispatch_async(dispatch_get_main_queue(), {
                         self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        self.gradientClose()
                         ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                         self.sendFlag = true
                     })
@@ -567,7 +590,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     self.localNotification("解錠されました。")
                     dispatch_async(dispatch_get_main_queue(), {
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+                        self.gradientOpen()
+                        ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
                         self.sendFlag = true
                     })
                     self.doorState = "open"
@@ -621,6 +645,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     dispatch_async(dispatch_get_main_queue(), {
                         self.pulsator.stop()
                         self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        self.gradientClose()
                         ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                         self.doorState = "close"
                         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
@@ -637,7 +662,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     dispatch_async(dispatch_get_main_queue(), {
                         self.pulsator.stop()
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+                        self.gradientOpen()
+                        ZFRippleButton.rippleColor = UIColor(red: 0.08, green:0.57, blue:0.31, alpha: 0.3)
                         self.doorState = "open"
                         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                         self.keyButton.enabled = true
@@ -655,8 +681,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                             self.pulsator.start()
                             self.animateStart = true
                         }
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        ZFRippleButton.rippleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+                        self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+                        self.gradientClose()
                         self.doorState = ""
                         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                         self.keyButton.enabled = false
