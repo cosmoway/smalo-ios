@@ -232,6 +232,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         
         if ((message["getState"] as? String) != nil) {
             
+            if major != "" && minor != "" {
+                getKeyState()
+            }
+            
             if( doorState == "open" ){
                 
                 let message = [ "parentWakeOpen" : "Opened"]
@@ -536,15 +540,15 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 case "200 OK":
                     self.localNotification("施錠されました")
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                        self.gradientClose()
-                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        self.gradientOpen()
+                        ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
+                        let message = [ "parentOpen" : "Opened"]
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         self.sendFlag = true
+                        self.doorState = "close"
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                     })
-                    self.doorState = "close"
-                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                    let message = [ "parentClose" : "Closed"]
-                    self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                     break
                 case "400 Bad Request":
                     self.errorFlag = true
@@ -589,15 +593,15 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 case "200 OK":
                     self.localNotification("解錠されました。")
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        self.gradientOpen()
-                        ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
+                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        self.gradientClose()
+                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+                        let message = [ "parentClose" : "Closed"]
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         self.sendFlag = true
+                        self.doorState = "open"
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                     })
-                    self.doorState = "open"
-                    (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                    let message = [ "parentOpen" : "Opened"]
-                    self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                     break
                 case "400 Bad Request":
                     self.errorFlag = true
@@ -644,34 +648,34 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 case "unlocked":
                     dispatch_async(dispatch_get_main_queue(), {
                         self.pulsator.stop()
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                        self.gradientClose()
-                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-                        self.doorState = "close"
-                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                        self.keyButton.enabled = true
-                        let message = [ "parentWakeClose" : "Closed"]
+                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                        self.gradientOpen()
+                        ZFRippleButton.rippleColor = UIColor(red: 0.08, green:0.57, blue:0.31, alpha: 0.3)
+                        let message = [ "parentWakeOpen" : "Opened"]
                         self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                             self.keyStateFlag = false
                         }
+                        self.doorState = "close"
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                        self.keyButton.enabled = true
                         self.animateStart = false
                     })
                     break
                 case "locked":
                     dispatch_async(dispatch_get_main_queue(), {
                         self.pulsator.stop()
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        self.gradientOpen()
-                        ZFRippleButton.rippleColor = UIColor(red: 0.08, green:0.57, blue:0.31, alpha: 0.3)
-                        self.doorState = "open"
-                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                        self.keyButton.enabled = true
-                        let message = [ "parentWakeOpen" : "Opened"]
+                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                        self.gradientClose()
+                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+                        let message = [ "parentWakeClose" : "Closed"]
                         self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                             self.keyStateFlag = false
                         }
+                        self.doorState = "open"
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                        self.keyButton.enabled = true
                         self.animateStart = false
                     })
                     break
@@ -683,12 +687,11 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         }
                         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
                         self.gradientClose()
+                        let message = [ "smaloNG" : "スマロNG" ]
+                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
                         self.doorState = ""
                         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                         self.keyButton.enabled = false
-                        let message = [ "smaloNG" : "スマロNG" ]
-                        
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
                     })
                     break
                 case "400 Bad Request":
