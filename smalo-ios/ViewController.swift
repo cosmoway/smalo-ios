@@ -40,6 +40,28 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
         (UIApplication.sharedApplication().delegate as! AppDelegate).pulsator = pulsator
+        gradientClose()
+    }
+    
+    func gradientOpen() {
+        //グラデーションの開始色
+        let topColor = UIColor(red:0.13, green:0.71, blue:0.45, alpha:1.0)
+        //グラデーションの開始色
+        let bottomColor = UIColor(red:0.57, green:0.86, blue:0.73, alpha:1.0)
+        
+        //グラデーションの色を配列で管理
+        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        
+        gradientLayer.locations = [0.8, 1]
+        
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+    }
+    
+    func gradientClose() {
         //グラデーションの開始色
         let topColor = UIColor(red:0.16, green:0.68, blue:0.76, alpha:1)
         //グラデーションの開始色
@@ -50,6 +72,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         
         //グラデーションの色をレイヤーに割り当てる
         gradientLayer.colors = gradientColors
+        
+        gradientLayer.locations = [0.8, 1]
         
         //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
@@ -120,6 +144,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         let serviceUUIDs:NSArray = [CBUUID(string: "9ada4c64-c941-46c2-9156-c39addd4f77c")]
         self.centralManager.scanForPeripheralsWithServices(serviceUUIDs as? [CBUUID], options: nil)
         keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+        gradientClose()
         pulsator.start()
         doorState = ""
         sendFlag = false
@@ -192,13 +217,15 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             case "unlocked":
                 keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
                 ZFRippleButton.rippleColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.3)
+                gradientClose()
                 keyButton.enabled = true
                 doorState = "open"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
                 break
             case "locked":
                 keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                ZFRippleButton.rippleColor = UIColor(red:0.00, green:0.44, blue:0.74, alpha:0.3)
+                ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
+                gradientOpen()
                 keyButton.enabled = true
                 doorState = "close"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
