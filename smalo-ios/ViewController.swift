@@ -153,7 +153,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
         print("接続成功！")
-        pulsator.stop()
         peripheral.delegate = self
         peripheral.discoverServices(nil)
     }
@@ -221,6 +220,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 keyButton.enabled = true
                 doorState = "open"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
+                pulsator.stop()
                 break
             case "locked":
                 keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
@@ -228,6 +228,14 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 gradientOpen()
                 keyButton.enabled = true
                 doorState = "close"
+                (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
+                pulsator.stop()
+                break
+            case "unknown":
+                keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+                gradientClose()
+                keyButton.enabled = false
+                doorState = ""
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
                 break
             default:
