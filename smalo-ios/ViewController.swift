@@ -22,6 +22,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
     var sendFlag = false
+    var animationFlag = false
     //グラデーションレイヤーを作成
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     @IBOutlet weak var keyButton: UIButton!
@@ -40,6 +41,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         keyButton.layer.addSublayer(pulsator)
         keyButton.superview?.layer.insertSublayer(pulsator, below: keyButton.layer)
         (UIApplication.sharedApplication().delegate as! AppDelegate).pulsator = pulsator
+        animationFlag = true
         gradientClose()
     }
     
@@ -146,6 +148,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         gradientClose()
         pulsator.start()
+        animationFlag = false
         doorState = ""
         sendFlag = false
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
@@ -221,6 +224,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 doorState = "open"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
                 pulsator.stop()
+                animationFlag = false
                 break
             case "locked":
                 keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
@@ -230,6 +234,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 doorState = "close"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
                 pulsator.stop()
+                animationFlag = false
                 break
             case "unknown":
                 keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
@@ -237,6 +242,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 keyButton.enabled = false
                 doorState = ""
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
+                if !animationFlag {
+                    pulsator.start()
+                    animationFlag = true
+                }
                 break
             default:
                 break
