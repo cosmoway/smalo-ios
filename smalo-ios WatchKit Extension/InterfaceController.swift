@@ -22,6 +22,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         openButton.setBackgroundColor(UIColor.redColor())
+        openButton.setEnabled(false)
+        buttonImage.setImageNamed("search_button")
         
         // check supported
         if WCSession.isSupported() {
@@ -37,7 +39,6 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         
         wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
 
-        openButton.setEnabled(false)
         // Configure interface objects here.
     }
 
