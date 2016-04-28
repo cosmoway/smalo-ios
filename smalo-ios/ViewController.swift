@@ -233,14 +233,12 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         if ((message["getState"] as? String) != nil) {
             
             if( doorState == "open" ){
-                
-                let message = [ "parentWakeOpen" : "Opened"]
+                let message = [ "parentWakeClose" : "Closed"]
                 
                 wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                
             }else if( doorState == "close" ){
                 
-                let message = [ "parentWakeClose" : "Closed"]
+                let message = [ "parentWakeOpen" : "Opened"]
                 
                 wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
             }else{
