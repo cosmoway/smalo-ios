@@ -232,10 +232,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         
         if ((message["getState"] as? String) != nil) {
             
-            if major != "" && minor != "" {
-                getKeyState()
-            }
-            
             if( doorState == "open" ){
                 
                 let message = [ "parentWakeOpen" : "Opened"]
