@@ -484,6 +484,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         NSLog("didExitRegion");
         localNotification("領域をでました")
+        self.errorFlag = false
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         gradientClose()
         self.keyButton.enabled = false
@@ -532,6 +533,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                 switch (result) {
                 case "200 OK":
+                    self.errorFlag = false
                     self.localNotification("施錠されました")
                     dispatch_async(dispatch_get_main_queue(), {
                         self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
@@ -558,8 +560,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 }
                 print(result)
             } else {
+                if (!self.errorFlag) {
+                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                }
                 self.errorFlag = true
-                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
                 print(error)
             }
         })
@@ -582,6 +586,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         // use NSURLSessionDataTask
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
             if (error == nil) {
+                self.errorFlag = false
                 let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                 switch (result) {
                 case "200 OK":
@@ -611,8 +616,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 }
                 print(result)
             } else {
+                if (!self.errorFlag) {
+                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                }
                 self.errorFlag = true
-                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
                 print(error)
             }
         })
@@ -637,6 +644,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         // use NSURLSessionDataTask
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
             if (error == nil) {
+                self.errorFlag = false
                 let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                 switch (result) {
                 case "unlocked":
@@ -701,8 +709,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 }
                 print(result)
             } else {
+                if (!self.errorFlag) {
+                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
+                }
                 self.errorFlag = true
-                self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
                 print(error)
             }
         })
