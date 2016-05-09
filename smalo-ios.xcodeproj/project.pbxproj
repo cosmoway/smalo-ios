@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		593178DB1CD19CF400865250 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593178DA1CD19CF400865250 /* ZFRippleButton.swift */; };
+		597215481CE0624200181BA5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597215471CE0624200181BA5 /* LoginViewController.swift */; };
 		687CEC241CB5E88400893A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC231CB5E88400893A67 /* AppDelegate.swift */; };
 		687CEC261CB5E88400893A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC251CB5E88400893A67 /* ViewController.swift */; };
 		687CEC291CB5E88400893A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC271CB5E88400893A67 /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		08C75066B501294108A8FCAC /* Pods-smalo-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios/Pods-smalo-ios.release.xcconfig"; sourceTree = "<group>"; };
 		593178DA1CD19CF400865250 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZFRippleButton.swift; path = Classes/ZFRippleButton.swift; sourceTree = "<group>"; };
 		596952321CBE404600F49131 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		597215471CE0624200181BA5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		687CEC201CB5E88400893A67 /* smalo-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smalo-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		687CEC231CB5E88400893A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		687CEC251CB5E88400893A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				59B1A27A1CC5EBDB00131159 /* Classes */,
 				687CEC231CB5E88400893A67 /* AppDelegate.swift */,
 				687CEC251CB5E88400893A67 /* ViewController.swift */,
+				597215471CE0624200181BA5 /* LoginViewController.swift */,
 				687CEC271CB5E88400893A67 /* Main.storyboard */,
 				687CEC2A1CB5E88400893A67 /* Assets.xcassets */,
 				687CEC2C1CB5E88400893A67 /* LaunchScreen.storyboard */,
@@ -515,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				597215481CE0624200181BA5 /* LoginViewController.swift in Sources */,
 				687CEC261CB5E88400893A67 /* ViewController.swift in Sources */,
 				687CEC241CB5E88400893A67 /* AppDelegate.swift in Sources */,
 				593178DB1CD19CF400865250 /* ZFRippleButton.swift in Sources */,
