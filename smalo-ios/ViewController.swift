@@ -37,7 +37,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var errorFlag = false
     var keyStateFlag = true
     var animateStart = false
-    let webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net")!))
+    let webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net:8443")!))
     
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
