@@ -548,14 +548,17 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     break
                 case "400 Bad Request":
                     self.errorFlag = true
-                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    if (!self.errorFlag) {
+                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    }
                     break
                 case "403 Forbidden":
                     self.errorFlag = true
-                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    if (!self.errorFlag) {
+                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    }
                     break
                 default:
-                    self.localNotification(result as String)
                     break
                 }
                 print(result)
@@ -604,14 +607,17 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     break
                 case "400 Bad Request":
                     self.errorFlag = true
-                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    if (!self.errorFlag) {
+                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    }
                     break
                 case "403 Forbidden":
                     self.errorFlag = true
-                    self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    if (!self.errorFlag) {
+                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    }
                     break
                 default:
-                    self.localNotification(result as String)
                     break
                 }
                 print(result)
@@ -698,11 +704,15 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     break
                 case "400 Bad Request":
                     self.errorFlag = true
-                    self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    if (!self.errorFlag) {
+                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
+                    }
                     break
                 case "403 Forbidden":
                     self.errorFlag = true
-                    //self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    if (!self.errorFlag) {
+                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
+                    }
                     break
                 default:
                     break
