@@ -84,8 +84,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         let obj: [String:AnyObject] = [
             "uuid" : UUID
         ]
-        let json = JSON(obj).string
+        let json = String(JSON(obj))
+        print(json)
         webClient.send(json)
+        //sendUnLock()
     }
     
     func webSocket(webSocket: SRWebSocket!, didFailWithError error: NSError!) {
@@ -94,9 +96,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
         print("メセジきたよ")
-        let json = JSON(message)
-        switch (json["state"]) {
-        case "unlocked":
+        print(message)
+        var keyState = JSON.parse(message as! String)
+        switch (keyState["state"]) {
+        case "unlock":
             dispatch_async(dispatch_get_main_queue(), {
                 self.pulsator.stop()
                 self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
@@ -113,7 +116,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 self.animateStart = false
             })
             break
-        case "locked":
+        case "lock":
             dispatch_async(dispatch_get_main_queue(), {
                 self.pulsator.stop()
                 self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
@@ -600,7 +603,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         let obj: [String:AnyObject] = [
             "command" : "lock"
         ]
-        let json = JSON(obj).string
+        let json = String(JSON(obj))
         webClient.send(json)
         self.errorFlag = false
         self.localNotification("施錠されました")
@@ -622,7 +625,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         let obj: [String:AnyObject] = [
             "command" : "unlock"
         ]
-        let json = JSON(obj).string
+        let json = String(JSON(obj))
         webClient.send(json)
         self.errorFlag = false
         self.localNotification("解錠されました。")
