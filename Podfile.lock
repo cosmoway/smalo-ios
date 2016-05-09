@@ -1,10 +1,12 @@
 PODS:
   - Pulsator (0.1.0)
   - ReachabilitySwift (2.3.3)
+  - SocketRocket (0.5.1)
 
 DEPENDENCIES:
   - Pulsator
   - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
+  - SocketRocket (~> 0.5)
 
 EXTERNAL SOURCES:
   ReachabilitySwift:
@@ -18,5 +20,6 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Pulsator: da87aa289b30b5e0cc7e03b21d9f2cb58277f601
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
 COCOAPODS: 0.39.0
