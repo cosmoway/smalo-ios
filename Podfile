@@ -10,6 +10,7 @@ target 'smalo-ios' do
     pod "Pulsator"
     pod 'ReachabilitySwift', git: 'https://github.com/ashleymills/Reachability.swift'
     pod 'SocketRocket', '~> 0.5'
+    pod 'SwiftyJSON', '~> 2.3'
 end
 
 target 'smalo-iosTests' do

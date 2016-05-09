@@ -12,8 +12,10 @@ import Pulsator
 import ReachabilitySwift
 import CoreLocation
 import CoreBluetooth
+import SocketRocket
+import SwiftyJSON
 
-class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDelegate, CBCentralManagerDelegate {
+class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDelegate, CBCentralManagerDelegate, SRWebSocketDelegate {
     
     @IBOutlet weak var keyButton: UIButton!
     
@@ -35,6 +37,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var errorFlag = false
     var keyStateFlag = true
     var animateStart = false
+    let webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net")!))
     
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
@@ -45,7 +48,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -71,7 +74,30 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         initBeacon()
         //タイマーを作る.
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "keyStateUpdate:", userInfo: nil, repeats: true)
+        webClient.delegate = self
+        webClient.open()
+        //サーバーにメッセージをjson形式で送る処理
+        let obj: [String:AnyObject] = [
+            "uuid" : UUID
+        ]
+        let json = JSON(obj)
+        webClient.send(json)
         
+    }
+    
+    func webSocketDidOpen(webSocket: SRWebSocket!) {
+        print("接続ッタよ")
+    }
+    
+    func webSocket(webSocket: SRWebSocket!, didFailWithError error: NSError!) {
+    }
+    
+    func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
+        print("メセジきたよ")
+    }
+    
+    func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
+        print("閉じたよ")
     }
     
     func keyStateUpdate(timer: NSTimer) {
