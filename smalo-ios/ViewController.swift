@@ -89,6 +89,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func webSocket(webSocket: SRWebSocket!, didFailWithError error: NSError!) {
+        print(error)
     }
     
     func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
@@ -150,6 +151,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
+        print("\(code)"+reason)
         print("閉じたよ")
     }
     
