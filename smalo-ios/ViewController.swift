@@ -73,20 +73,19 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         //Beaconの初期設定
         initBeacon()
         //タイマーを作る.
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "keyStateUpdate:", userInfo: nil, repeats: true)
+        //NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "keyStateUpdate:", userInfo: nil, repeats: true)
         webClient.delegate = self
         webClient.open()
-        //サーバーにメッセージをjson形式で送る処理
-        let obj: [String:AnyObject] = [
-            "uuid" : UUID
-        ]
-        let json = JSON(obj)
-        webClient.send(json)
-        
     }
     
     func webSocketDidOpen(webSocket: SRWebSocket!) {
         print("接続ッタよ")
+        //サーバーにメッセージをjson形式で送る処理
+        let obj: [String:AnyObject] = [
+            "uuid" : UUID
+        ]
+        let json = JSON(obj).string
+        webClient.send(json)
     }
     
     func webSocket(webSocket: SRWebSocket!, didFailWithError error: NSError!) {
@@ -94,6 +93,60 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
         print("メセジきたよ")
+        let json = JSON(message)
+        switch (json["state"]) {
+        case "unlocked":
+            dispatch_async(dispatch_get_main_queue(), {
+                self.pulsator.stop()
+                self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+                self.gradientOpen()
+                ZFRippleButton.rippleColor = UIColor(red: 0.08, green:0.57, blue:0.31, alpha: 0.3)
+                let message = [ "parentWakeOpen" : "Opened"]
+                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+                    //self.keyStateFlag = false
+                }
+                self.doorState = "close"
+                (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                self.keyButton.enabled = true
+                self.animateStart = false
+            })
+            break
+        case "locked":
+            dispatch_async(dispatch_get_main_queue(), {
+                self.pulsator.stop()
+                self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+                self.gradientClose()
+                ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+                let message = [ "parentWakeClose" : "Closed"]
+                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+                    //self.keyStateFlag = false
+                }
+                self.doorState = "open"
+                (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                self.keyButton.enabled = true
+                self.animateStart = false
+            })
+            break
+        case "unknown":
+            dispatch_async(dispatch_get_main_queue(), {
+                if !self.animateStart {
+                    self.pulsator.start()
+                    self.animateStart = true
+                }
+                self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+                self.gradientClose()
+                let message = [ "smaloNG" : "スマロNG" ]
+                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                self.doorState = ""
+                (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
+                self.keyButton.enabled = false
+            })
+            break
+        default:
+            break
+        }
     }
     
     func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
@@ -102,7 +155,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     func keyStateUpdate(timer: NSTimer) {
         if major != "" && minor != "" {
-            getKeyState()
+            //getKeyState()
         }
     }
     
@@ -440,7 +493,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 
                 if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                     if keyStateFlag {
-                        getKeyState()
+                        //getKeyState()
                     }
                 }
                 
@@ -514,7 +567,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         gradientClose()
         self.keyButton.enabled = false
-        keyStateFlag = true
+        //keyStateFlag = true
         doorState = ""
         pulsator.start()
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
@@ -541,121 +594,46 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     //施錠する処理
     func sendLock() {
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        //短いタイムアウト
-        config.timeoutIntervalForRequest = 20
-        //長居タイムアウト
-        config.timeoutIntervalForResource = 30
-        let session = NSURLSession(configuration: config)
-        // create the url-request
-        let urlString = "http://smalo.local:10080/api/locks/locking/\((UUID+"|"+major+"|"+minor).sha256)"
-        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        
-        // set the method(HTTP-GET)
-        request.HTTPMethod = "GET"
-        // use NSURLSessionDataTask
-        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-            if (error == nil) {
-                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                switch (result) {
-                case "200 OK":
-                    self.errorFlag = false
-                    self.localNotification("施錠されました")
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        self.gradientOpen()
-                        ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
-                        let message = [ "parentOpen" : "Opened"]
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                        self.sendFlag = true
-                        self.doorState = "close"
-                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                    })
-                    break
-                case "400 Bad Request":
-                    self.errorFlag = true
-                    if (!self.errorFlag) {
-                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                    }
-                    break
-                case "403 Forbidden":
-                    self.errorFlag = true
-                    if (!self.errorFlag) {
-                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                    }
-                    break
-                default:
-                    break
-                }
-                print(result)
-            } else {
-                if (!self.errorFlag) {
-                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                }
-                self.errorFlag = true
-                print(error)
-            }
+        //サーバーにメッセージをjson形式で送る処理
+        let obj: [String:AnyObject] = [
+            "command" : "lock"
+        ]
+        let json = JSON(obj).string
+        webClient.send(json)
+        self.errorFlag = false
+        self.localNotification("施錠されました")
+        dispatch_async(dispatch_get_main_queue(), {
+            self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
+            self.gradientOpen()
+            ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
+            let message = [ "parentOpen" : "Opened"]
+            self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+            self.sendFlag = true
+            self.doorState = "close"
+            (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
         })
-        task.resume()
     }
     
     //解錠させる処理
     func sendUnLock() {
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        //短いタイムアウト
-        config.timeoutIntervalForRequest = 20
-        //長居タイムアウト
-        config.timeoutIntervalForResource = 30
-        let session = NSURLSession(configuration: config)
-        let urlString = "http://smalo.local:10080/api/locks/unlocking/\((UUID+"|"+major+"|"+minor).sha256)"
-        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        
-        // set the method(HTTP-GET)
-        request.HTTPMethod = "GET"
-        // use NSURLSessionDataTask
-        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-            if (error == nil) {
-                self.errorFlag = false
-                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                switch (result) {
-                case "200 OK":
-                    self.localNotification("解錠されました。")
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                        self.gradientClose()
-                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-                        let message = [ "parentClose" : "Closed"]
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                        self.sendFlag = true
-                        self.doorState = "open"
-                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                    })
-                    break
-                case "400 Bad Request":
-                    self.errorFlag = true
-                    if (!self.errorFlag) {
-                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                    }
-                    break
-                case "403 Forbidden":
-                    self.errorFlag = true
-                    if (!self.errorFlag) {
-                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                    }
-                    break
-                default:
-                    break
-                }
-                print(result)
-            } else {
-                if (!self.errorFlag) {
-                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                }
-                self.errorFlag = true
-                print(error)
-            }
+        //サーバーにメッセージをjson形式で送る処理
+        let obj: [String:AnyObject] = [
+            "command" : "unlock"
+        ]
+        let json = JSON(obj).string
+        webClient.send(json)
+        self.errorFlag = false
+        self.localNotification("解錠されました。")
+        dispatch_async(dispatch_get_main_queue(), {
+            self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
+            self.gradientClose()
+            ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
+            let message = [ "parentClose" : "Closed"]
+            self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+            self.sendFlag = true
+            self.doorState = "open"
+            (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
         })
-        task.resume()
     }
     
     //APIで鍵の状態を取得
@@ -688,7 +666,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         let message = [ "parentWakeOpen" : "Opened"]
                         self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                            self.keyStateFlag = false
+                            //self.keyStateFlag = false
                         }
                         self.doorState = "close"
                         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
@@ -705,7 +683,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         let message = [ "parentWakeClose" : "Closed"]
                         self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
                         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                            self.keyStateFlag = false
+                            //self.keyStateFlag = false
                         }
                         self.doorState = "open"
                         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
