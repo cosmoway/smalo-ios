@@ -21,6 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        
+        var flg = true //分岐条件
+        
+        var storyboard:UIStoryboard =  UIStoryboard(name: "Main",bundle:nil)
+        var viewController:UIViewController
+        
+        
+        //表示するビューコントローラーを指定
+        if  flg {
+            viewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
+        } else {
+            viewController = storyboard.instantiateViewControllerWithIdentifier("main") as UIViewController
+        }
+        
+        
+        window?.rootViewController = viewController
         return true
     }
 
