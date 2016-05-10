@@ -33,7 +33,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var myCentralManager: CBCentralManager!
     var webClient: SRWebSocket?
     var bluetoothOn = true
-    var wifiOn = true
     var errorFlag = false
     var animateStart = false
     
@@ -352,17 +351,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         }
         var alertMessage: String?
         
-        if (!bluetoothOn && !wifiOn) {
-            alertMessage = "Wi-Fi/BluetoothをONにしてください。"
-            print("wifiとbluetoothをオンにしてください。")
-        } else if (!bluetoothOn) {
+        if (!bluetoothOn) {
             alertMessage = "BluetoothをONにしてください。"
             print("bluetoothをオンにしてください。")
-        } else if (!wifiOn) {
-            alertMessage = "Wi-FiをONにしてください。"
-            print("wifiをオンにしてください。")
         }
-        
         if (alertMessage != nil) {
             let alertController = UIAlertController(title: "通知", message: alertMessage, preferredStyle: .Alert)
             
