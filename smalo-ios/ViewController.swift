@@ -9,7 +9,6 @@
 import UIKit
 import WatchConnectivity
 import Pulsator
-import ReachabilitySwift
 import CoreLocation
 import CoreBluetooth
 import SocketRocket
@@ -36,7 +35,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var bluetoothOn = true
     var wifiOn = true
     var errorFlag = false
-    var keyStateFlag = true
     var animateStart = false
     
     // protcol NSCorder init
@@ -68,12 +66,9 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         print(UUID)
         // CoreBluetoothを初期化および始動.
         myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
-        //WiFiがオンにされているかの判定の処理
-        checkWifi()
         //Beaconの初期設定
         initBeacon()
         //タイマーを作る.
-        //NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "keyStateUpdate:", userInfo: nil, repeats: true)
         webSocketConnect()
     }
     
@@ -106,14 +101,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 ZFRippleButton.rippleColor = UIColor(red: 0.08, green:0.57, blue:0.31, alpha: 0.3)
                 let message = [ "parentWakeOpen" : "Opened"]
                 self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                    //self.keyStateFlag = false
-                }
                 self.doorState = "close"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
                 self.animateStart = false
-                self.localNotification("解錠")
             })
             break
         case "lock":
@@ -124,14 +115,11 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                 let message = [ "parentWakeClose" : "Closed"]
                 self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                    //self.keyStateFlag = false
-                }
                 self.doorState = "open"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
                 self.animateStart = false
-                self.localNotification("施錠")
+
             })
             break
         case "unknown":
@@ -179,12 +167,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             return true
         }
         return false
-    }
-    
-    func keyStateUpdate(timer: NSTimer) {
-        if major != "" && minor != "" {
-            //getKeyState()
-        }
     }
     
     func initBeacon() {
@@ -243,43 +225,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             alert.addAction(okAction)
             
             presentViewController(alert, animated: true, completion: nil)
-        }
-    }
-
-    func checkWifi() {
-        //WiFiがオンにされているかの判定の処理
-        let reachability: Reachability
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return
-        }
-        
-        reachability.whenReachable = { reachability in
-            dispatch_async(dispatch_get_main_queue()) {
-                if reachability.isReachableViaWiFi() {
-                    print("Reachable via WiFi")
-                    self.wifiOn = true
-                } else {
-                    print("Reachable via Cellular")
-                    self.wifiOn = false
-                }
-            }
-        }
-        reachability.whenUnreachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
-            dispatch_async(dispatch_get_main_queue()) {
-                print("Not reachable")
-                self.wifiOn = false
-            }
-        }
-        
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
         }
     }
     
@@ -519,12 +464,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 let rssi = beacon.rssi
                 let accuracy = beacon.accuracy
                 
-                if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                    if keyStateFlag {
-                        //getKeyState()
-                    }
-                }
-                
                 print("UUID: \(beaconUUID.UUIDString)")
                 print("minorID: \(minor)")
                 print("majorID: \(major)")
@@ -596,7 +535,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         gradientClose()
         self.keyButton.enabled = false
-        //keyStateFlag = true
         doorState = ""
         pulsator.start()
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
@@ -632,17 +570,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         self.errorFlag = false
         self.sendFlag = true
         self.localNotification("施錠されました")
-        /*
-        dispatch_async(dispatch_get_main_queue(), {
-            self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-            self.gradientOpen()
-            ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
-            let message = [ "parentOpen" : "Opened"]
-            self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-            self.doorState = "close"
-            (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-        })
-         */
     }
     
     //解錠させる処理
@@ -656,117 +583,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         self.errorFlag = false
         self.sendFlag = true
         self.localNotification("解錠されました。")
-        /*
-        dispatch_async(dispatch_get_main_queue(), {
-            self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-            self.gradientClose()
-            ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-            let message = [ "parentClose" : "Closed"]
-            self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-            self.doorState = "open"
-            (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-        })
-         */
     }
-    
-    //APIで鍵の状態を取得
-    func getKeyState() {
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        //短いタイムアウト
-        config.timeoutIntervalForRequest = 20
-        //長居タイムアウト
-        config.timeoutIntervalForResource = 30
-        let session = NSURLSession(configuration: config)
-        // create the url-request
-        let urlString = "http://smalo.local:10080/api/locks/status/\((UUID+"|"+major+"|"+minor).sha256)"
-        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        
-        // set the method(HTTP-GET)
-        request.HTTPMethod = "GET"
-        //鍵の状態を問い合わせるAPI
-        // use NSURLSessionDataTask
-        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
-            if (error == nil) {
-                self.errorFlag = false
-                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                switch (result) {
-                case "unlocked":
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.pulsator.stop()
-                        self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
-                        self.gradientOpen()
-                        ZFRippleButton.rippleColor = UIColor(red: 0.08, green:0.57, blue:0.31, alpha: 0.3)
-                        let message = [ "parentWakeOpen" : "Opened"]
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                            //self.keyStateFlag = false
-                        }
-                        self.doorState = "close"
-                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                        self.keyButton.enabled = true
-                        self.animateStart = false
-                    })
-                    break
-                case "locked":
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.pulsator.stop()
-                        self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
-                        self.gradientClose()
-                        ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
-                        let message = [ "parentWakeClose" : "Closed"]
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-                        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                            //self.keyStateFlag = false
-                        }
-                        self.doorState = "open"
-                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                        self.keyButton.enabled = true
-                        self.animateStart = false
-                    })
-                    break
-                case "unknown":
-                    dispatch_async(dispatch_get_main_queue(), {
-                        if !self.animateStart {
-                            self.pulsator.start()
-                            self.animateStart = true
-                        }
-                        self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
-                        self.gradientClose()
-                        let message = [ "smaloNG" : "スマロNG" ]
-                        self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
-                        self.doorState = ""
-                        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
-                        self.keyButton.enabled = false
-                    })
-                    break
-                case "400 Bad Request":
-                    self.errorFlag = true
-                    if (!self.errorFlag) {
-                        self.localNotification("予期せぬエラーが発生致しました。開発者に御問合せ下さい。")
-                    }
-                    break
-                case "403 Forbidden":
-                    self.errorFlag = true
-                    if (!self.errorFlag) {
-                        self.localNotification("認証に失敗致しました。システム管理者に登録を御確認下さい。")
-                    }
-                    break
-                default:
-                    break
-                }
-                print(result)
-            } else {
-                if (!self.errorFlag) {
-                    self.localNotification("通信処理が正常に終了されませんでした。通信環境を御確認下さい。")
-                }
-                self.errorFlag = true
-                print(error)
-            }
-        })
-        task.resume()
-
-    }
-    
 }
 extension String {
     var sha256: String! {

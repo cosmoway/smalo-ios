@@ -85,13 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-smalo-ios/Pulsator.framework"
-  install_framework "Pods-smalo-ios/ReachabilitySwift.framework"
   install_framework "Pods-smalo-ios/SocketRocket.framework"
   install_framework "Pods-smalo-ios/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-smalo-ios/Pulsator.framework"
-  install_framework "Pods-smalo-ios/ReachabilitySwift.framework"
   install_framework "Pods-smalo-ios/SocketRocket.framework"
   install_framework "Pods-smalo-ios/SwiftyJSON.framework"
 fi
