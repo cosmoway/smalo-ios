@@ -16,27 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var pulsator: Pulsator?
     var doorState: String?
-
+    var navigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
         
-        var flg = true //分岐条件
+        // ログイン判定
+        let ud = NSUserDefaults.standardUserDefaults()
+        let isLogin: Bool? = ud.objectForKey("isLogin") as? Bool
+        let storyboard:UIStoryboard =  UIStoryboard(name: "Main",bundle:nil)
         
-        var storyboard:UIStoryboard =  UIStoryboard(name: "Main",bundle:nil)
-        var viewController:UIViewController
-        
-        
-        //表示するビューコントローラーを指定
-        if  flg {
-            viewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
+        // 未ログインの場合
+        if isLogin != nil && isLogin! {
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("main") as UIViewController
+            navigationController = UINavigationController(rootViewController: viewController)
+            navigationController?.navigationBarHidden = true
+            self.window?.rootViewController = navigationController
+            // ログイン中の場合
         } else {
-            viewController = storyboard.instantiateViewControllerWithIdentifier("main") as UIViewController
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
+            navigationController = UINavigationController(rootViewController: viewController)
+            navigationController?.navigationBarHidden = true
+            self.window?.rootViewController = navigationController
         }
-        
-        
-        window?.rootViewController = viewController
         return true
     }
 

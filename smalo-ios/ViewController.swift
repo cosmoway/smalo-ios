@@ -13,7 +13,7 @@ import ReachabilitySwift
 import CoreLocation
 import CoreBluetooth
 
-class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDelegate, CBCentralManagerDelegate{
+class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDelegate, CBCentralManagerDelegate {
     
     @IBOutlet weak var keyButton: UIButton!
     

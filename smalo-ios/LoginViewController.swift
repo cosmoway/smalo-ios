@@ -33,9 +33,14 @@ class LoginViewController: UIViewController {
         //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
+    @IBAction func sendUserName(sender: AnyObject) {
+        performSegueWithIdentifier("showMain", sender: nil)
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.setBool(true, forKey: "isLogin")
+    }
     
     override func viewDidLayoutSubviews() {
-        userNameText.attributedPlaceholder = NSAttributedString(string: "ユーザーネーム", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+        userNameText.attributedPlaceholder = NSAttributedString(string: "ユーザーネーム", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         userNameSendButton.layer.borderColor = UIColor.whiteColor().CGColor
         userNameSendButton.layer.borderWidth = 1.0
     }
