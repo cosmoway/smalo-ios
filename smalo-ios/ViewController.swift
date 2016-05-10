@@ -32,12 +32,12 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var myBeaconRegion:CLBeaconRegion!
     var beaconRegion = CLBeaconRegion()
     var myCentralManager: CBCentralManager!
+    var webClient: SRWebSocket?
     var bluetoothOn = true
     var wifiOn = true
     var errorFlag = false
     var keyStateFlag = true
     var animateStart = false
-    let webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net:8443")!))
     
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
@@ -74,8 +74,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         initBeacon()
         //タイマーを作る.
         //NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "keyStateUpdate:", userInfo: nil, repeats: true)
-        webClient.delegate = self
-        webClient.open()
+        webSocketConnect()
     }
     
     func webSocketDidOpen(webSocket: SRWebSocket!) {
@@ -86,12 +85,12 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         ]
         let json = String(JSON(obj))
         print(json)
-        webClient.send(json)
-        //sendUnLock()
+        webClient?.send(json)
     }
     
     func webSocket(webSocket: SRWebSocket!, didFailWithError error: NSError!) {
         print(error)
+        webSocketConnect()
     }
     
     func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
@@ -114,6 +113,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
                 self.animateStart = false
+                self.localNotification("解錠")
             })
             break
         case "lock":
@@ -131,6 +131,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
                 self.animateStart = false
+                self.localNotification("施錠")
             })
             break
         case "unknown":
@@ -156,6 +157,28 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
         print("\(code)"+reason)
         print("閉じたよ")
+    }
+    
+    func webSocketConnect() {
+        if !webSocketOpened() {
+            webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net:8443")!))
+            webClient?.delegate = self
+            webClient?.open()
+        }
+    }
+    
+    func webSocketOpened() -> Bool {
+        if webClient?.readyState.rawValue == 1 {
+            return true
+        }
+        return false
+    }
+    
+    func webSocketClosed() -> Bool {
+        if !webSocketOpened() {
+            return true
+        }
+        return false
     }
     
     func keyStateUpdate(timer: NSTimer) {
@@ -551,6 +574,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             // do some task
             // Rangingを始める
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
+            self.webSocketConnect()
         }
     }
     
@@ -604,19 +628,21 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             "command" : "lock"
         ]
         let json = String(JSON(obj))
-        webClient.send(json)
+        webClient?.send(json)
         self.errorFlag = false
+        self.sendFlag = true
         self.localNotification("施錠されました")
+        /*
         dispatch_async(dispatch_get_main_queue(), {
             self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
             self.gradientOpen()
             ZFRippleButton.rippleColor = UIColor(red:0.08, green:0.57, blue:0.31, alpha:0.3)
             let message = [ "parentOpen" : "Opened"]
             self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-            self.sendFlag = true
             self.doorState = "close"
             (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
         })
+         */
     }
     
     //解錠させる処理
@@ -626,19 +652,21 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             "command" : "unlock"
         ]
         let json = String(JSON(obj))
-        webClient.send(json)
+        webClient?.send(json)
         self.errorFlag = false
+        self.sendFlag = true
         self.localNotification("解錠されました。")
+        /*
         dispatch_async(dispatch_get_main_queue(), {
             self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
             self.gradientClose()
             ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
             let message = [ "parentClose" : "Closed"]
             self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
-            self.sendFlag = true
             self.doorState = "open"
             (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
         })
+         */
     }
     
     //APIで鍵の状態を取得
