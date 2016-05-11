@@ -128,7 +128,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
                 self.animateStart = false
-
             })
             break
         case "unknown":
