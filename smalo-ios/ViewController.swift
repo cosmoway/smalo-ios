@@ -49,7 +49,25 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        initLayout()
+        print(UUID)
+        // CoreBluetoothを初期化および始動.
+        myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
+        //Beaconの初期設定
+        initBeacon()
+        webSocketConnect()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame.size = self.view.frame.size
+        pulsator.position = keyButton.center
+        (UIApplication.sharedApplication().delegate as! AppDelegate).pulsator = pulsator
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         // check supported
         if WCSession.isSupported() {
             //  get default session
@@ -61,14 +79,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         } else {
             print("Not support WCSession")
         }
-        initLayout()
-        print(UUID)
-        // CoreBluetoothを初期化および始動.
-        myCentralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
-        //Beaconの初期設定
-        initBeacon()
-        //タイマーを作る.
-        webSocketConnect()
     }
     
     func webSocketDidOpen(webSocket: SRWebSocket!) {
@@ -309,14 +319,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        //グラデーションレイヤーをスクリーンサイズにする
-        gradientLayer.frame.size = self.view.frame.size
-        pulsator.position = keyButton.center
-        (UIApplication.sharedApplication().delegate as! AppDelegate).pulsator = pulsator
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

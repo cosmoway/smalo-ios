@@ -64,30 +64,47 @@ class LoginViewController: UIViewController {
                 print("NSJSONSerialization Error")
                 return
             }
-            
+            var alertString = ""
             // use NSURLSessionDataTask
             let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error in
                 if (error == nil) {
-                    let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    switch (result) {
-                    case "204":
+                    if let httpResponse = response as? NSHTTPURLResponse {
+                        switch(httpResponse.statusCode) {
+                        case 204:
+                            dispatch_async(dispatch_get_main_queue(), {
+                                let ud = NSUserDefaults.standardUserDefaults()
+                                ud.setBool(true, forKey: "isLogin")
+                                self.performSegueWithIdentifier("showMain", sender: nil)
+                            })
+                            break
+                        case 404:
+                            alertString = "サーバーが見つかりませんでした。開発者に御問合せ下さい。"
+                            break
+                        case 400:
+                            alertString = "予期せぬエラーが発生致しました。開発者に御問合せ下さい。"
+                            break
+                        case 500:
+                            alertString = "サーバー内部でエラーが発生致しました。開発者に御問合せ下さい。"
+                            break
+                        default:
+                            alertString = "通信処理が正常に終了されませんでした。通信環境を御確認下さい。"
+                            break
+                        }
                         dispatch_async(dispatch_get_main_queue(), {
-                            let ud = NSUserDefaults.standardUserDefaults()
-                            ud.setBool(false, forKey: "isLogin")
-                            self.performSegueWithIdentifier("showMain", sender: nil)
-                            print("登録されたよ")
-                        })
-                        break
-                    case "400 Bad Request":
-                       
-                        break
-                    case "403 Forbidden":
+                            if alertString != "" {
+                                let alertController = UIAlertController(title: "通知", message: alertString, preferredStyle: .Alert)
                         
-                        break
-                    default:
-                        break
+                                let otherAction = UIAlertAction(title: "はい", style: .Default) {
+                                    action in NSLog("はいボタンが押されました")
+                                }
+                            
+                                // addActionした順に左から右にボタンが配置されます
+                                alertController.addAction(otherAction)
+                        
+                                self.presentViewController(alertController, animated: true, completion: nil)
+                            }
+                        })
                     }
-                    print(result)
                 } else {
                     print(error)
                 }
