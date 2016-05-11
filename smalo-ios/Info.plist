@@ -24,19 +24,19 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-			 <key>NSExceptionDomains</key>
-			 <dict>
-					 <key>smalo.cosmoway.net</key>
-					 <dict>
-							 <key>NSExceptionMinimumTLSVersion</key>
-							 <string>TLSv1.0</string>
-							 <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-							 <true/>
-							 <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
-							 <false/>
-					 </dict>
-			 </dict>
-	 </dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>smalo.cosmoway.net</key>
+			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>iBeaconで使用</string>
 	<key>UIBackgroundModes</key>
