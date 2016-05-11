@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func sendUserName(sender:
         AnyObject) {
+        self.view.endEditing(true)
         if userNameText.text != "" {
             let config = NSURLSessionConfiguration.defaultSessionConfiguration()
             //短いタイムアウト
