@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var userNameSendButton: UIButton!
     let gradientLayer = CAGradientLayer()
@@ -33,7 +33,19 @@ class LoginViewController: UIViewController {
         
         //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        userNameText.delegate = self
+        userNameText.returnKeyType = UIReturnKeyType.Done
+        userNameText.resignFirstResponder()
     }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" {
+            userNameText.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     @IBAction func sendUserName(sender:
         AnyObject) {
         self.view.endEditing(true)

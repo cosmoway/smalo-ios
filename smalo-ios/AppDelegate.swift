@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 未ログインの場合
         if isLogin != nil && isLogin! {
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("main") as UIViewController
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
             navigationController = UINavigationController(rootViewController: viewController)
             navigationController?.navigationBarHidden = true
             self.window?.rootViewController = navigationController
