@@ -14,12 +14,12 @@ import CoreBluetooth
 import SocketRocket
 import SwiftyJSON
 
+
 @available(iOS 9.0, *)
 class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDelegate, CBCentralManagerDelegate, SRWebSocketDelegate {
     
     @IBOutlet weak var keyButton: UIButton!
-    
-    var wcSession = WCSession.defaultSession()
+    var wcSession: WCSession?
     var doorState = ""
     var major: String = ""
     var minor: String = ""
@@ -70,15 +70,21 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         // check supported
-        if WCSession.isSupported() {
-            //  get default session
-            wcSession = WCSession.defaultSession()
-            // set delegate
-            wcSession.delegate = self
-            // activate session
-            wcSession.activateSession()
+        if #available(iOS 9.0, *) {
+            if WCSession.isSupported() {
+                //  get default session
+                wcSession = WCSession.defaultSession()
+                if self.wcSession != nil {
+                    // set delegate
+                    wcSession!.delegate = self
+                    // activate session
+                    wcSession!.activateSession()
+                }
+            } else {
+                print("Not support WCSession")
+            }
         } else {
-            print("Not support WCSession")
+            // Fallback on earlier versions
         }
     }
     
@@ -110,7 +116,11 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 self.gradientOpen()
                 ZFRippleButton.rippleColor = UIColor(red: 0.08, green:0.57, blue:0.31, alpha: 0.3)
                 let message = [ "parentWakeOpen" : "Opened"]
-                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                if #available(iOS 9.0, *) {
+                    if self.wcSession != nil {
+                        self.wcSession!.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    }
+                }
                 self.doorState = "close"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
@@ -124,7 +134,11 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 self.gradientClose()
                 ZFRippleButton.rippleColor = UIColor(red: 0.0, green: 0.44, blue: 0.74, alpha: 0.15)
                 let message = [ "parentWakeClose" : "Closed"]
-                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                if #available(iOS 9.0, *) {
+                    if self.wcSession != nil {
+                        self.wcSession!.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                    }
+                }
                 self.doorState = "open"
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
@@ -140,7 +154,11 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
                 self.gradientClose()
                 let message = [ "smaloNG" : "スマロNG" ]
-                self.wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                if #available(iOS 9.0, *) {
+                    if self.wcSession != nil {
+                        self.wcSession!.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                    }
+                }
                 self.doorState = ""
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = false
@@ -288,6 +306,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     // watchからのメッセージを受け取る
+    @available(iOS 9.0, *)
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
         print("ウェアから受け取った")
         
@@ -295,17 +314,20 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             
             if( doorState == "open" ){
                 let message = [ "parentWakeClose" : "Closed"]
-                
-                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                if self.wcSession != nil {
+                    wcSession!.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                }
             }else if( doorState == "close" ){
                 
                 let message = [ "parentWakeOpen" : "Opened"]
-                
-                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                if self.wcSession != nil {
+                    wcSession!.sendMessage(message, replyHandler: { replyDict in }, errorHandler:  { error in })
+                }
             }else{
                 let message = [ "smaloNG" : "スマロNG" ]
-                
-                wcSession.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                if self.wcSession != nil {
+                    wcSession!.sendMessage(message, replyHandler: { replyDict in }, errorHandler: { error in })
+                }
                 
             }
             
@@ -538,7 +560,9 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
         //watchに領域を出たメッセージを送る
         let message = [ "smaloNG" : "スマロNG" ]
-        wcSession.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
+        if self.wcSession != nil {
+            wcSession!.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
+        }
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
