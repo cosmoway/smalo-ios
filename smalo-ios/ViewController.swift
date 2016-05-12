@@ -563,6 +563,9 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         if self.wcSession != nil {
             wcSession!.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
         }
+        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+            webClient?.close()
+        }
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
