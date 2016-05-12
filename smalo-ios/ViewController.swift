@@ -103,7 +103,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         print(message)
         var keyState = JSON.parse(message as! String)
         switch (keyState["state"]) {
-        case "unlock":
+        case "unlocked":
             dispatch_async(dispatch_get_main_queue(), {
                 self.pulsator.stop()
                 self.keyButton.setImage(UIImage(named: "smalo_open_button.png"), forState: UIControlState.Normal)
@@ -117,7 +117,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 self.animateStart = false
             })
             break
-        case "lock":
+        case "locked":
             dispatch_async(dispatch_get_main_queue(), {
                 self.pulsator.stop()
                 self.keyButton.setImage(UIImage(named: "smalo_close_button.png"), forState: UIControlState.Normal)
@@ -473,8 +473,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 case CLProximity.Far:
                     print("Proximity: Far")
                     if (!sendFlag && UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-                        //施錠か解錠のAPIを叩く関数
-                        sendHttpMessage()
+                        //doorStateがopenだった場合施錠のAPIを叩く
+                        if doorState == "open" {
+                            sendUnLock()
+                        }
                     }
                     break
                     
