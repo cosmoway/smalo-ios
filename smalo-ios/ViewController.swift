@@ -562,8 +562,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
         //watchに領域を出たメッセージを送る
         let message = [ "smaloNG" : "スマロNG" ]
-        if self.wcSession != nil {
-            wcSession!.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
+        if #available(iOS 9.0, *) {
+            if self.wcSession != nil {
+                wcSession!.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
+            }
         }
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
             webClient?.close()
