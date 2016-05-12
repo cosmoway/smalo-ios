@@ -172,6 +172,18 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
         print("\(code)"+reason)
         print("閉じたよ")
+        self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
+        gradientClose()
+        self.keyButton.enabled = false
+        doorState = ""
+        pulsator.start()
+        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
+        let message = [ "smaloNG" : "スマロNG" ]
+        if #available(iOS 9.0, *) {
+            if self.wcSession != nil {
+                wcSession!.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
+            }
+        }
     }
     
     func webSocketConnect() {
@@ -554,19 +566,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         NSLog("didExitRegion");
         localNotification("領域をでました")
-        self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
-        gradientClose()
-        self.keyButton.enabled = false
-        doorState = ""
-        pulsator.start()
-        (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
         //watchに領域を出たメッセージを送る
-        let message = [ "smaloNG" : "スマロNG" ]
-        if #available(iOS 9.0, *) {
-            if self.wcSession != nil {
-                wcSession!.sendMessage( message, replyHandler: { replyDict in }, errorHandler: { error in })
-            }
-        }
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
             webClient?.close()
         }
