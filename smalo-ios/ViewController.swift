@@ -325,12 +325,14 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func localNotification(msg: String) {
-        UIApplication.sharedApplication().cancelAllLocalNotifications();
-        let notification = UILocalNotification()
-        notification.timeZone = NSTimeZone.defaultTimeZone()
-        notification.alertBody = msg
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        if UIApplication.sharedApplication().applicationState == UIApplicationState.Background {
+            UIApplication.sharedApplication().cancelAllLocalNotifications();
+            let notification = UILocalNotification()
+            notification.timeZone = NSTimeZone.defaultTimeZone()
+            notification.alertBody = msg
+            notification.soundName = UILocalNotificationDefaultSoundName
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
