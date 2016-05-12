@@ -21,8 +21,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     @IBOutlet weak var keyButton: UIButton!
     var wcSession: WCSession?
     var doorState = ""
-    var major: String = ""
-    var minor: String = ""
     let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
     //グラデーションレイヤーを作成
@@ -34,8 +32,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var myCentralManager: CBCentralManager!
     var webClient: SRWebSocket?
     var bluetoothOn = true
-    var errorFlag = false
     var animateStart = false
+    var isReturned = false
     
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
@@ -125,6 +123,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
                 self.animateStart = false
+                self.isReturned = true
             })
             break
         case "locked":
@@ -143,6 +142,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = self.doorState
                 self.keyButton.enabled = true
                 self.animateStart = false
+                self.isReturned = true
             })
             break
         case "unknown":
@@ -336,7 +336,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         
         //鍵の開閉要求だった場合
         if ((message["stateUpdate"] as? String) != nil) {
+            if isReturned {
                 sendHttpMessage()
+                isReturned = false
+            }
         }
         
     }
@@ -477,8 +480,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                 let beacon = beacons[i]
                 
                 let beaconUUID = beacon.proximityUUID
-                minor = "\(beacon.minor)"
-                major = "\(beacon.major)"
+                let minor = "\(beacon.minor)"
+                let major = "\(beacon.major)"
                 let rssi = beacon.rssi
                 let accuracy = beacon.accuracy
                 
@@ -551,7 +554,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         NSLog("didExitRegion");
         localNotification("領域をでました")
-        self.errorFlag = false
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         gradientClose()
         self.keyButton.enabled = false
@@ -571,7 +573,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     @IBAction func keyButton(sender: AnyObject) {
-        sendHttpMessage()
+        if isReturned {
+            sendHttpMessage()
+            isReturned = false
+        }
     }
     //APIで解錠施錠のリクエストを送る。
     func sendHttpMessage() {
@@ -592,7 +597,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         ]
         let json = String(JSON(obj))
         webClient?.send(json)
-        self.errorFlag = false
         self.sendFlag = true
         self.localNotification("施錠されました")
     }
@@ -605,7 +609,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         ]
         let json = String(JSON(obj))
         webClient?.send(json)
-        self.errorFlag = false
         self.sendFlag = true
         self.localNotification("解錠されました。")
     }
