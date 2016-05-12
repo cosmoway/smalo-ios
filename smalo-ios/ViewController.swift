@@ -14,6 +14,7 @@ import CoreBluetooth
 import SocketRocket
 import SwiftyJSON
 
+@available(iOS 9.0, *)
 class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDelegate, CBCentralManagerDelegate, SRWebSocketDelegate {
     
     @IBOutlet weak var keyButton: UIButton!
