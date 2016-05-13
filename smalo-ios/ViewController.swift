@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  smalo-ios
 //
-//  Created by 須崎鉄 on 2016/04/07.
-//  Copyright © 2016年 須崎鉄. All rights reserved.
+//  Created by Tetsu Susaki on 2016/04/07.
+//  Copyright (c) 2016 COSMOWAY inc. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  Bridging-Header.h
 //  smalo-ios
 //
-//  Created by 坂野健 on 2016/04/19.
-//  Copyright © 2016年 須崎鉄. All rights reserved.
+//  Created by Takeru Sakano on 2016/04/19.
+//  Copyright (c) 2016 COSMOWAY inc. All rights reserved.
 //
 
 #ifndef Bridging_Header_h
