@@ -188,7 +188,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     func webSocketConnect() {
         if !webSocketOpened() {
-            webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net:8443")!))
+            webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net")!))
             webClient?.delegate = self
             webClient?.open()
         }
