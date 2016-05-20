@@ -513,7 +513,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                     print("Proximity: Far")
                     if (!sendFlag && UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                         //doorStateがopenだった場合施錠のAPIを叩く
-                        if doorState == "open" {
+                        if doorState == "open" && webSocketOpened() {
                             sendUnLock()
                         }
                     }
@@ -568,7 +568,11 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         localNotification("領域をでました")
         //watchに領域を出たメッセージを送る
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-            webClient?.close()
+            if webClient != nil {
+                if webSocketOpened() {
+                    webClient?.close()
+                }
+            }
         }
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
