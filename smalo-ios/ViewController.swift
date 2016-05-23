@@ -176,7 +176,10 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         gradientClose()
         self.keyButton.enabled = false
         doorState = ""
-        pulsator.start()
+        if !self.animateStart {
+            pulsator.start()
+            self.animateStart = true
+        }
         (UIApplication.sharedApplication().delegate as! AppDelegate).doorState = doorState
         let message = [ "smaloNG" : "スマロNG" ]
         if #available(iOS 9.0, *) {
@@ -187,7 +190,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func webSocketConnect() {
-        if !webSocketOpened() {
+        if webSocketClosed() {
             webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net")!))
             webClient?.delegate = self
             webClient?.open()
@@ -566,14 +569,14 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         NSLog("didExitRegion");
         localNotification("領域をでました")
-        //watchに領域を出たメッセージを送る
-        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
-            if webClient != nil {
-                if webSocketOpened() {
-                    webClient?.close()
+        dispatch_async(dispatch_get_main_queue(), {
+            //watchに領域を出たメッセージを送る
+            if self.webClient != nil {
+                if self.webSocketOpened() {
+                    self.webClient?.close()
                 }
             }
-        }
+        })
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
