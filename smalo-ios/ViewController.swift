@@ -198,17 +198,16 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func webSocketOpened() -> Bool {
-        if webClient?.readyState.rawValue == 1 {
-            return true
+        if webClient != nil {
+            if webClient!.readyState.rawValue == 1 {
+                return true
+            }
         }
         return false
     }
     
     func webSocketClosed() -> Bool {
-        if !webSocketOpened() {
-            return true
-        }
-        return false
+        return !webSocketOpened()
     }
     
     func initBeacon() {
@@ -521,7 +520,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
                         }
                     }
                     break
-                    
                 case CLProximity.Near:
                     print("Proximity: Near")
                     break
@@ -541,7 +539,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("didEnterRegion");
         localNotification("領域に入りました")
-        sendFlag = false
         var bgTask = UIBackgroundTaskIdentifier()
         bgTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
             UIApplication.sharedApplication().endBackgroundTask(bgTask)
@@ -551,7 +548,6 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             // do some task
             // Rangingを始める
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
-            self.webSocketConnect()
         }
     }
     
@@ -569,14 +565,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         NSLog("didExitRegion");
         localNotification("領域をでました")
-        dispatch_async(dispatch_get_main_queue(), {
-            //watchに領域を出たメッセージを送る
-            if self.webClient != nil {
-                if self.webSocketOpened() {
-                    self.webClient?.close()
-                }
-            }
-        })
+        self.sendFlag = false
         // Rangingを停止する
         manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
     }
