@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // ログイン判定
         let ud = NSUserDefaults.standardUserDefaults()
-        let isLogin: Bool? = ud.objectForKey("isLogin") as? Bool
-        let storyboard:UIStoryboard =  UIStoryboard(name: "Main",bundle:nil)
+        let isLogin = ud.objectForKey("isLogin") as? Bool
+        let storyboard = UIStoryboard(name: "Main",bundle:nil)
         
         // 未ログインの場合
         if isLogin != nil && isLogin! {

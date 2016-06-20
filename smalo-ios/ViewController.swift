@@ -34,6 +34,8 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     var bluetoothOn = true
     var animateStart = false
     var isReturned = false
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+
     
     // protcol NSCorder init
     required init(coder aDecoder: NSCoder) {
@@ -172,6 +174,12 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
         print("\(code)"+reason)
         print("閉じたよ")
+        //アプリがアクティブになったとき
+        notificationCenter.addObserver(
+            self,
+            selector: "webSocketConnect",
+            name:UIApplicationWillEnterForegroundNotification,
+            object: nil)
         self.keyButton.setImage(UIImage(named: "smalo_search_button.png"), forState: UIControlState.Normal)
         gradientClose()
         self.keyButton.enabled = false
@@ -194,6 +202,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net")!))
             webClient?.delegate = self
             webClient?.open()
+            notificationCenter.removeObserver(self)
         }
     }
     
