@@ -199,7 +199,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     func webSocketConnect() {
         if webSocketClosed() {
-            webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: "wss://smalo.cosmoway.net")!))
+            webClient = SRWebSocket(URLRequest: NSURLRequest(URL: NSURL(string: NSBundle.mainBundle().objectForInfoDictionaryKey("webSocketUrl") as! String)!))
             webClient?.delegate = self
             webClient?.open()
             notificationCenter.removeObserver(self)
@@ -248,7 +248,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
             
             
             // BeaconのUUIDを設定.
-            let uuid = NSUUID(UUIDString: "51A4A738-62B8-4B26-A929-3BBAC2A5CE7C")
+            let uuid = NSUUID(UUIDString: NSBundle.mainBundle().objectForInfoDictionaryKey("uuid") as! String)
             
             // リージョンを作成.
             myBeaconRegion = CLBeaconRegion(proximityUUID: uuid!,identifier: "EstimoteRegion")

@@ -785,6 +785,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
+				UUID = "51A4A738-62B8-4B26-A929-3BBAC2A5CE7C";
+				WEBSOCKET_URL = "wss://smalo.cosmoway.net";
 			};
 			name = Debug;
 		};
@@ -802,6 +804,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
+				UUID = "51A4A738-62B8-4B26-A929-3BBAC2A5CE7C";
+				WEBSOCKET_URL = "wss://smalo.cosmoway.net";
 			};
 			name = Release;
 		};
