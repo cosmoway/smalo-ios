@@ -21,7 +21,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     @IBOutlet weak var keyButton: UIButton!
     var wcSession: WCSession?
     var doorState = ""
-    let UUID: String = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
+    let UUID = "\(UIDevice.currentDevice().identifierForVendor!.UUIDString)"
     let pulsator = Pulsator()
     //グラデーションレイヤーを作成
     let gradientLayer = CAGradientLayer()
@@ -89,9 +89,9 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func webSocketDidOpen(webSocket: SRWebSocket!) {
-        print("接続ッタよ")
+        print("接続しました。")
         //サーバーにメッセージをjson形式で送る処理
-        let obj: [String:AnyObject] = [
+        let obj = [
             "uuid" : UUID
         ]
         let json = String(JSON(obj))
@@ -105,7 +105,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     }
     
     func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
-        print("メセジきたよ")
+        print("メッセージがきました。")
         print(message)
         var keyState = JSON.parse(message as! String)
         switch (keyState["state"]) {
@@ -173,7 +173,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     
     func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
         print("\(code)"+reason)
-        print("閉じたよ")
+        print("閉じました。")
         //アプリがアクティブになったとき
         notificationCenter.addObserver(
             self,
@@ -299,7 +299,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         let bottomColor = UIColor(red:0.57, green:0.86, blue:0.73, alpha:1.0)
         
         //グラデーションの色を配列で管理
-        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        let gradientColors = [topColor.CGColor, bottomColor.CGColor]
         
         //グラデーションの色をレイヤーに割り当てる
         gradientLayer.colors = gradientColors
@@ -317,7 +317,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
         let bottomColor = UIColor(red:0.57, green:0.84, blue:0.88, alpha:1)
         
         //グラデーションの色を配列で管理
-        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        let gradientColors = [topColor.CGColor, bottomColor.CGColor]
         
         //グラデーションの色をレイヤーに割り当てる
         gradientLayer.colors = gradientColors
@@ -331,7 +331,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     // watchからのメッセージを受け取る
     @available(iOS 9.0, *)
     func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
-        print("ウェアから受け取った")
+        print("ウェアから受け取りました。")
         
         if ((message["getState"] as? String) != nil) {
             
@@ -599,7 +599,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     //施錠する処理
     func sendLock() {
         //サーバーにメッセージをjson形式で送る処理
-        let obj: [String:AnyObject] = [
+        let obj = [
             "command" : "lock"
         ]
         let json = String(JSON(obj))
@@ -611,7 +611,7 @@ class ViewController: UIViewController,WCSessionDelegate , CLLocationManagerDele
     //解錠させる処理
     func sendUnLock() {
         //サーバーにメッセージをjson形式で送る処理
-        let obj: [String:AnyObject] = [
+        let obj = [
             "command" : "unlock"
         ]
         let json = String(JSON(obj))
