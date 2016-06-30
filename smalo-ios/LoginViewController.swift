@@ -57,7 +57,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             config.timeoutIntervalForResource = 30
             let session = NSURLSession(configuration: config)
             
-            let urlString = "https://smalo.cosmoway.net:8443/api/v1/devices"
+            let urlString = "https://smalo.cosmoway.net/api/v1/devices"
             let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
             
             // set the method(HTTP-POST)
