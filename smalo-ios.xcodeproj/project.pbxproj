@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		227E07847D3DE1AC309135A5 /* Pods_smalo_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834F9478FD55B7E1CA547B21 /* Pods_smalo_ios.framework */; };
+		539FBC2F7FD2B629D1ED5EA5 /* Pods_smalo_ios_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286F551C5ACF10566D1F4121 /* Pods_smalo_ios_WatchKit_App.framework */; };
 		593178DB1CD19CF400865250 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593178DA1CD19CF400865250 /* ZFRippleButton.swift */; };
 		597215421CE0214400181BA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597215411CE0214400181BA5 /* Foundation.framework */; };
 		597215441CE0219300181BA5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597215431CE0219300181BA5 /* CFNetwork.framework */; };
@@ -27,7 +29,9 @@
 		687CEC611CB5E88400893A67 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC601CB5E88400893A67 /* ExtensionDelegate.swift */; };
 		687CEC631CB5E88400893A67 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CEC621CB5E88400893A67 /* NotificationController.swift */; };
 		687CEC651CB5E88400893A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 687CEC641CB5E88400893A67 /* Assets.xcassets */; };
-		F543F9EC6A94EAFBD6C6E7D0 /* Pods_smalo_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B691129017035D9AF1668466 /* Pods_smalo_ios.framework */; };
+		AE301087B6D840DABE722BD1 /* Pods_smalo_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA2BBE0966295E868E4BB52 /* Pods_smalo_iosTests.framework */; };
+		DB8035D9F470F6C46FC3B7A2 /* Pods_smalo_ios_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF6C5AF2F08D713FD8B4F79 /* Pods_smalo_ios_WatchKit_Extension.framework */; };
+		FB9D53B39CC43CD0D4120602 /* Pods_smalo_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E4FFA34ED7966A9D14CB69 /* Pods_smalo_iosUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,13 +91,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08C75066B501294108A8FCAC /* Pods-smalo-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios/Pods-smalo-ios.release.xcconfig"; sourceTree = "<group>"; };
+		0663C097794FFD6EA1CCF65D /* Pods-smalo-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios/Pods-smalo-ios.release.xcconfig"; sourceTree = "<group>"; };
+		17D50517758A17AF53D293CB /* Pods-smalo-ios WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios WatchKit App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios WatchKit App/Pods-smalo-ios WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		1FCE71FBDCE106B8ECB5F713 /* Pods-smalo-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-iosUITests/Pods-smalo-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		22AC8A2B8AD6B2AF7B904AA0 /* Pods-smalo-ios WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios WatchKit Extension/Pods-smalo-ios WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		286F551C5ACF10566D1F4121 /* Pods_smalo_ios_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_ios_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EF6C5AF2F08D713FD8B4F79 /* Pods_smalo_ios_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_ios_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36028FCA65FF532AA7C6B266 /* Pods-smalo-ios WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios WatchKit App/Pods-smalo-ios WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		4C1DF50E44B619D5E9FE83E1 /* Pods-smalo-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-iosTests/Pods-smalo-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		593178DA1CD19CF400865250 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZFRippleButton.swift; path = Classes/ZFRippleButton.swift; sourceTree = "<group>"; };
 		596952321CBE404600F49131 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		597215411CE0214400181BA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		597215431CE0219300181BA5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		597215451CE021B000181BA5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		597215471CE0624200181BA5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		66D677394AAB9EA683D57F0A /* Pods-smalo-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios/Pods-smalo-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		687CEC201CB5E88400893A67 /* smalo-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smalo-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		687CEC231CB5E88400893A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		687CEC251CB5E88400893A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,8 +130,12 @@
 		687CEC621CB5E88400893A67 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		687CEC641CB5E88400893A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		687CEC661CB5E88400893A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B691129017035D9AF1668466 /* Pods_smalo_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBDC2FD58665228FF5E81FFE /* Pods-smalo-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios/Pods-smalo-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		834F9478FD55B7E1CA547B21 /* Pods_smalo_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87FE85F13CCE8D4445104117 /* Pods-smalo-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-iosTests/Pods-smalo-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		88E4FFA34ED7966A9D14CB69 /* Pods_smalo_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA2BBE0966295E868E4BB52 /* Pods_smalo_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABD13F849CB621313CBAE50C /* Pods-smalo-ios WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-ios WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-ios WatchKit Extension/Pods-smalo-ios WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		E8F423FD5FECBA52B8C78736 /* Pods-smalo-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smalo-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-smalo-iosUITests/Pods-smalo-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +146,7 @@
 				597215461CE021B000181BA5 /* Security.framework in Frameworks */,
 				597215441CE0219300181BA5 /* CFNetwork.framework in Frameworks */,
 				597215421CE0214400181BA5 /* Foundation.framework in Frameworks */,
-				F543F9EC6A94EAFBD6C6E7D0 /* Pods_smalo_ios.framework in Frameworks */,
+				227E07847D3DE1AC309135A5 /* Pods_smalo_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE301087B6D840DABE722BD1 /* Pods_smalo_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9D53B39CC43CD0D4120602 /* Pods_smalo_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +170,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8035D9F470F6C46FC3B7A2 /* Pods_smalo_ios_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3D61C59FC9B52C520EEBF84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				539FBC2F7FD2B629D1ED5EA5 /* Pods_smalo_ios_WatchKit_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +191,11 @@
 				597215451CE021B000181BA5 /* Security.framework */,
 				597215431CE0219300181BA5 /* CFNetwork.framework */,
 				597215411CE0214400181BA5 /* Foundation.framework */,
-				B691129017035D9AF1668466 /* Pods_smalo_ios.framework */,
+				834F9478FD55B7E1CA547B21 /* Pods_smalo_ios.framework */,
+				286F551C5ACF10566D1F4121 /* Pods_smalo_ios_WatchKit_App.framework */,
+				2EF6C5AF2F08D713FD8B4F79 /* Pods_smalo_ios_WatchKit_Extension.framework */,
+				8DA2BBE0966295E868E4BB52 /* Pods_smalo_iosTests.framework */,
+				88E4FFA34ED7966A9D14CB69 /* Pods_smalo_iosUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +208,23 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		5A663B9787E423FB0B8FF5DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66D677394AAB9EA683D57F0A /* Pods-smalo-ios.debug.xcconfig */,
+				0663C097794FFD6EA1CCF65D /* Pods-smalo-ios.release.xcconfig */,
+				17D50517758A17AF53D293CB /* Pods-smalo-ios WatchKit App.debug.xcconfig */,
+				36028FCA65FF532AA7C6B266 /* Pods-smalo-ios WatchKit App.release.xcconfig */,
+				22AC8A2B8AD6B2AF7B904AA0 /* Pods-smalo-ios WatchKit Extension.debug.xcconfig */,
+				ABD13F849CB621313CBAE50C /* Pods-smalo-ios WatchKit Extension.release.xcconfig */,
+				87FE85F13CCE8D4445104117 /* Pods-smalo-iosTests.debug.xcconfig */,
+				4C1DF50E44B619D5E9FE83E1 /* Pods-smalo-iosTests.release.xcconfig */,
+				1FCE71FBDCE106B8ECB5F713 /* Pods-smalo-iosUITests.debug.xcconfig */,
+				E8F423FD5FECBA52B8C78736 /* Pods-smalo-iosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		687CEC171CB5E88400893A67 = {
 			isa = PBXGroup;
 			children = (
@@ -186,8 +234,8 @@
 				687CEC4C1CB5E88400893A67 /* smalo-ios WatchKit App */,
 				687CEC5B1CB5E88400893A67 /* smalo-ios WatchKit Extension */,
 				687CEC211CB5E88400893A67 /* Products */,
-				A6095FA5639497FEAF2F8F51 /* Pods */,
 				500798E1FBC46CA5BE2630B6 /* Frameworks */,
+				5A663B9787E423FB0B8FF5DE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,15 +316,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A6095FA5639497FEAF2F8F51 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FBDC2FD58665228FF5E81FFE /* Pods-smalo-ios.debug.xcconfig */,
-				08C75066B501294108A8FCAC /* Pods-smalo-ios.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -284,13 +323,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 687CEC711CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios" */;
 			buildPhases = (
-				0E05E12A5548EC0D7AEE414C /* Check Pods Manifest.lock */,
+				FBD80BC22DAD8236884ECF11 /* [CP] Check Pods Manifest.lock */,
 				687CEC1C1CB5E88400893A67 /* Sources */,
 				687CEC1D1CB5E88400893A67 /* Frameworks */,
 				687CEC1E1CB5E88400893A67 /* Resources */,
 				687CEC701CB5E88400893A67 /* Embed Watch Content */,
-				A745BF712B3B02996CB51EAD /* Embed Pods Frameworks */,
-				798B89A0054E5ABC6A17B0B6 /* Copy Pods Resources */,
+				9DB43146926F5C0A056D32DD /* [CP] Embed Pods Frameworks */,
+				05F23B1DBE50AE75BB57964A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,9 +345,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 687CEC741CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosTests" */;
 			buildPhases = (
+				68457C3944D9F29B8DA4861C /* [CP] Check Pods Manifest.lock */,
 				687CEC301CB5E88400893A67 /* Sources */,
 				687CEC311CB5E88400893A67 /* Frameworks */,
 				687CEC321CB5E88400893A67 /* Resources */,
+				1A3BD6C537DF31F4FF6D121E /* [CP] Embed Pods Frameworks */,
+				8AD9A6901A5C2A03A2EC669E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,9 +366,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 687CEC771CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-iosUITests" */;
 			buildPhases = (
+				8F3F0221624B9DB043893B14 /* [CP] Check Pods Manifest.lock */,
 				687CEC3B1CB5E88400893A67 /* Sources */,
 				687CEC3C1CB5E88400893A67 /* Frameworks */,
 				687CEC3D1CB5E88400893A67 /* Resources */,
+				355BE5C4AD2E82A1CDCBC6CE /* [CP] Embed Pods Frameworks */,
+				CA8430DA53E0EA338DA46D01 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -342,8 +387,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 687CEC6D1CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios WatchKit App" */;
 			buildPhases = (
+				9816246F7589611B7122EC84 /* [CP] Check Pods Manifest.lock */,
 				687CEC461CB5E88400893A67 /* Resources */,
 				687CEC6C1CB5E88400893A67 /* Embed App Extensions */,
+				D3D61C59FC9B52C520EEBF84 /* Frameworks */,
+				B67C72F53789D11929AE0C2D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -359,9 +407,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 687CEC691CB5E88400893A67 /* Build configuration list for PBXNativeTarget "smalo-ios WatchKit Extension" */;
 			buildPhases = (
+				0080E36718785915948EDC85 /* [CP] Check Pods Manifest.lock */,
 				687CEC531CB5E88400893A67 /* Sources */,
 				687CEC541CB5E88400893A67 /* Frameworks */,
 				687CEC551CB5E88400893A67 /* Resources */,
+				272F567121DF105E137F7A05 /* [CP] Embed Pods Frameworks */,
+				E2B02C909F4D031173F318BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -478,29 +529,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E05E12A5548EC0D7AEE414C /* Check Pods Manifest.lock */ = {
+		0080E36718785915948EDC85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		798B89A0054E5ABC6A17B0B6 /* Copy Pods Resources */ = {
+		05F23B1DBE50AE75BB57964A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,19 +559,184 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-ios/Pods-smalo-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A745BF712B3B02996CB51EAD /* Embed Pods Frameworks */ = {
+		1A3BD6C537DF31F4FF6D121E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-iosTests/Pods-smalo-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		272F567121DF105E137F7A05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-ios WatchKit Extension/Pods-smalo-ios WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		355BE5C4AD2E82A1CDCBC6CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-iosUITests/Pods-smalo-iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68457C3944D9F29B8DA4861C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8AD9A6901A5C2A03A2EC669E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-iosTests/Pods-smalo-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F3F0221624B9DB043893B14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9816246F7589611B7122EC84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9DB43146926F5C0A056D32DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-ios/Pods-smalo-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B67C72F53789D11929AE0C2D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-ios WatchKit App/Pods-smalo-ios WatchKit App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA8430DA53E0EA338DA46D01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-iosUITests/Pods-smalo-iosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2B02C909F4D031173F318BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smalo-ios WatchKit Extension/Pods-smalo-ios WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBD80BC22DAD8236884ECF11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -701,6 +917,7 @@
 		};
 		687CEC6A1CB5E88400893A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22AC8A2B8AD6B2AF7B904AA0 /* Pods-smalo-ios WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
@@ -718,6 +935,7 @@
 		};
 		687CEC6B1CB5E88400893A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABD13F849CB621313CBAE50C /* Pods-smalo-ios WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
@@ -735,6 +953,7 @@
 		};
 		687CEC6E1CB5E88400893A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17D50517758A17AF53D293CB /* Pods-smalo-ios WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -754,6 +973,7 @@
 		};
 		687CEC6F1CB5E88400893A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36028FCA65FF532AA7C6B266 /* Pods-smalo-ios WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -773,7 +993,7 @@
 		};
 		687CEC721CB5E88400893A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBDC2FD58665228FF5E81FFE /* Pods-smalo-ios.debug.xcconfig */;
+			baseConfigurationReference = 66D677394AAB9EA683D57F0A /* Pods-smalo-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -792,7 +1012,7 @@
 		};
 		687CEC731CB5E88400893A67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08C75066B501294108A8FCAC /* Pods-smalo-ios.release.xcconfig */;
+			baseConfigurationReference = 0663C097794FFD6EA1CCF65D /* Pods-smalo-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -811,6 +1031,7 @@
 		};
 		687CEC751CB5E88400893A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87FE85F13CCE8D4445104117 /* Pods-smalo-iosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "smalo-iosTests/Info.plist";
@@ -823,6 +1044,7 @@
 		};
 		687CEC761CB5E88400893A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C1DF50E44B619D5E9FE83E1 /* Pods-smalo-iosTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "smalo-iosTests/Info.plist";
@@ -835,6 +1057,7 @@
 		};
 		687CEC781CB5E88400893A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FCE71FBDCE106B8ECB5F713 /* Pods-smalo-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "smalo-iosUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -847,6 +1070,7 @@
 		};
 		687CEC791CB5E88400893A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8F423FD5FECBA52B8C78736 /* Pods-smalo-iosUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "smalo-iosUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

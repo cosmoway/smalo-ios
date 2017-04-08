@@ -1,0 +1,6 @@
+framework module Pods_smalo_iosUITests {
+  umbrella header "Pods-smalo-iosUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
