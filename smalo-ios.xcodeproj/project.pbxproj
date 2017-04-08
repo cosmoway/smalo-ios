@@ -436,6 +436,7 @@
 					687CEC1F1CB5E88400893A67 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 2TGX3CU8Y8;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -445,20 +446,24 @@
 					687CEC331CB5E88400893A67 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 8G4657RF84;
+						LastSwiftMigration = 0830;
 						TestTargetID = 687CEC1F1CB5E88400893A67;
 					};
 					687CEC3E1CB5E88400893A67 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 8G4657RF84;
+						LastSwiftMigration = 0830;
 						TestTargetID = 687CEC1F1CB5E88400893A67;
 					};
 					687CEC471CB5E88400893A67 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 2TGX3CU8Y8;
+						LastSwiftMigration = 0830;
 					};
 					687CEC561CB5E88400893A67 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 2TGX3CU8Y8;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -928,6 +933,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -946,6 +952,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -966,6 +973,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -986,6 +994,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -999,12 +1008,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "smalo-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				UUID = "51A4A738-62B8-4B26-A929-3BBAC2A5CE7C";
 				WEBSOCKET_URL = "wss://smalo.cosmoway.net";
 			};
@@ -1018,12 +1028,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "smalo-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smalo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				UUID = "51A4A738-62B8-4B26-A929-3BBAC2A5CE7C";
 				WEBSOCKET_URL = "wss://smalo.cosmoway.net";
 			};
@@ -1038,6 +1049,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smalo-ios.app/smalo-ios";
 			};
 			name = Debug;
@@ -1051,6 +1063,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smalo-ios.app/smalo-ios";
 			};
 			name = Release;
@@ -1063,6 +1076,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "smalo-ios";
 				USES_XCTRUNNER = YES;
 			};
@@ -1076,6 +1090,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cosmoway.smaloUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "smalo-ios";
 				USES_XCTRUNNER = YES;
 			};

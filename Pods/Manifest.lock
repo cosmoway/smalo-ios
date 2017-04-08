@@ -1,18 +1,18 @@
 PODS:
   - Pulsator (0.3.0)
   - SocketRocket (0.5.1)
-  - SwiftyJSON (2.4.0)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Pulsator
   - SocketRocket (~> 0.5)
-  - SwiftyJSON (~> 2.3)
+  - SwiftyJSON (~> 3.0)
 
 SPEC CHECKSUMS:
   Pulsator: 0191f14f7ab82d6dbde6fdbde42036f07a4450e3
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
-  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 18d1d2875e70d08cf74fdeca66e66c59cdbccbaf
+PODFILE CHECKSUM: 308b8621e7106f3547fdd3e47a5f7e7414102afc
 
 COCOAPODS: 1.2.0
