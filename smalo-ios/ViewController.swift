@@ -27,7 +27,7 @@ class ViewController: UIViewController, WCSessionDelegate, CLLocationManagerDele
     var sendFlag = false
     var myLocationManager:CLLocationManager!
     var myBeaconRegion:CLBeaconRegion!
-    var beaconRegion = CLBeaconRegion()
+    var beaconRegion:CLBeaconRegion!
     var myCentralManager: CBCentralManager!
     var webClient: SRWebSocket?
     var bluetoothOn = true
