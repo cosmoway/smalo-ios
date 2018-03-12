@@ -11,28 +11,34 @@ import Foundation
 import WatchConnectivity
 
 class InterfaceController: WKInterfaceController,WCSessionDelegate {
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(watchOS 2.2, *)
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        // TODO
+    }
+
     
     @IBOutlet var openButton: WKInterfaceButton!
     @IBOutlet var buttonImage: WKInterfaceImage!
     @IBOutlet var group: WKInterfaceGroup!
     
-    var wcSession = WCSession.defaultSession()
+    var wcSession = WCSession.default()
     var state = "connectNG"
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-        openButton.setBackgroundColor(UIColor.redColor())
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
+        openButton.setBackgroundColor(UIColor.red)
         openButton.setEnabled(false)
         buttonImage.setImageNamed("search_button")
         
         // check supported
         if WCSession.isSupported() {
             // get default session
-            wcSession = WCSession.defaultSession()
+            wcSession = WCSession.default()
             //  set delegate
             wcSession.delegate = self
             //  activate session
-            wcSession.activateSession()
+            wcSession.activate()
         }
         //鍵の状態の取得
         let message = [ "getState" : "watch:OK" ]
@@ -45,7 +51,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     @IBAction func button() {
         
         //バイブレーション
-        WKInterfaceDevice.currentDevice().playHaptic(WKHapticType.Click)
+        WKInterfaceDevice.current().play(WKHapticType.click)
         
         if( state == "connectNG" ){
             
@@ -70,7 +76,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     }
     
     //iPhoneからメッセージを受け取る
-    func session(session: WCSession, didReceiveMessage message: [String: AnyObject], replyHandler: [String: AnyObject] -> Void) {
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any], replyHandler: @escaping ([String: Any]) -> Void) {
         
         //鍵が閉まってる場合
         if ((message["parentWakeClose"] as? String) != nil) {
@@ -109,7 +115,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             buttonImage.setImageNamed("search_button")
             
         }
-        group.setBackgroundColor(UIColor.clearColor())
+        group.setBackgroundColor(UIColor.clear)
     }
     
     override func willActivate() {

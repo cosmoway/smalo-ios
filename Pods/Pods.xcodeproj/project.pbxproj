@@ -1,2061 +1,1569 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>00672183FA2A5792365EE87981E7C208</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SwiftyJSON.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>008A0E7ACD3575854C8826AFB2ADBB6E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-smalo-ios.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>020D96C8712D839621A76C31F73FF5AC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>SwiftyJSON</string>
-			<key>target</key>
-			<string>4A0F363837D6C274F5D2665B5CD182E8</string>
-			<key>targetProxy</key>
-			<string>8B1FC8F62A09939130F80B3EFD49507A</string>
-		</dict>
-		<key>021CB50838689E71CCA05AA44025003D</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>9C13A6CDC469E74CF8F51C975C0EDCF6</string>
-				<string>97169692BAD0D013A169B32516079E02</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>07D49256AAE9089A26713BF4E0BCF6D6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>875A61AB0BDA1630689285D15FCFB7EF</string>
-				<string>78CBFDF6DAA139A1614272E9FD4813B0</string>
-				<string>10DAE1A38BD2F3C54692F6A306F78627</string>
-				<string>B7B94C122688FC00C199ED7D2B28976E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SocketRocket</string>
-			<key>path</key>
-			<string>SocketRocket</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0A896C5FE7B5EBD49B862466169A5D10</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F106D1FBC84AAD203DAC49C81D93C176</string>
-				<string>4483C3A1F7D154CFEA64E92F48BDB7D9</string>
-				<string>16788685E457659A171EB038D9D64880</string>
-				<string>45A83A40605F791DEBECE0990D8E1B95</string>
-				<string>D03A30B25CB4273DE0ECAA183812F40E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0C6FEB9D128358FD1014BCD91900B06B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0B4196C15C77ECD5EE396F50E4D29A8</string>
-				<string>6509564D66A91E12AE307BF38ECA68AD</string>
-				<string>68EC03FA8C5A7A40EB126877C68FB778</string>
-				<string>B4FB855EC2DEE628884DA6EF68437AA2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0F416FC37C5D0545A5FD81E2ADB6B7DC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SocketRocket.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>10DAE1A38BD2F3C54692F6A306F78627</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SRWebSocket.m</string>
-			<key>path</key>
-			<string>SocketRocket/SRWebSocket.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>156BC396692F182CD82139F20E2E7473</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pulsator-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>16788685E457659A171EB038D9D64880</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>QuartzCore.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>175D51C89279FDEDAAE61141276A5737</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B630DA2BD920C85699954D4CD22AE94A</string>
-				<string>4FECF63A85D2183A31ED00F8A7550FC5</string>
-				<string>F4AAFB0128AF5E332AD31C88CA555562</string>
-				<string>DF3738A890265F1A7AD947CC46822A70</string>
-				<string>3A428151224F51E41199F6D3676BC465</string>
-				<string>7846FD2A99D074F5B96A16882DEFD53E</string>
-				<string>81F76EB7DF34A3D182FFF3BA1E62F0CF</string>
-				<string>E728AFFF265E22654CCC695E9161C236</string>
-				<string>D961F14D9CA5C213A1DE9EFD61D8684C</string>
-				<string>008A0E7ACD3575854C8826AFB2ADBB6E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-smalo-ios</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-smalo-ios</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1CF51191CE79009B1A90775BD6D2718F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SocketRocket-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1D8C08E886D18947EE5ABD74919E4DE6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>SwiftyJSON.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1E7D37023B097E66652A065CAE3EE3F4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>83868B866FB98AE6080975103135FCA7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>1E9C3EB5604D149D2D08D55E886080AD</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>175D51C89279FDEDAAE61141276A5737</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20B56609144CE204DFA8221F742B2D76</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0A896C5FE7B5EBD49B862466169A5D10</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25191F10227B215C7ED44DECD3D89027</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EE7D9A36D42661AB3A09B389155C15A4</string>
-				<string>2904BFC1D0D338C6F6A36916596AC7C0</string>
-				<string>469B493FB1141D137B272F125860C2D3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>25DEF154F132C4AE6FA4423F5A0E33BD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SocketRocket-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2904BFC1D0D338C6F6A36916596AC7C0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16788685E457659A171EB038D9D64880</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>29B790125A9BF09CB341DAF421BFAC14</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>7C6BA7BC4B4BF0E731C1144E2EB8874E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>A70CDAD61F90AC503C7D04CC22DA2923</string>
-				<string>FB45FFD90572718D82AB9092B750F0CA</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2E14D989DA2ED86AAE9B912BF3D3CE63</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>BCE50C5116A35D3A8C4BABD366BD4C4F</string>
-			<key>remoteInfo</key>
-			<string>SocketRocket</string>
-		</dict>
-		<key>391A4B65CC36D3A086A638AFFCF8632F</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>008A0E7ACD3575854C8826AFB2ADBB6E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-smalo-ios/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-smalo-ios/Pods-smalo-ios.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_smalo_ios</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>396F9ED690DDAB70946220DD4834EE75</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>68409F09130530812CB77CCA3EC0E5B3</string>
-				<string>9DF6A60B9B45721E3A6832D8F3A49A5D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pulsator</string>
-			<key>path</key>
-			<string>Pulsator</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3A428151224F51E41199F6D3676BC465</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-smalo-ios-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3B108D5D6F763204173A1A7C5D5DCBDE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SocketRocket-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>420C25DDC9F21E91DEEB357178692A09</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F106D1FBC84AAD203DAC49C81D93C176</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4473BA4BF432BD47286639E120AD84AA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>156BC396692F182CD82139F20E2E7473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>4483C3A1F7D154CFEA64E92F48BDB7D9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>45A83A40605F791DEBECE0990D8E1B95</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Security.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>467D3699A9F686A79F6093DA0A1CB9B7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>10DAE1A38BD2F3C54692F6A306F78627</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>469B493FB1141D137B272F125860C2D3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D03A30B25CB4273DE0ECAA183812F40E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>481E0F08A0CD1E4B4C17058F3366CCC9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4A0F363837D6C274F5D2665B5CD182E8</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>021CB50838689E71CCA05AA44025003D</string>
-			<key>buildPhases</key>
-			<array>
-				<string>9C78620AAE732E6EDA1CBBD22DDC3E4D</string>
-				<string>E24AF08077A419879F6A154A23A1F672</string>
-				<string>1E7D37023B097E66652A065CAE3EE3F4</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SwiftyJSON</string>
-			<key>productName</key>
-			<string>SwiftyJSON</string>
-			<key>productReference</key>
-			<string>B4FB855EC2DEE628884DA6EF68437AA2</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>4A5F600226C1C85255DCB3E884437D07</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>7178E7B975B150C22CB02E0F91F63011</string>
-				<string>9C0324A5785460BF841BC108A09942BB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4B4AAECB7F82EF43477286C9E71DE333</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D961F14D9CA5C213A1DE9EFD61D8684C</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-smalo-ios/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-smalo-ios/Pods-smalo-ios.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_smalo_ios</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>4BFE3ABB78464033AF335A8D94A41BC4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4473BA4BF432BD47286639E120AD84AA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4FECF63A85D2183A31ED00F8A7550FC5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-smalo-ios.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5477DE2B417AA9591E5F0D4BBBC20C30</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pulsator</string>
-			<key>target</key>
-			<string>5F4300681DA2EA222EF3500FC233D360</string>
-			<key>targetProxy</key>
-			<string>A6C916249A5D596AD02D1B5DFE1CC771</string>
-		</dict>
-		<key>55EACCB280DD2E37092BB03148767086</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1CF51191CE79009B1A90775BD6D2718F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B5012A0D0948C9ACC033B4BCCCD8A99</key>
-		<dict>
-			<key>fileRef</key>
-			<string>78CBFDF6DAA139A1614272E9FD4813B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>5F4300681DA2EA222EF3500FC233D360</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>ECBEA82405F2C32D06FB0632D2F2F9C8</string>
-			<key>buildPhases</key>
-			<array>
-				<string>4A5F600226C1C85255DCB3E884437D07</string>
-				<string>25191F10227B215C7ED44DECD3D89027</string>
-				<string>4BFE3ABB78464033AF335A8D94A41BC4</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pulsator</string>
-			<key>productName</key>
-			<string>Pulsator</string>
-			<key>productReference</key>
-			<string>6509564D66A91E12AE307BF38ECA68AD</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>6509564D66A91E12AE307BF38ECA68AD</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pulsator.framework</string>
-			<key>path</key>
-			<string>Pulsator.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>66046437FA137FDF3D92E5CBF0AC4141</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>80FDBD4234CF56810A6E654A5D44F47D</string>
-				<string>EE7385EBDF71AF5353DEAB9191D4F496</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SwiftyJSON</string>
-			<key>path</key>
-			<string>SwiftyJSON</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>670D72765044CF124B3EE0BB638AB96E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SwiftyJSON-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>68409F09130530812CB77CCA3EC0E5B3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Pulsator.swift</string>
-			<key>path</key>
-			<string>Pulsator/Pulsator.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>68EC03FA8C5A7A40EB126877C68FB778</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SocketRocket.framework</string>
-			<key>path</key>
-			<string>SocketRocket.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>7178E7B975B150C22CB02E0F91F63011</key>
-		<dict>
-			<key>fileRef</key>
-			<string>ECA32ED9ADAEE64CA4C1023186AFDEB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7754E4521996C5EE805F0DCC46353D76</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7815B2C16AA28DDDB1EA5B40EFC7CED9</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>87D036E184AAE91B2CE2330AE89313C3</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SocketRocket/SocketRocket-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SocketRocket/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SocketRocket/SocketRocket.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>SocketRocket</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>7846FD2A99D074F5B96A16882DEFD53E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-smalo-ios-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>78CBFDF6DAA139A1614272E9FD4813B0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SRWebSocket.h</string>
-			<key>path</key>
-			<string>SocketRocket/SRWebSocket.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7C6BA7BC4B4BF0E731C1144E2EB8874E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4483C3A1F7D154CFEA64E92F48BDB7D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7D6794960E92D28A5959B6AF7D2B580B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25DEF154F132C4AE6FA4423F5A0E33BD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>20B56609144CE204DFA8221F742B2D76</string>
-				<string>A93E38C009F1F910B34129EAB52141CB</string>
-				<string>0C6FEB9D128358FD1014BCD91900B06B</string>
-				<string>1E9C3EB5604D149D2D08D55E886080AD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>80FDBD4234CF56810A6E654A5D44F47D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SwiftyJSON.swift</string>
-			<key>path</key>
-			<string>Source/SwiftyJSON.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>81F76EB7DF34A3D182FFF3BA1E62F0CF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-smalo-ios-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>82552E830F13540783DDC3EDF7D47F8C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>45A83A40605F791DEBECE0990D8E1B95</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>83868B866FB98AE6080975103135FCA7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9FE99264DCDD163510C2106FBA5F3D4A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>875A61AB0BDA1630689285D15FCFB7EF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SocketRocket.h</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>87D036E184AAE91B2CE2330AE89313C3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>SocketRocket.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8B1FC8F62A09939130F80B3EFD49507A</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>4A0F363837D6C274F5D2665B5CD182E8</string>
-			<key>remoteInfo</key>
-			<string>SwiftyJSON</string>
-		</dict>
-		<key>8E1BDB2F40EDA9EDF3459F03470115A1</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>4B4AAECB7F82EF43477286C9E71DE333</string>
-				<string>391A4B65CC36D3A086A638AFFCF8632F</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>97169692BAD0D013A169B32516079E02</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1D8C08E886D18947EE5ABD74919E4DE6</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SwiftyJSON/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SwiftyJSON/SwiftyJSON.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>SwiftyJSON</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>9C0324A5785460BF841BC108A09942BB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>68409F09130530812CB77CCA3EC0E5B3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9C13A6CDC469E74CF8F51C975C0EDCF6</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1D8C08E886D18947EE5ABD74919E4DE6</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SwiftyJSON/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SwiftyJSON/SwiftyJSON.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>SwiftyJSON</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>9C78620AAE732E6EDA1CBBD22DDC3E4D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B1ACB8EA125C24F42FE5CE781322D6D7</string>
-				<string>C110484C250A0B73AC4292A0FCBFA4C7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>9DF6A60B9B45721E3A6832D8F3A49A5D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7754E4521996C5EE805F0DCC46353D76</string>
-				<string>DB2F8FEC40754F3D6F04EB3F4DE54203</string>
-				<string>D9046BB4EC474D4504F59EB35936DF2A</string>
-				<string>ECA32ED9ADAEE64CA4C1023186AFDEB2</string>
-				<string>B35B4E9B417FF5B3685D5C7AA7631F6C</string>
-				<string>156BC396692F182CD82139F20E2E7473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/Pulsator</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9FE99264DCDD163510C2106FBA5F3D4A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SwiftyJSON-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A036660F777027D4B415AD3FD074C86A</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>8E1BDB2F40EDA9EDF3459F03470115A1</string>
-			<key>buildPhases</key>
-			<array>
-				<string>CB960C715CFDC4A97BAC92C1A46E8D9B</string>
-				<string>29B790125A9BF09CB341DAF421BFAC14</string>
-				<string>F2C638960DB6E927720D3030857E634E</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>5477DE2B417AA9591E5F0D4BBBC20C30</string>
-				<string>D83D1310F360ED628FFDC873642EDDEC</string>
-				<string>020D96C8712D839621A76C31F73FF5AC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-smalo-ios</string>
-			<key>productName</key>
-			<string>Pods-smalo-ios</string>
-			<key>productReference</key>
-			<string>F0B4196C15C77ECD5EE396F50E4D29A8</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>A6C01EA390CAAFF5DCC5A8DA02F906C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4483C3A1F7D154CFEA64E92F48BDB7D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A6C916249A5D596AD02D1B5DFE1CC771</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>5F4300681DA2EA222EF3500FC233D360</string>
-			<key>remoteInfo</key>
-			<string>Pulsator</string>
-		</dict>
-		<key>A70CDAD61F90AC503C7D04CC22DA2923</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>A93E38C009F1F910B34129EAB52141CB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>396F9ED690DDAB70946220DD4834EE75</string>
-				<string>07D49256AAE9089A26713BF4E0BCF6D6</string>
-				<string>66046437FA137FDF3D92E5CBF0AC4141</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B1ACB8EA125C24F42FE5CE781322D6D7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>670D72765044CF124B3EE0BB638AB96E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B35B4E9B417FF5B3685D5C7AA7631F6C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pulsator-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B4FB855EC2DEE628884DA6EF68437AA2</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SwiftyJSON.framework</string>
-			<key>path</key>
-			<string>SwiftyJSON.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B630DA2BD920C85699954D4CD22AE94A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B7B94C122688FC00C199ED7D2B28976E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>481E0F08A0CD1E4B4C17058F3366CCC9</string>
-				<string>0F416FC37C5D0545A5FD81E2ADB6B7DC</string>
-				<string>87D036E184AAE91B2CE2330AE89313C3</string>
-				<string>1CF51191CE79009B1A90775BD6D2718F</string>
-				<string>3B108D5D6F763204173A1A7C5D5DCBDE</string>
-				<string>25DEF154F132C4AE6FA4423F5A0E33BD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/SocketRocket</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>BCE50C5116A35D3A8C4BABD366BD4C4F</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>F3C4BCD9161C54E19E7D618E376BBC56</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D11F74760C2783C1B532723253098093</string>
-				<string>CD57C79934F8A8510134A10AD3DC1903</string>
-				<string>D9B6A688E906FAF08EFE33D275D17AE2</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SocketRocket</string>
-			<key>productName</key>
-			<string>SocketRocket</string>
-			<key>productReference</key>
-			<string>68EC03FA8C5A7A40EB126877C68FB778</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>C110484C250A0B73AC4292A0FCBFA4C7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>80FDBD4234CF56810A6E654A5D44F47D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C7CA091EA005BE5EF50361883BCDA483</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E728AFFF265E22654CCC695E9161C236</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C94B06E6469B08827AE1A2A5AD4DF408</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SwiftyJSON-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB960C715CFDC4A97BAC92C1A46E8D9B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F953532160280D2010E5500F8D61D7F5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CD57C79934F8A8510134A10AD3DC1903</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>420C25DDC9F21E91DEEB357178692A09</string>
-				<string>F2EDEBFD30DDC41E1C8F99241C0F29EB</string>
-				<string>82552E830F13540783DDC3EDF7D47F8C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D03A30B25CB4273DE0ECAA183812F40E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>D046A8975D6459681254A83B94BE5E22</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D9046BB4EC474D4504F59EB35936DF2A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pulsator/Pulsator-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pulsator/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pulsator/Pulsator.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pulsator</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D11F74760C2783C1B532723253098093</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>55EACCB280DD2E37092BB03148767086</string>
-				<string>467D3699A9F686A79F6093DA0A1CB9B7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0700</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>0C6FEB9D128358FD1014BCD91900B06B</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>A036660F777027D4B415AD3FD074C86A</string>
-				<string>5F4300681DA2EA222EF3500FC233D360</string>
-				<string>BCE50C5116A35D3A8C4BABD366BD4C4F</string>
-				<string>4A0F363837D6C274F5D2665B5CD182E8</string>
-			</array>
-		</dict>
-		<key>D824E20A157DCED9B804387EF892D9F1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>875A61AB0BDA1630689285D15FCFB7EF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>D83D1310F360ED628FFDC873642EDDEC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>SocketRocket</string>
-			<key>target</key>
-			<string>BCE50C5116A35D3A8C4BABD366BD4C4F</string>
-			<key>targetProxy</key>
-			<string>2E14D989DA2ED86AAE9B912BF3D3CE63</string>
-		</dict>
-		<key>D9046BB4EC474D4504F59EB35936DF2A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pulsator.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D961F14D9CA5C213A1DE9EFD61D8684C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-smalo-ios.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9B6A688E906FAF08EFE33D275D17AE2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>7D6794960E92D28A5959B6AF7D2B580B</string>
-				<string>D824E20A157DCED9B804387EF892D9F1</string>
-				<string>5B5012A0D0948C9ACC033B4BCCCD8A99</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>DB2F8FEC40754F3D6F04EB3F4DE54203</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pulsator.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DF3738A890265F1A7AD947CC46822A70</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-smalo-ios-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E24AF08077A419879F6A154A23A1F672</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A6C01EA390CAAFF5DCC5A8DA02F906C3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E728AFFF265E22654CCC695E9161C236</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-smalo-ios-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EA39047B8508A51BAC996937B2907F9D</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>87D036E184AAE91B2CE2330AE89313C3</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SocketRocket/SocketRocket-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SocketRocket/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SocketRocket/SocketRocket.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>SocketRocket</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>EAD10F0F9DA9851255F4FCC6B052D53A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ECA32ED9ADAEE64CA4C1023186AFDEB2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pulsator-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ECBEA82405F2C32D06FB0632D2F2F9C8</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D046A8975D6459681254A83B94BE5E22</string>
-				<string>F684BF7D9C6D28FBB5FF8F0460AEAC5C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>EE7385EBDF71AF5353DEAB9191D4F496</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EAD10F0F9DA9851255F4FCC6B052D53A</string>
-				<string>00672183FA2A5792365EE87981E7C208</string>
-				<string>1D8C08E886D18947EE5ABD74919E4DE6</string>
-				<string>670D72765044CF124B3EE0BB638AB96E</string>
-				<string>C94B06E6469B08827AE1A2A5AD4DF408</string>
-				<string>9FE99264DCDD163510C2106FBA5F3D4A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/SwiftyJSON</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EE7D9A36D42661AB3A09B389155C15A4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4483C3A1F7D154CFEA64E92F48BDB7D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0B4196C15C77ECD5EE396F50E4D29A8</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_smalo_ios.framework</string>
-			<key>path</key>
-			<string>Pods_smalo_ios.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F106D1FBC84AAD203DAC49C81D93C176</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CFNetwork.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CFNetwork.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>F2C638960DB6E927720D3030857E634E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C7CA091EA005BE5EF50361883BCDA483</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F2EDEBFD30DDC41E1C8F99241C0F29EB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4483C3A1F7D154CFEA64E92F48BDB7D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F3C4BCD9161C54E19E7D618E376BBC56</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>EA39047B8508A51BAC996937B2907F9D</string>
-				<string>7815B2C16AA28DDDB1EA5B40EFC7CED9</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>F4AAFB0128AF5E332AD31C88CA555562</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-smalo-ios-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F684BF7D9C6D28FBB5FF8F0460AEAC5C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D9046BB4EC474D4504F59EB35936DF2A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pulsator/Pulsator-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pulsator/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pulsator/Pulsator.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pulsator</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>F953532160280D2010E5500F8D61D7F5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3A428151224F51E41199F6D3676BC465</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FB45FFD90572718D82AB9092B750F0CA</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		012ABA75887FB663438BBCD619521E0B /* Pods-smalo-ios WatchKit App-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FF9200FBEE52813173DAF44702E72C1 /* Pods-smalo-ios WatchKit App-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C1D7BE1175494393E68BBE22A6289E /* Pods-smalo-ios WatchKit App-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B82DAD93338D5A30948C4F7B325CD292 /* Pods-smalo-ios WatchKit App-dummy.m */; };
+		09ABCE527EB02B8A77DE90AC363391CC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FDBD4234CF56810A6E654A5D44F47D /* SwiftyJSON.swift */; };
+		16376A3B75B9A19629EAE6BC7B581FAD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D22B42458965921ABF034051F628C1A /* UIKit.framework */; };
+		1970FF1EEF80FA52AFC329521DA0B61E /* Pods-smalo-iosUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF08A6865039D9FD7DECFE0AB3ACCD8 /* Pods-smalo-iosUITests-dummy.m */; };
+		1D11E0CB2B46DD5EB9CAB5AA78E93800 /* Pods-smalo-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF63383CE507351B26F2B358EE4294C /* Pods-smalo-ios-dummy.m */; };
+		1F0599E96ED8D0B951115D38B9C09785 /* SocketRocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25DEF154F132C4AE6FA4423F5A0E33BD /* SocketRocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C304FE0802B126574EAE920C9A6B9E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585CC258474AD516073B5F48E1D428FB /* Foundation.framework */; };
+		4599534169D4804EFDA7AD788F274E4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F7CF036C9295205AD6C0EFF3DBD31B /* Foundation.framework */; };
+		468C9384BF1E1678B6AF8E9CE1C6997E /* SRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 78CBFDF6DAA139A1614272E9FD4813B0 /* SRWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B3B7B35C6CA56A78B78722AADE059C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585CC258474AD516073B5F48E1D428FB /* Foundation.framework */; };
+		4FAF4F6667D1BD4524B668999BD73C98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585CC258474AD516073B5F48E1D428FB /* Foundation.framework */; };
+		529FF0E0FBC061AE7A80E0F62C8A5340 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 670D72765044CF124B3EE0BB638AB96E /* SwiftyJSON-dummy.m */; };
+		58749869FF82EEB71AA00E146B2F4326 /* SocketRocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF51191CE79009B1A90775BD6D2718F /* SocketRocket-dummy.m */; };
+		646BFF4E74000051E9F1C69C5C8A1C94 /* Pods-smalo-iosUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D9635C2CF0E1246F21916EF91315B8A7 /* Pods-smalo-iosUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64FF2A054D36D9708E429DCB78D395A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F7CF036C9295205AD6C0EFF3DBD31B /* Foundation.framework */; };
+		66321E4DC2B3E86A073A513695314614 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD4720A9BC80C3B67361292BF979A7B /* Security.framework */; };
+		7AADF043BA20CFD914AC1900711B2E08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585CC258474AD516073B5F48E1D428FB /* Foundation.framework */; };
+		7FC51AC51DE24637D994F983CA1D8C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEB4F375CAC0D241A4F327F0975A61E /* QuartzCore.framework */; };
+		955AAE067A7D8E33C25E5B2B1182212E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3F7FC571F45A2649FF8BFF3CBEA866 /* CFNetwork.framework */; };
+		9C129A65D6F3C15D156B4B29088479C5 /* Pods-smalo-ios WatchKit Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E54A45BB1EC8654AA8DFABB025D319 /* Pods-smalo-ios WatchKit Extension-dummy.m */; };
+		9F50753529AB4F72B8B3DD6199855FF2 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DAE1A38BD2F3C54692F6A306F78627 /* SRWebSocket.m */; };
+		A042344AD75C357BAAEF69C230824D55 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FE99264DCDD163510C2106FBA5F3D4A /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A11CB1FFD54E4780A900828695672669 /* SocketRocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 875A61AB0BDA1630689285D15FCFB7EF /* SocketRocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A94ECFE01BC01B0C6099892F5EDCD0FC /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68409F09130530812CB77CCA3EC0E5B3 /* Pulsator.swift */; };
+		B55B80A9B9D2BA40E7D7F1463528D47C /* Pulsator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 156BC396692F182CD82139F20E2E7473 /* Pulsator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1393F4225D32D75E22DC97749E2DFB5 /* Pods-smalo-ios WatchKit Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CCC7E5F8C4B8CB92099E19A32F3ADE6 /* Pods-smalo-ios WatchKit Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA5AD043F422859B4A2DA3E2E146DA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585CC258474AD516073B5F48E1D428FB /* Foundation.framework */; };
+		D2E48889B846F66F57D151E79CC0E7D9 /* Pods-smalo-iosTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CFED267C20E2DFF3728AC70E88A02789 /* Pods-smalo-iosTests-dummy.m */; };
+		DE4FC86733B7F52C18D2EE302E30E09F /* Pulsator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA32ED9ADAEE64CA4C1023186AFDEB2 /* Pulsator-dummy.m */; };
+		E986936AB71AEC1C76560BA54644718E /* Pods-smalo-iosTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18F53B4D6B05B55261F0EACD31460AD7 /* Pods-smalo-iosTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4797075E77699A7B2872F0B416F561F /* Pods-smalo-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44BEE1482F2EF68DD07FB663A745A247 /* Pods-smalo-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFE6E6259EA5EF8CE3273A62DE6DBC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585CC258474AD516073B5F48E1D428FB /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0AC466D5B191A0AFA4D6F67ADF26AAF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6645DF91F36735AD78CAFD6BDA87933;
+			remoteInfo = SocketRocket;
+		};
+		0E9108D8CAAC6BC49C99F0BA37A27E2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58B880ED11FDDE1A79250775BD6A2614;
+			remoteInfo = Pulsator;
+		};
+		E6F168CE101E8671ABF66A3DBFC132FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4875CB5EE6E0BDDE4F1E59A88FCB144;
+			remoteInfo = SwiftyJSON;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00672183FA2A5792365EE87981E7C208 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		01A426CC2BD6391D762F4E2A2733A9B6 /* Pods-smalo-iosTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-smalo-iosTests.modulemap"; sourceTree = "<group>"; };
+		02E54A45BB1EC8654AA8DFABB025D319 /* Pods-smalo-ios WatchKit Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-smalo-ios WatchKit Extension-dummy.m"; sourceTree = "<group>"; };
+		056DDF7884C5BECE5094BE2A6DACE10D /* Pods_smalo_ios_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_ios_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0723276D47DE4AE654B492B6B1501D52 /* Pods-smalo-ios WatchKit App-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-smalo-ios WatchKit App-acknowledgements.plist"; sourceTree = "<group>"; };
+		0C9DCE2C52483A26536B671016CB8A19 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3F7FC571F45A2649FF8BFF3CBEA866 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		0F416FC37C5D0545A5FD81E2ADB6B7DC /* SocketRocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SocketRocket.modulemap; sourceTree = "<group>"; };
+		0FB7185F43E06C50A09465823C04954D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF9200FBEE52813173DAF44702E72C1 /* Pods-smalo-ios WatchKit App-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-smalo-ios WatchKit App-umbrella.h"; sourceTree = "<group>"; };
+		10DAE1A38BD2F3C54692F6A306F78627 /* SRWebSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = SocketRocket/SRWebSocket.m; sourceTree = "<group>"; };
+		142A8510B97BE0AD7EE06AB682994F75 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		156BC396692F182CD82139F20E2E7473 /* Pulsator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pulsator-umbrella.h"; sourceTree = "<group>"; };
+		18F53B4D6B05B55261F0EACD31460AD7 /* Pods-smalo-iosTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-smalo-iosTests-umbrella.h"; sourceTree = "<group>"; };
+		1C33A6CF86A026BE75F0375103340537 /* Pods_smalo_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CF51191CE79009B1A90775BD6D2718F /* SocketRocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SocketRocket-dummy.m"; sourceTree = "<group>"; };
+		1D8C08E886D18947EE5ABD74919E4DE6 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		216B78A900993617D615EC5A4734BBE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25609728F02481B928116A24E2C3133E /* Pulsator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pulsator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25DEF154F132C4AE6FA4423F5A0E33BD /* SocketRocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-umbrella.h"; sourceTree = "<group>"; };
+		262AC4603F7DBFC7FC4966258E08D358 /* Pods-smalo-iosTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-iosTests-frameworks.sh"; sourceTree = "<group>"; };
+		2BAD6523C35C8999F7EEE1642D6E0C97 /* Pods-smalo-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2D09C8546AA9E821D3B1D37C0027EA8D /* Pods-smalo-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		31486E02AB924E89E2CC18412A8A12B2 /* Pods_smalo_ios_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_ios_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B108D5D6F763204173A1A7C5D5DCBDE /* SocketRocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-prefix.pch"; sourceTree = "<group>"; };
+		3F55915496A84988A4013B2E4A9003DF /* Pods-smalo-ios WatchKit Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-ios WatchKit Extension-frameworks.sh"; sourceTree = "<group>"; };
+		40FF7A10237E470DC55FE63911363283 /* Pods-smalo-ios WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-ios WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		446EC3D620C9448EDD6EBAAAB294142F /* Pods-smalo-ios WatchKit Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-smalo-ios WatchKit Extension-acknowledgements.plist"; sourceTree = "<group>"; };
+		44BEE1482F2EF68DD07FB663A745A247 /* Pods-smalo-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-smalo-ios-umbrella.h"; sourceTree = "<group>"; };
+		481E0F08A0CD1E4B4C17058F3366CCC9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BEB4F375CAC0D241A4F327F0975A61E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		55782664BD823D6AA7507897EF509AD8 /* SocketRocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocketRocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57F7CF036C9295205AD6C0EFF3DBD31B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		585CC258474AD516073B5F48E1D428FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		590A13EEE3F5744AD6430AF72B04AC7B /* Pods-smalo-iosUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-smalo-iosUITests.modulemap"; sourceTree = "<group>"; };
+		5FF964492A98507CF226EB70354F180A /* Pods-smalo-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		670D72765044CF124B3EE0BB638AB96E /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		68409F09130530812CB77CCA3EC0E5B3 /* Pulsator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pulsator.swift; path = Pulsator/Pulsator.swift; sourceTree = "<group>"; };
+		6A587CC8B1DCDFD55F45602FBBF5F90F /* Pods-smalo-ios-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-smalo-ios-acknowledgements.markdown"; sourceTree = "<group>"; };
+		73D66CA587ECBFE10E4248D3AFA1CB3F /* Pods_smalo_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		743E7B0505DFBB4CF7E220D86D46AB06 /* Pods-smalo-ios WatchKit Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-ios WatchKit Extension-resources.sh"; sourceTree = "<group>"; };
+		76A2F36ABAC3DF01C178B9099875D9C6 /* Pods-smalo-ios WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-ios WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		7754E4521996C5EE805F0DCC46353D76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78CBFDF6DAA139A1614272E9FD4813B0 /* SRWebSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SRWebSocket.h; sourceTree = "<group>"; };
+		7A7AF3773C4FA3E5D95B16E1AFB82498 /* Pods-smalo-ios-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-smalo-ios-acknowledgements.plist"; sourceTree = "<group>"; };
+		7BC9AF06F0CF49D37431D30691050BEF /* Pods-smalo-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		7C5FC39D825913F3FBAA6B350F25D9EB /* Pods_smalo_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smalo_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CCC7E5F8C4B8CB92099E19A32F3ADE6 /* Pods-smalo-ios WatchKit Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-smalo-ios WatchKit Extension-umbrella.h"; sourceTree = "<group>"; };
+		7D53197CC5189FDB0DCD9FB61B889F9E /* Pods-smalo-ios WatchKit App-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-ios WatchKit App-resources.sh"; sourceTree = "<group>"; };
+		7EC894510D562CB59637C19B783EB3C2 /* Pods-smalo-iosTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-iosTests-resources.sh"; sourceTree = "<group>"; };
+		80FDBD4234CF56810A6E654A5D44F47D /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		8404736A99A1DAC1D6DA049DDE864BF2 /* Pods-smalo-ios WatchKit Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-smalo-ios WatchKit Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		875A61AB0BDA1630689285D15FCFB7EF /* SocketRocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SocketRocket.h; path = SocketRocket/SocketRocket.h; sourceTree = "<group>"; };
+		87D036E184AAE91B2CE2330AE89313C3 /* SocketRocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SocketRocket.xcconfig; sourceTree = "<group>"; };
+		88C5D655E6E0CC0CB2144B89D76C9D65 /* Pods-smalo-iosUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-smalo-iosUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		89E10279304BC5E1277F287F9516DC67 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CD4720A9BC80C3B67361292BF979A7B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		8D22B42458965921ABF034051F628C1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		91B5699F1F5CA81EA273D7053052A950 /* Pods-smalo-iosTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-smalo-iosTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		92BC97E018678BEC4C369FA67B9661B5 /* Pods-smalo-ios WatchKit App-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-ios WatchKit App-frameworks.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DDA86A50C4D17830815BEA96AA156EF /* Pods-smalo-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-smalo-ios.modulemap"; sourceTree = "<group>"; };
+		9FE99264DCDD163510C2106FBA5F3D4A /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		A033EE1B6B5B02492F1D695FC16A616F /* Pods-smalo-ios WatchKit App-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-smalo-ios WatchKit App-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AEF08A6865039D9FD7DECFE0AB3ACCD8 /* Pods-smalo-iosUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-smalo-iosUITests-dummy.m"; sourceTree = "<group>"; };
+		B110609D7C00403AD86534FEE556F3D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B35B4E9B417FF5B3685D5C7AA7631F6C /* Pulsator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pulsator-prefix.pch"; sourceTree = "<group>"; };
+		B473848EBD9E3901881AFF4E21AC8BF3 /* Pods-smalo-iosUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-iosUITests-resources.sh"; sourceTree = "<group>"; };
+		B82DAD93338D5A30948C4F7B325CD292 /* Pods-smalo-ios WatchKit App-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-smalo-ios WatchKit App-dummy.m"; sourceTree = "<group>"; };
+		BBF63383CE507351B26F2B358EE4294C /* Pods-smalo-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-smalo-ios-dummy.m"; sourceTree = "<group>"; };
+		C70DA3E50C3A375BF607814FF6296C82 /* Pods-smalo-ios-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-ios-frameworks.sh"; sourceTree = "<group>"; };
+		C94B06E6469B08827AE1A2A5AD4DF408 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		CF5D711A1BDBE78FE9D1D5B8257727EC /* Pods-smalo-ios WatchKit App.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-smalo-ios WatchKit App.modulemap"; sourceTree = "<group>"; };
+		CF60BB78CC36B1BDB58D39E5BA83178C /* Pods-smalo-ios WatchKit Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-smalo-ios WatchKit Extension.modulemap"; sourceTree = "<group>"; };
+		CFED267C20E2DFF3728AC70E88A02789 /* Pods-smalo-iosTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-smalo-iosTests-dummy.m"; sourceTree = "<group>"; };
+		D9046BB4EC474D4504F59EB35936DF2A /* Pulsator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pulsator.xcconfig; sourceTree = "<group>"; };
+		D9635C2CF0E1246F21916EF91315B8A7 /* Pods-smalo-iosUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-smalo-iosUITests-umbrella.h"; sourceTree = "<group>"; };
+		DA80BD64A124ED8F040CE3FC114CA4C9 /* Pods-smalo-ios WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-ios WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2F8FEC40754F3D6F04EB3F4DE54203 /* Pulsator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pulsator.modulemap; sourceTree = "<group>"; };
+		E44798EA6F0CF7EDF74E862325F7EE83 /* Pods-smalo-ios WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-ios WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		E4594D387702CE67DDC6C68DB7AE9E97 /* Pods-smalo-ios-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-ios-resources.sh"; sourceTree = "<group>"; };
+		E5EE1D6B243579C873B8DAB32C6F434E /* Pods-smalo-iosTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-smalo-iosTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		EAD10F0F9DA9851255F4FCC6B052D53A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECA32ED9ADAEE64CA4C1023186AFDEB2 /* Pulsator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pulsator-dummy.m"; sourceTree = "<group>"; };
+		EFFA54FAEBD22E6B5A354ECBC15E481C /* Pods-smalo-iosUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-smalo-iosUITests-frameworks.sh"; sourceTree = "<group>"; };
+		F148860405102AE0581586955A45B240 /* Pods-smalo-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-ios.release.xcconfig"; sourceTree = "<group>"; };
+		F3DAF30459E932ED079B71CAC106A095 /* Pods-smalo-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-smalo-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFE56BC24C9CEEF8565097B6AD65C6F7 /* Pods-smalo-iosUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-smalo-iosUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C4458AE69FB8EB978D135A77026BA00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FAF4F6667D1BD4524B668999BD73C98 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2B64F28197AFC8C67F158B57E810E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FF2A054D36D9708E429DCB78D395A1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		637A919E1A18DC2A908BF4C962A6FDEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				955AAE067A7D8E33C25E5B2B1182212E /* CFNetwork.framework in Frameworks */,
+				FFE6E6259EA5EF8CE3273A62DE6DBC74 /* Foundation.framework in Frameworks */,
+				66321E4DC2B3E86A073A513695314614 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A40DE26E8665656CE0D2FED589C8DA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AADF043BA20CFD914AC1900711B2E08 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95FC38522A9B1EF44B3C16FD607C6A44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B3B7B35C6CA56A78B78722AADE059C6 /* Foundation.framework in Frameworks */,
+				7FC51AC51DE24637D994F983CA1D8C68 /* QuartzCore.framework in Frameworks */,
+				16376A3B75B9A19629EAE6BC7B581FAD /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB316EF00B92356F619B00F9A36B867B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA5AD043F422859B4A2DA3E2E146DA44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD5361BA5BD47602733A8594C48F7662 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C304FE0802B126574EAE920C9A6B9E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF6A38FE87A4072222750D26CCEED60A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4599534169D4804EFDA7AD788F274E4A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07D49256AAE9089A26713BF4E0BCF6D6 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				875A61AB0BDA1630689285D15FCFB7EF /* SocketRocket.h */,
+				78CBFDF6DAA139A1614272E9FD4813B0 /* SRWebSocket.h */,
+				10DAE1A38BD2F3C54692F6A306F78627 /* SRWebSocket.m */,
+				B7B94C122688FC00C199ED7D2B28976E /* Support Files */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		110F4DA31A0815E992B693BE2C0AFBA7 /* Pods-smalo-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				B110609D7C00403AD86534FEE556F3D4 /* Info.plist */,
+				01A426CC2BD6391D762F4E2A2733A9B6 /* Pods-smalo-iosTests.modulemap */,
+				91B5699F1F5CA81EA273D7053052A950 /* Pods-smalo-iosTests-acknowledgements.markdown */,
+				E5EE1D6B243579C873B8DAB32C6F434E /* Pods-smalo-iosTests-acknowledgements.plist */,
+				CFED267C20E2DFF3728AC70E88A02789 /* Pods-smalo-iosTests-dummy.m */,
+				262AC4603F7DBFC7FC4966258E08D358 /* Pods-smalo-iosTests-frameworks.sh */,
+				7EC894510D562CB59637C19B783EB3C2 /* Pods-smalo-iosTests-resources.sh */,
+				18F53B4D6B05B55261F0EACD31460AD7 /* Pods-smalo-iosTests-umbrella.h */,
+				F3DAF30459E932ED079B71CAC106A095 /* Pods-smalo-iosTests.debug.xcconfig */,
+				7BC9AF06F0CF49D37431D30691050BEF /* Pods-smalo-iosTests.release.xcconfig */,
+			);
+			name = "Pods-smalo-iosTests";
+			path = "Target Support Files/Pods-smalo-iosTests";
+			sourceTree = "<group>";
+		};
+		140396604BC2230F51EF808D0A3DC1E6 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				57F7CF036C9295205AD6C0EFF3DBD31B /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+		396F9ED690DDAB70946220DD4834EE75 /* Pulsator */ = {
+			isa = PBXGroup;
+			children = (
+				68409F09130530812CB77CCA3EC0E5B3 /* Pulsator.swift */,
+				9DF6A60B9B45721E3A6832D8F3A49A5D /* Support Files */,
+			);
+			path = Pulsator;
+			sourceTree = "<group>";
+		};
+		66046437FA137FDF3D92E5CBF0AC4141 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				80FDBD4234CF56810A6E654A5D44F47D /* SwiftyJSON.swift */,
+				EE7385EBDF71AF5353DEAB9191D4F496 /* Support Files */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				ECB226B7EA77EB59E2ACF5727BD2E759 /* Frameworks */,
+				A93E38C009F1F910B34129EAB52141CB /* Pods */,
+				B52CEF187B5F9EE81D2161E533E26082 /* Products */,
+				EC92E08A456400A523E5E6A41C488060 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		892B413AD6E0724BD26006AE834927E5 /* Pods-smalo-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0C9DCE2C52483A26536B671016CB8A19 /* Info.plist */,
+				590A13EEE3F5744AD6430AF72B04AC7B /* Pods-smalo-iosUITests.modulemap */,
+				88C5D655E6E0CC0CB2144B89D76C9D65 /* Pods-smalo-iosUITests-acknowledgements.markdown */,
+				FFE56BC24C9CEEF8565097B6AD65C6F7 /* Pods-smalo-iosUITests-acknowledgements.plist */,
+				AEF08A6865039D9FD7DECFE0AB3ACCD8 /* Pods-smalo-iosUITests-dummy.m */,
+				EFFA54FAEBD22E6B5A354ECBC15E481C /* Pods-smalo-iosUITests-frameworks.sh */,
+				B473848EBD9E3901881AFF4E21AC8BF3 /* Pods-smalo-iosUITests-resources.sh */,
+				D9635C2CF0E1246F21916EF91315B8A7 /* Pods-smalo-iosUITests-umbrella.h */,
+				2D09C8546AA9E821D3B1D37C0027EA8D /* Pods-smalo-iosUITests.debug.xcconfig */,
+				2BAD6523C35C8999F7EEE1642D6E0C97 /* Pods-smalo-iosUITests.release.xcconfig */,
+			);
+			name = "Pods-smalo-iosUITests";
+			path = "Target Support Files/Pods-smalo-iosUITests";
+			sourceTree = "<group>";
+		};
+		9DF6A60B9B45721E3A6832D8F3A49A5D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7754E4521996C5EE805F0DCC46353D76 /* Info.plist */,
+				DB2F8FEC40754F3D6F04EB3F4DE54203 /* Pulsator.modulemap */,
+				D9046BB4EC474D4504F59EB35936DF2A /* Pulsator.xcconfig */,
+				ECA32ED9ADAEE64CA4C1023186AFDEB2 /* Pulsator-dummy.m */,
+				B35B4E9B417FF5B3685D5C7AA7631F6C /* Pulsator-prefix.pch */,
+				156BC396692F182CD82139F20E2E7473 /* Pulsator-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pulsator";
+			sourceTree = "<group>";
+		};
+		A93E38C009F1F910B34129EAB52141CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				396F9ED690DDAB70946220DD4834EE75 /* Pulsator */,
+				07D49256AAE9089A26713BF4E0BCF6D6 /* SocketRocket */,
+				66046437FA137FDF3D92E5CBF0AC4141 /* SwiftyJSON */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B52CEF187B5F9EE81D2161E533E26082 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C33A6CF86A026BE75F0375103340537 /* Pods_smalo_ios.framework */,
+				31486E02AB924E89E2CC18412A8A12B2 /* Pods_smalo_ios_WatchKit_App.framework */,
+				056DDF7884C5BECE5094BE2A6DACE10D /* Pods_smalo_ios_WatchKit_Extension.framework */,
+				73D66CA587ECBFE10E4248D3AFA1CB3F /* Pods_smalo_iosTests.framework */,
+				7C5FC39D825913F3FBAA6B350F25D9EB /* Pods_smalo_iosUITests.framework */,
+				25609728F02481B928116A24E2C3133E /* Pulsator.framework */,
+				55782664BD823D6AA7507897EF509AD8 /* SocketRocket.framework */,
+				89E10279304BC5E1277F287F9516DC67 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7B94C122688FC00C199ED7D2B28976E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				481E0F08A0CD1E4B4C17058F3366CCC9 /* Info.plist */,
+				0F416FC37C5D0545A5FD81E2ADB6B7DC /* SocketRocket.modulemap */,
+				87D036E184AAE91B2CE2330AE89313C3 /* SocketRocket.xcconfig */,
+				1CF51191CE79009B1A90775BD6D2718F /* SocketRocket-dummy.m */,
+				3B108D5D6F763204173A1A7C5D5DCBDE /* SocketRocket-prefix.pch */,
+				25DEF154F132C4AE6FA4423F5A0E33BD /* SocketRocket-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SocketRocket";
+			sourceTree = "<group>";
+		};
+		BC496B612CEB2C26FF688FD0F86C6722 /* Pods-smalo-ios */ = {
+			isa = PBXGroup;
+			children = (
+				142A8510B97BE0AD7EE06AB682994F75 /* Info.plist */,
+				9DDA86A50C4D17830815BEA96AA156EF /* Pods-smalo-ios.modulemap */,
+				6A587CC8B1DCDFD55F45602FBBF5F90F /* Pods-smalo-ios-acknowledgements.markdown */,
+				7A7AF3773C4FA3E5D95B16E1AFB82498 /* Pods-smalo-ios-acknowledgements.plist */,
+				BBF63383CE507351B26F2B358EE4294C /* Pods-smalo-ios-dummy.m */,
+				C70DA3E50C3A375BF607814FF6296C82 /* Pods-smalo-ios-frameworks.sh */,
+				E4594D387702CE67DDC6C68DB7AE9E97 /* Pods-smalo-ios-resources.sh */,
+				44BEE1482F2EF68DD07FB663A745A247 /* Pods-smalo-ios-umbrella.h */,
+				5FF964492A98507CF226EB70354F180A /* Pods-smalo-ios.debug.xcconfig */,
+				F148860405102AE0581586955A45B240 /* Pods-smalo-ios.release.xcconfig */,
+			);
+			name = "Pods-smalo-ios";
+			path = "Target Support Files/Pods-smalo-ios";
+			sourceTree = "<group>";
+		};
+		D64C56B9590F4CA453409FAB05AC9DC6 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				0D3F7FC571F45A2649FF8BFF3CBEA866 /* CFNetwork.framework */,
+				585CC258474AD516073B5F48E1D428FB /* Foundation.framework */,
+				4BEB4F375CAC0D241A4F327F0975A61E /* QuartzCore.framework */,
+				8CD4720A9BC80C3B67361292BF979A7B /* Security.framework */,
+				8D22B42458965921ABF034051F628C1A /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DEE1BBD629122DCB953DFB605B9B51E3 /* Pods-smalo-ios WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0FB7185F43E06C50A09465823C04954D /* Info.plist */,
+				CF60BB78CC36B1BDB58D39E5BA83178C /* Pods-smalo-ios WatchKit Extension.modulemap */,
+				8404736A99A1DAC1D6DA049DDE864BF2 /* Pods-smalo-ios WatchKit Extension-acknowledgements.markdown */,
+				446EC3D620C9448EDD6EBAAAB294142F /* Pods-smalo-ios WatchKit Extension-acknowledgements.plist */,
+				02E54A45BB1EC8654AA8DFABB025D319 /* Pods-smalo-ios WatchKit Extension-dummy.m */,
+				3F55915496A84988A4013B2E4A9003DF /* Pods-smalo-ios WatchKit Extension-frameworks.sh */,
+				743E7B0505DFBB4CF7E220D86D46AB06 /* Pods-smalo-ios WatchKit Extension-resources.sh */,
+				7CCC7E5F8C4B8CB92099E19A32F3ADE6 /* Pods-smalo-ios WatchKit Extension-umbrella.h */,
+				DA80BD64A124ED8F040CE3FC114CA4C9 /* Pods-smalo-ios WatchKit Extension.debug.xcconfig */,
+				76A2F36ABAC3DF01C178B9099875D9C6 /* Pods-smalo-ios WatchKit Extension.release.xcconfig */,
+			);
+			name = "Pods-smalo-ios WatchKit Extension";
+			path = "Target Support Files/Pods-smalo-ios WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		EC92E08A456400A523E5E6A41C488060 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC496B612CEB2C26FF688FD0F86C6722 /* Pods-smalo-ios */,
+				F25CE55FCA1CE4E01DF9D0D4E7ED48D3 /* Pods-smalo-ios WatchKit App */,
+				DEE1BBD629122DCB953DFB605B9B51E3 /* Pods-smalo-ios WatchKit Extension */,
+				110F4DA31A0815E992B693BE2C0AFBA7 /* Pods-smalo-iosTests */,
+				892B413AD6E0724BD26006AE834927E5 /* Pods-smalo-iosUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		ECB226B7EA77EB59E2ACF5727BD2E759 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D64C56B9590F4CA453409FAB05AC9DC6 /* iOS */,
+				140396604BC2230F51EF808D0A3DC1E6 /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE7385EBDF71AF5353DEAB9191D4F496 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAD10F0F9DA9851255F4FCC6B052D53A /* Info.plist */,
+				00672183FA2A5792365EE87981E7C208 /* SwiftyJSON.modulemap */,
+				1D8C08E886D18947EE5ABD74919E4DE6 /* SwiftyJSON.xcconfig */,
+				670D72765044CF124B3EE0BB638AB96E /* SwiftyJSON-dummy.m */,
+				C94B06E6469B08827AE1A2A5AD4DF408 /* SwiftyJSON-prefix.pch */,
+				9FE99264DCDD163510C2106FBA5F3D4A /* SwiftyJSON-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		F25CE55FCA1CE4E01DF9D0D4E7ED48D3 /* Pods-smalo-ios WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				216B78A900993617D615EC5A4734BBE7 /* Info.plist */,
+				CF5D711A1BDBE78FE9D1D5B8257727EC /* Pods-smalo-ios WatchKit App.modulemap */,
+				A033EE1B6B5B02492F1D695FC16A616F /* Pods-smalo-ios WatchKit App-acknowledgements.markdown */,
+				0723276D47DE4AE654B492B6B1501D52 /* Pods-smalo-ios WatchKit App-acknowledgements.plist */,
+				B82DAD93338D5A30948C4F7B325CD292 /* Pods-smalo-ios WatchKit App-dummy.m */,
+				92BC97E018678BEC4C369FA67B9661B5 /* Pods-smalo-ios WatchKit App-frameworks.sh */,
+				7D53197CC5189FDB0DCD9FB61B889F9E /* Pods-smalo-ios WatchKit App-resources.sh */,
+				0FF9200FBEE52813173DAF44702E72C1 /* Pods-smalo-ios WatchKit App-umbrella.h */,
+				E44798EA6F0CF7EDF74E862325F7EE83 /* Pods-smalo-ios WatchKit App.debug.xcconfig */,
+				40FF7A10237E470DC55FE63911363283 /* Pods-smalo-ios WatchKit App.release.xcconfig */,
+			);
+			name = "Pods-smalo-ios WatchKit App";
+			path = "Target Support Files/Pods-smalo-ios WatchKit App";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		26D88EE8160273BAB4A43AB2A220E6F3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E986936AB71AEC1C76560BA54644718E /* Pods-smalo-iosTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3030C9B1E9154051BA580127671E6A09 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B55B80A9B9D2BA40E7D7F1463528D47C /* Pulsator-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F0BBDB07A53B372C1027DF62FD4BAD1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A042344AD75C357BAAEF69C230824D55 /* SwiftyJSON-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7006481BEBB1A7BFB1E93599E22A3D06 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				646BFF4E74000051E9F1C69C5C8A1C94 /* Pods-smalo-iosUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F6F7B0A5B3DFC48ED6B05B6880BD0DB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0599E96ED8D0B951115D38B9C09785 /* SocketRocket-umbrella.h in Headers */,
+				A11CB1FFD54E4780A900828695672669 /* SocketRocket.h in Headers */,
+				468C9384BF1E1678B6AF8E9CE1C6997E /* SRWebSocket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C61D76E255F408F9A78C3F7C6A4A5C95 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4797075E77699A7B2872F0B416F561F /* Pods-smalo-ios-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D129A041DF7F1CF0B2EE0F6FE44B0957 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012ABA75887FB663438BBCD619521E0B /* Pods-smalo-ios WatchKit App-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE7242C4D2D6C3617390D63DDFCE036D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1393F4225D32D75E22DC97749E2DFB5 /* Pods-smalo-ios WatchKit Extension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		19FBDB9F44EF96F6E1215C458BE0C4C2 /* Pods-smalo-ios WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 231EBA45D2D2F8D0A94536BAE96E22A0 /* Build configuration list for PBXNativeTarget "Pods-smalo-ios WatchKit App" */;
+			buildPhases = (
+				294A7E9E67D0D6CD05DCEEC4FD29C854 /* Sources */,
+				3D2B64F28197AFC8C67F158B57E810E4 /* Frameworks */,
+				D129A041DF7F1CF0B2EE0F6FE44B0957 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-smalo-ios WatchKit App";
+			productName = "Pods-smalo-ios WatchKit App";
+			productReference = 31486E02AB924E89E2CC18412A8A12B2 /* Pods_smalo_ios_WatchKit_App.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1E6E1F0F2BC8DBCE1138CBA81DE0D330 /* Pods-smalo-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9769A2AD153384CEFD9F59C51627CF59 /* Build configuration list for PBXNativeTarget "Pods-smalo-ios" */;
+			buildPhases = (
+				7EFAF48540E4AAB83BA09D1B1C15409E /* Sources */,
+				AB316EF00B92356F619B00F9A36B867B /* Frameworks */,
+				C61D76E255F408F9A78C3F7C6A4A5C95 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13B06E4EF5C83DB072CA89B6700B55F8 /* PBXTargetDependency */,
+				12A1AADCD270483B5B36F103E07A6F14 /* PBXTargetDependency */,
+				145AE633E9E1635D2845AB1CB7206C22 /* PBXTargetDependency */,
+			);
+			name = "Pods-smalo-ios";
+			productName = "Pods-smalo-ios";
+			productReference = 1C33A6CF86A026BE75F0375103340537 /* Pods_smalo_ios.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2911576DD3455586834452656F5DDB9C /* Pods-smalo-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B84BF2091C961413451372B148C80DBE /* Build configuration list for PBXNativeTarget "Pods-smalo-iosUITests" */;
+			buildPhases = (
+				DAEBC650EE8BAAB80B279F080D97818B /* Sources */,
+				8A40DE26E8665656CE0D2FED589C8DA7 /* Frameworks */,
+				7006481BEBB1A7BFB1E93599E22A3D06 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-smalo-iosUITests";
+			productName = "Pods-smalo-iosUITests";
+			productReference = 7C5FC39D825913F3FBAA6B350F25D9EB /* Pods_smalo_iosUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		58B880ED11FDDE1A79250775BD6A2614 /* Pulsator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B84ECC053C9A32DE813979C062450A93 /* Build configuration list for PBXNativeTarget "Pulsator" */;
+			buildPhases = (
+				06BAF1C46822881D45565A72B4645FCA /* Sources */,
+				95FC38522A9B1EF44B3C16FD607C6A44 /* Frameworks */,
+				3030C9B1E9154051BA580127671E6A09 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pulsator;
+			productName = Pulsator;
+			productReference = 25609728F02481B928116A24E2C3133E /* Pulsator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB2E7F0DC568310A8CECDC402745FBCF /* Pods-smalo-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447E87AF4360D1BCA555DBCD1053E896 /* Build configuration list for PBXNativeTarget "Pods-smalo-iosTests" */;
+			buildPhases = (
+				91C428D711B79F68B377598E321BD7C0 /* Sources */,
+				AD5361BA5BD47602733A8594C48F7662 /* Frameworks */,
+				26D88EE8160273BAB4A43AB2A220E6F3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-smalo-iosTests";
+			productName = "Pods-smalo-iosTests";
+			productReference = 73D66CA587ECBFE10E4248D3AFA1CB3F /* Pods_smalo_iosTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4875CB5EE6E0BDDE4F1E59A88FCB144 /* SwiftyJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A30A091DE510EA4552FAD3C4ED449DE2 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildPhases = (
+				FFAD46F4530A79F6E2B12E194B138E37 /* Sources */,
+				3C4458AE69FB8EB978D135A77026BA00 /* Frameworks */,
+				5F0BBDB07A53B372C1027DF62FD4BAD1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyJSON;
+			productName = SwiftyJSON;
+			productReference = 89E10279304BC5E1277F287F9516DC67 /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F6645DF91F36735AD78CAFD6BDA87933 /* SocketRocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 622DF84A2193944F23688DF94D68FE54 /* Build configuration list for PBXNativeTarget "SocketRocket" */;
+			buildPhases = (
+				7EC19E1D975A2EA6FC9E485FB5967D0C /* Sources */,
+				637A919E1A18DC2A908BF4C962A6FDEB /* Frameworks */,
+				7F6F7B0A5B3DFC48ED6B05B6880BD0DB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocketRocket;
+			productName = SocketRocket;
+			productReference = 55782664BD823D6AA7507897EF509AD8 /* SocketRocket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FFDEAB9E2BAE2FBF38DD49A8FEE64E6E /* Pods-smalo-ios WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95B4095E40448CD4D0ED0350F6699013 /* Build configuration list for PBXNativeTarget "Pods-smalo-ios WatchKit Extension" */;
+			buildPhases = (
+				CFDAED2E9BE07739BC66D897B807EDCE /* Sources */,
+				CF6A38FE87A4072222750D26CCEED60A /* Frameworks */,
+				DE7242C4D2D6C3617390D63DDFCE036D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-smalo-ios WatchKit Extension";
+			productName = "Pods-smalo-ios WatchKit Extension";
+			productReference = 056DDF7884C5BECE5094BE2A6DACE10D /* Pods_smalo_ios_WatchKit_Extension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					1E6E1F0F2BC8DBCE1138CBA81DE0D330 = {
+						LastSwiftMigration = 0830;
+					};
+					58B880ED11FDDE1A79250775BD6A2614 = {
+						LastSwiftMigration = 0830;
+					};
+					D4875CB5EE6E0BDDE4F1E59A88FCB144 = {
+						LastSwiftMigration = 0830;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = B52CEF187B5F9EE81D2161E533E26082 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E6E1F0F2BC8DBCE1138CBA81DE0D330 /* Pods-smalo-ios */,
+				19FBDB9F44EF96F6E1215C458BE0C4C2 /* Pods-smalo-ios WatchKit App */,
+				FFDEAB9E2BAE2FBF38DD49A8FEE64E6E /* Pods-smalo-ios WatchKit Extension */,
+				CB2E7F0DC568310A8CECDC402745FBCF /* Pods-smalo-iosTests */,
+				2911576DD3455586834452656F5DDB9C /* Pods-smalo-iosUITests */,
+				58B880ED11FDDE1A79250775BD6A2614 /* Pulsator */,
+				F6645DF91F36735AD78CAFD6BDA87933 /* SocketRocket */,
+				D4875CB5EE6E0BDDE4F1E59A88FCB144 /* SwiftyJSON */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06BAF1C46822881D45565A72B4645FCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE4FC86733B7F52C18D2EE302E30E09F /* Pulsator-dummy.m in Sources */,
+				A94ECFE01BC01B0C6099892F5EDCD0FC /* Pulsator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		294A7E9E67D0D6CD05DCEEC4FD29C854 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C1D7BE1175494393E68BBE22A6289E /* Pods-smalo-ios WatchKit App-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EC19E1D975A2EA6FC9E485FB5967D0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58749869FF82EEB71AA00E146B2F4326 /* SocketRocket-dummy.m in Sources */,
+				9F50753529AB4F72B8B3DD6199855FF2 /* SRWebSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EFAF48540E4AAB83BA09D1B1C15409E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D11E0CB2B46DD5EB9CAB5AA78E93800 /* Pods-smalo-ios-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91C428D711B79F68B377598E321BD7C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2E48889B846F66F57D151E79CC0E7D9 /* Pods-smalo-iosTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFDAED2E9BE07739BC66D897B807EDCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C129A65D6F3C15D156B4B29088479C5 /* Pods-smalo-ios WatchKit Extension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEBC650EE8BAAB80B279F080D97818B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1970FF1EEF80FA52AFC329521DA0B61E /* Pods-smalo-iosUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFAD46F4530A79F6E2B12E194B138E37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				529FF0E0FBC061AE7A80E0F62C8A5340 /* SwiftyJSON-dummy.m in Sources */,
+				09ABCE527EB02B8A77DE90AC363391CC /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12A1AADCD270483B5B36F103E07A6F14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SocketRocket;
+			target = F6645DF91F36735AD78CAFD6BDA87933 /* SocketRocket */;
+			targetProxy = 0AC466D5B191A0AFA4D6F67ADF26AAF6 /* PBXContainerItemProxy */;
+		};
+		13B06E4EF5C83DB072CA89B6700B55F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Pulsator;
+			target = 58B880ED11FDDE1A79250775BD6A2614 /* Pulsator */;
+			targetProxy = 0E9108D8CAAC6BC49C99F0BA37A27E2D /* PBXContainerItemProxy */;
+		};
+		145AE633E9E1635D2845AB1CB7206C22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = D4875CB5EE6E0BDDE4F1E59A88FCB144 /* SwiftyJSON */;
+			targetProxy = E6F168CE101E8671ABF66A3DBFC132FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A3A630C9B5DE015B0BA91D5918DE75B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40FF7A10237E470DC55FE63911363283 /* Pods-smalo-ios WatchKit App.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-ios WatchKit App/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-ios WatchKit App/Pods-smalo-ios WatchKit App.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_ios_WatchKit_App;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		1D1041DEF1192CF6A0AEADF0F1DB7937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FF964492A98507CF226EB70354F180A /* Pods-smalo-ios.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-ios/Pods-smalo-ios.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_ios;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		38ECFBC38D4BCA57BA2071853B571137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		3ACD5DE2FBA4AD3AF663C112E2F7A10C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F148860405102AE0581586955A45B240 /* Pods-smalo-ios.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-ios/Pods-smalo-ios.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_ios;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4755E255463A17E8E22A7AF11BAF1096 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87D036E184AAE91B2CE2330AE89313C3 /* SocketRocket.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SocketRocket/SocketRocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SocketRocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SocketRocket/SocketRocket.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SocketRocket;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		48CAAEFFF90F7924C2B2A3A0C39A1217 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76A2F36ABAC3DF01C178B9099875D9C6 /* Pods-smalo-ios WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-ios WatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-ios WatchKit Extension/Pods-smalo-ios WatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_ios_WatchKit_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		536AFE8A8731F31ED82ACE007AE9D466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8C08E886D18947EE5ABD74919E4DE6 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7432BB23B85D330DF692AE0BB468352C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87D036E184AAE91B2CE2330AE89313C3 /* SocketRocket.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SocketRocket/SocketRocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SocketRocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SocketRocket/SocketRocket.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SocketRocket;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		82D91271620EE8AE7ECA9DCDC9184275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D09C8546AA9E821D3B1D37C0027EA8D /* Pods-smalo-iosUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-iosUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-iosUITests/Pods-smalo-iosUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_iosUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		859DE9353203EC310525DAD21EF30C79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9046BB4EC474D4504F59EB35936DF2A /* Pulsator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pulsator/Pulsator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pulsator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pulsator/Pulsator.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Pulsator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		999835B4E5A2569C162AE6268E122172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E44798EA6F0CF7EDF74E862325F7EE83 /* Pods-smalo-ios WatchKit App.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-ios WatchKit App/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-ios WatchKit App/Pods-smalo-ios WatchKit App.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_ios_WatchKit_App;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		9FF6486FF855656F9C8A7B7BFDAFDEA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3DAF30459E932ED079B71CAC106A095 /* Pods-smalo-iosTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-iosTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-iosTests/Pods-smalo-iosTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_iosTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A461784194FD409491A291703A7037FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		D15C41706E7839C73845AE3CBBBEF117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8C08E886D18947EE5ABD74919E4DE6 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D1A1B0E48EA8BEBF7BF9A2E11A0A43FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BC9AF06F0CF49D37431D30691050BEF /* Pods-smalo-iosTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-iosTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-iosTests/Pods-smalo-iosTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_iosTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D4C46AD3790483F992C883A085D57D64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA80BD64A124ED8F040CE3FC114CA4C9 /* Pods-smalo-ios WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-ios WatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-ios WatchKit Extension/Pods-smalo-ios WatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_ios_WatchKit_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		D9108294351025FF4D7D8E2BDD345086 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9046BB4EC474D4504F59EB35936DF2A /* Pulsator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pulsator/Pulsator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pulsator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pulsator/Pulsator.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Pulsator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EDD1BD144D57C784580E9D5DAEC830DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BAD6523C35C8999F7EEE1642D6E0C97 /* Pods-smalo-iosUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-smalo-iosUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-smalo-iosUITests/Pods-smalo-iosUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_smalo_iosUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		231EBA45D2D2F8D0A94536BAE96E22A0 /* Build configuration list for PBXNativeTarget "Pods-smalo-ios WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				999835B4E5A2569C162AE6268E122172 /* Debug */,
+				0A3A630C9B5DE015B0BA91D5918DE75B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A461784194FD409491A291703A7037FF /* Debug */,
+				38ECFBC38D4BCA57BA2071853B571137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447E87AF4360D1BCA555DBCD1053E896 /* Build configuration list for PBXNativeTarget "Pods-smalo-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FF6486FF855656F9C8A7B7BFDAFDEA0 /* Debug */,
+				D1A1B0E48EA8BEBF7BF9A2E11A0A43FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		622DF84A2193944F23688DF94D68FE54 /* Build configuration list for PBXNativeTarget "SocketRocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7432BB23B85D330DF692AE0BB468352C /* Debug */,
+				4755E255463A17E8E22A7AF11BAF1096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95B4095E40448CD4D0ED0350F6699013 /* Build configuration list for PBXNativeTarget "Pods-smalo-ios WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C46AD3790483F992C883A085D57D64 /* Debug */,
+				48CAAEFFF90F7924C2B2A3A0C39A1217 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9769A2AD153384CEFD9F59C51627CF59 /* Build configuration list for PBXNativeTarget "Pods-smalo-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D1041DEF1192CF6A0AEADF0F1DB7937 /* Debug */,
+				3ACD5DE2FBA4AD3AF663C112E2F7A10C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A30A091DE510EA4552FAD3C4ED449DE2 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D15C41706E7839C73845AE3CBBBEF117 /* Debug */,
+				536AFE8A8731F31ED82ACE007AE9D466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B84BF2091C961413451372B148C80DBE /* Build configuration list for PBXNativeTarget "Pods-smalo-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82D91271620EE8AE7ECA9DCDC9184275 /* Debug */,
+				EDD1BD144D57C784580E9D5DAEC830DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B84ECC053C9A32DE813979C062450A93 /* Build configuration list for PBXNativeTarget "Pulsator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				859DE9353203EC310525DAD21EF30C79 /* Debug */,
+				D9108294351025FF4D7D8E2BDD345086 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
